@@ -27,7 +27,7 @@
       "jest"
   ],
   "rules": {
-      "prettier/prettier": "warn",
+      "prettier/prettier": "error",
       "@typescript-eslint/no-non-null-assertion": "off",
       "import/no-extraneous-dependencies": "off",
       "@typescript-eslint/no-unnecessary-type-constraint": "off",
