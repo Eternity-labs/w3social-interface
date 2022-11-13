@@ -1,0 +1,43 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-typescript",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jest/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
+  },
+  "plugins": [
+      "react",
+      "import",
+      "@typescript-eslint",
+      "jest"
+  ],
+  "rules": {
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "import/no-extraneous-dependencies": "off",
+      "@typescript-eslint/no-unnecessary-type-constraint": "off",
+      "import/extensions": [
+        "error",
+        {
+          "ts": "never",
+          "tsx": "never",
+          "js": "never",
+          "json": "always"
+        }
+      ]
+  }
+}
