@@ -10,7 +10,8 @@
     "client.unit": "scripty",
     "test:ui": "majestic",
     "test:unit": "scripty",
-    "lint": "eslint ./src --fix"
+    "lint": "eslint ./src --fix",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.2",
     "jest": "^29.3.1",
     "mini-css-extract-plugin": "^2.6.1",
     "node-notifier": "^10.0.1",
