@@ -7,9 +7,9 @@
   "extends": [
     "airbnb-typescript",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -27,6 +27,7 @@
       "jest"
   ],
   "rules": {
+      "prettier/prettier": "warn",
       "@typescript-eslint/no-non-null-assertion": "off",
       "import/no-extraneous-dependencies": "off",
       "@typescript-eslint/no-unnecessary-type-constraint": "off",
