@@ -1,8 +1,8 @@
-import Main from '@pages/main/index';
+import Header from '@components/Header';
 const App = (): JSX.Element => {
   return (
     <div className="container">
-      <Main />
+      <Header />
     </div>
   );
 };

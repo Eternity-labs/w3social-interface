@@ -49,9 +49,13 @@
     "yargs-parser": "^21.1.1"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.10.14",
+    "@mui/material": "^5.10.14",
+    "@mui/styled-engine-sc": "^5.10.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
-    "recoil": "^0.7.6"
+    "recoil": "^0.7.6",
+    "styled-components": "^5.3.6"
   }
 }
