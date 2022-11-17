@@ -20,7 +20,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "rootDir": ".",
+    "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
@@ -32,7 +32,8 @@
       "@states/*": ["src/states/*"],
       "@utils/*": ["src/utils/*"],
       "@lib/*": ["src/lib/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
   },
   "include": ["src", "tests"],

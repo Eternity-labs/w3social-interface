@@ -14,31 +14,28 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-        "jsx": true
+      "jsx": true
     },
     "ecmaVersion": "latest",
     "sourceType": "module",
     "project": "./tsconfig.eslint.json"
   },
-  "plugins": [
-      "react",
-      "import",
-      "@typescript-eslint",
-      "jest"
-  ],
+  "plugins": ["react", "import", "@typescript-eslint", "jest"],
   "rules": {
-      "prettier/prettier": "warn",
-      "@typescript-eslint/no-non-null-assertion": "off",
-      "import/no-extraneous-dependencies": "off",
-      "@typescript-eslint/no-unnecessary-type-constraint": "off",
-      "import/extensions": [
-        "error",
-        {
-          "ts": "never",
-          "tsx": "never",
-          "js": "never",
-          "json": "always"
-        }
-      ]
+    "prettier/prettier": "warn",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/no-unnecessary-type-constraint": "off",
+    "import/extensions": [
+      "error",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "json": "always",
+        "css": "always",
+        "less": "always"
+      }
+    ]
   }
 }
