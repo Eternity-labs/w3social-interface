@@ -1,11 +1,10 @@
-import Main from '@pages/main/index';
+import Header from '@components/Header';
 
 function App(): JSX.Element {
   return (
     <div className="container">
-      <Main />
+      <Header />
     </div>
   );
 }
-
 export default App;
