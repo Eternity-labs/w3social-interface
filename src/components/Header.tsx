@@ -25,9 +25,15 @@ export default function MenuAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar className="bg-white" position="static">
       <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+        <IconButton
+          size="large"
+          edge="start"
+          className="text-black"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+        >
           <MenuIcon />
         </IconButton>
         {auth && (
