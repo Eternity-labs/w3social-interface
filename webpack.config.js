@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const _mode = argv.mode || 'development';
 const _mergeConfig = require(`./config/webpack.${_mode}.js`);
 const Webpackbar = require('webpackbar');
-const postcssLoaderPlugin = [require('autoprefixer')];
 
 const webpackBaseConfig = {
   cache: {
@@ -30,39 +29,10 @@ const webpackBaseConfig = {
           MiniCssExtractPlugin.loader,
           'css-loader',
           {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: postcssLoaderPlugin,
-              },
-            },
+            loader: 'postcss-loader'
           },
         ],
-      },
-      {
-        test: /\.less$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: postcssLoaderPlugin,
-              },
-            },
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                modifyVars: { '@primary-color': 'rgba(25, 25, 25, 1)' },
-                javascriptEnabled: true,
-              },
-            },
-          },
-        ],
-      },
+      }
     ],
   },
   resolve: {
