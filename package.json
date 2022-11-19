@@ -68,6 +68,7 @@
     "@mui/material": "^5.10.14",
     "@mui/styled-engine-sc": "^5.10.14",
     "normalize.css": "^8.0.1",
+    "postcss-px-to-viewport": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
