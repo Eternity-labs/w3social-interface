@@ -12,6 +12,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.13.0
   '@typescript-eslint/parser': ^5.0.0
   autoprefixer: ^10.4.13
+  classnames: ^2.3.2
   commitizen: ^4.2.5
   commitlint: ^17.2.0
   css-loader: ^6.7.2
@@ -62,6 +63,7 @@ dependencies:
   '@mui/icons-material': 5.10.14_edp4dc7hnxdrqofuyrrjp2id7y
   '@mui/material': 5.10.14_2zx2umvpluuhvlq44va5bta2da
   '@mui/styled-engine-sc': 5.10.14_styled-components@5.3.6
+  classnames: registry.npmmirror.com/classnames/2.3.2
   normalize.css: 8.0.1
   postcss-px-to-viewport: 1.1.1
   react: 18.2.0
@@ -108,7 +110,7 @@ devDependencies:
   scripty: 2.1.1
   style-loader: 3.3.1_webpack@5.75.0
   swc-loader: 0.2.3_636tzi34xn6xi5gghyfmnflkzm
-  tailwindcss: 3.2.4_postcss@8.4.19
+  tailwindcss: 3.2.4
   terser-webpack-plugin: 5.3.6_636tzi34xn6xi5gghyfmnflkzm
   typescript: 4.8.4
   webpack: 5.75.0_mpgwtum44z4hpjyfxp4bvyw25e
@@ -878,7 +880,7 @@ packages:
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
       glob: 7.2.3
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       istanbul-lib-coverage: 3.2.0
       istanbul-lib-instrument: 5.2.1
       istanbul-lib-report: 3.0.0
@@ -909,7 +911,7 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.17
       callsites: 3.1.0
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
     dev: true
 
   /@jest/test-result/29.3.1:
@@ -927,7 +929,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/test-result': 29.3.1
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-haste-map: 29.3.1
       slash: 3.0.0
     dev: true
@@ -943,7 +945,7 @@ packages:
       chalk: 4.1.2
       convert-source-map: 2.0.0
       fast-json-stable-stringify: 2.1.0
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-haste-map: 29.3.1
       jest-regex-util: 29.2.0
       jest-util: 29.3.1
@@ -1276,116 +1278,22 @@ packages:
       '@sinonjs/commons': 1.8.5
     dev: true
 
-  /@swc/core-darwin-arm64/1.3.15:
-    resolution: {integrity: sha512-XDa4jtf+LsL7/cFPhlfeAfkLgwFufKQZ+0SmhRSKL8clA5Me1TU4zxmFoHNyDQZ0el8Q9dCDWOWn3e0Q32lHdQ==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-darwin-x64/1.3.15:
-    resolution: {integrity: sha512-f3Dn3s6tx9JyZVWtftOkcO67IUkFHFTRRoJKXlbCxeut6ogudZSJdc42rYomjAiwWkSS8kNpsOic+cDw8EgksQ==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-linux-arm-gnueabihf/1.3.15:
-    resolution: {integrity: sha512-bjZByu6FKXGhF+z0EwrdC3hDGt/vQnEc1BF9lettEeCSMbOUdAjz8afbnYEu25p6Un8qgEj5xyQgsnLOzLFJ8g==}
-    engines: {node: '>=10'}
-    cpu: [arm]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-linux-arm64-gnu/1.3.15:
-    resolution: {integrity: sha512-/rm4+ck3oLC7qKi7q7IyqnPRg51HVVvpmcRPBbLrYPnD2m+FnL2uAPhOemAwM+GDv3eS+f5f8ye2Yz3hy99AtA==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [glibc]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-linux-arm64-musl/1.3.15:
-    resolution: {integrity: sha512-TRJcHyBsW/empMTaHEPmVnIKAThI43lTG7xANwtsB8/31ZSIDUEosZ3fEqmLSBqwvCoQfp93++2MFNQGTwMwpQ==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-linux-x64-gnu/1.3.15:
-    resolution: {integrity: sha512-Xktb1uP4P9qNvyQ2nVPX2s+pAthWuTPmNeLO2NlS2jumzq01v4r3F64wLK7t31lvTEXyuiZSdfhE0yILcGmEqg==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-linux-x64-musl/1.3.15:
-    resolution: {integrity: sha512-XUppG2CUE8guxKNpfhnbm2ukKdn0/hh+/t6tkQkbNm95CQqe0yiNMSZxUWIyf4wFcw1lymb15oiG8r34T+7iwQ==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-win32-arm64-msvc/1.3.15:
-    resolution: {integrity: sha512-gU1HFMrVAiLZaLmgN7LlsdWY5deIFjAvB84/kQzQNvPbnaDJbA9FXN7b0Wi9rn4WCmWmbZBj5H8O3UkCQV7WYw==}
-    engines: {node: '>=10'}
-    cpu: [arm64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-win32-ia32-msvc/1.3.15:
-    resolution: {integrity: sha512-LmKqV6Vv455NaI7kv8P1xTbPCm8S1dNzI7EXb0A87Tm4Tzd5z6KnhDFCbvhMQjHixlq09V1szTdtN5YkIhMXEg==}
-    engines: {node: '>=10'}
-    cpu: [ia32]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@swc/core-win32-x64-msvc/1.3.15:
-    resolution: {integrity: sha512-hikhDyJCNyf0C9+b62MXywmTx72+T3cbVBJa9q7vgBV/cKA9z0qbiVMmozAGraIv/gSq9HLHR9Q2nWWWeJl7yg==}
-    engines: {node: '>=10'}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /@swc/core/1.3.15:
     resolution: {integrity: sha512-x5PYlmn2qFp8j0sl5vZHEdyA7SfjiqS7KgXSZfXydYiV1yFOaWQo2LvDjZ73fx3zhIR7oR96myDorglVpWdfhw==}
     engines: {node: '>=10'}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      '@swc/core-darwin-arm64': 1.3.15
-      '@swc/core-darwin-x64': 1.3.15
-      '@swc/core-linux-arm-gnueabihf': 1.3.15
-      '@swc/core-linux-arm64-gnu': 1.3.15
-      '@swc/core-linux-arm64-musl': 1.3.15
-      '@swc/core-linux-x64-gnu': 1.3.15
-      '@swc/core-linux-x64-musl': 1.3.15
-      '@swc/core-win32-arm64-msvc': 1.3.15
-      '@swc/core-win32-ia32-msvc': 1.3.15
-      '@swc/core-win32-x64-msvc': 1.3.15
+      '@swc/core-darwin-arm64': registry.npmmirror.com/@swc/core-darwin-arm64/1.3.15
+      '@swc/core-darwin-x64': registry.npmmirror.com/@swc/core-darwin-x64/1.3.15
+      '@swc/core-linux-arm-gnueabihf': registry.npmmirror.com/@swc/core-linux-arm-gnueabihf/1.3.15
+      '@swc/core-linux-arm64-gnu': registry.npmmirror.com/@swc/core-linux-arm64-gnu/1.3.15
+      '@swc/core-linux-arm64-musl': registry.npmmirror.com/@swc/core-linux-arm64-musl/1.3.15
+      '@swc/core-linux-x64-gnu': registry.npmmirror.com/@swc/core-linux-x64-gnu/1.3.15
+      '@swc/core-linux-x64-musl': registry.npmmirror.com/@swc/core-linux-x64-musl/1.3.15
+      '@swc/core-win32-arm64-msvc': registry.npmmirror.com/@swc/core-win32-arm64-msvc/1.3.15
+      '@swc/core-win32-ia32-msvc': registry.npmmirror.com/@swc/core-win32-ia32-msvc/1.3.15
+      '@swc/core-win32-x64-msvc': registry.npmmirror.com/@swc/core-win32-x64-msvc/1.3.15
     dev: true
 
   /@tsconfig/node10/1.0.9:
@@ -1952,12 +1860,6 @@ packages:
     resolution: {integrity: sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==}
     dev: true
 
-  /@zxing/text-encoding/0.9.0:
-    resolution: {integrity: sha512-U/4aVJ2mxI0aDNI8Uq0wEhMgY+u4CNtEb0om3+y3+niDAsoTCOB33UF0sxpzqzdqXLqmvc+vZyAt4O8pPdfkwA==}
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /JSONStream/1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
     hasBin: true
@@ -2259,7 +2161,7 @@ packages:
       babel-plugin-istanbul: 6.1.1
       babel-preset-jest: 29.2.0_@babel+core@7.20.2
       chalk: 4.1.2
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       slash: 3.0.0
     transitivePeerDependencies:
       - supports-color
@@ -2574,7 +2476,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
   /chrome-trace-event/1.0.3:
@@ -2971,7 +2873,7 @@ packages:
       longest: 2.0.1
       word-wrap: 1.2.3
     optionalDependencies:
-      '@commitlint/load': 17.2.0_@swc+core@1.3.15
+      '@commitlint/load': registry.npmmirror.com/@commitlint/load/17.2.0_@swc+core@1.3.15
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
@@ -3994,7 +3896,7 @@ packages:
     resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
     engines: {node: '>=12'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
     dev: true
@@ -4015,14 +3917,6 @@ packages:
 
   /fs.realpath/1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
-
-  /fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
 
   /function-bind/1.1.1:
     resolution: {integrity: sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==}
@@ -4886,7 +4780,7 @@ packages:
       ci-info: 3.5.0
       deepmerge: 4.2.2
       glob: 7.2.3
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-circus: 29.3.1
       jest-environment-node: 29.3.1
       jest-get-type: 29.2.0
@@ -4958,14 +4852,14 @@ packages:
       '@types/node': 18.11.9
       anymatch: 3.1.2
       fb-watchman: 2.0.2
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-regex-util: 29.2.0
       jest-util: 29.3.1
       jest-worker: 29.3.1
       micromatch: 4.0.5
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: registry.npmmirror.com/fsevents/2.3.2
     dev: true
 
   /jest-leak-detector/29.3.1:
@@ -4994,7 +4888,7 @@ packages:
       '@jest/types': 29.3.1
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       micromatch: 4.0.5
       pretty-format: 29.3.1
       slash: 3.0.0
@@ -5042,7 +4936,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       chalk: 4.1.2
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-haste-map: 29.3.1
       jest-pnp-resolver: 1.2.2_jest-resolve@29.3.1
       jest-util: 29.3.1
@@ -5064,7 +4958,7 @@ packages:
       '@types/node': 18.11.9
       chalk: 4.1.2
       emittery: 0.13.1
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-docblock: 29.2.0
       jest-environment-node: 29.3.1
       jest-haste-map: 29.3.1
@@ -5097,7 +4991,7 @@ packages:
       cjs-module-lexer: 1.2.2
       collect-v8-coverage: 1.0.1
       glob: 7.2.3
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-haste-map: 29.3.1
       jest-message-util: 29.3.1
       jest-mock: 29.3.1
@@ -5129,7 +5023,7 @@ packages:
       babel-preset-current-node-syntax: 1.0.1_@babel+core@7.20.2
       chalk: 4.1.2
       expect: 29.3.1
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       jest-diff: 29.3.1
       jest-get-type: 29.2.0
       jest-haste-map: 29.3.1
@@ -5151,7 +5045,7 @@ packages:
       '@types/node': 18.11.9
       chalk: 4.1.2
       ci-info: 3.5.0
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
       picomatch: 2.3.1
     dev: true
 
@@ -5291,7 +5185,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs/4.2.10
     dev: true
 
   /jsonparse/1.3.1:
@@ -6035,7 +5929,7 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.19
+      postcss: registry.npmmirror.com/postcss/8.4.19
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.1
@@ -6048,7 +5942,7 @@ packages:
       postcss: ^8.3.3
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.19
+      postcss: registry.npmmirror.com/postcss/8.4.19
     dev: true
 
   /postcss-load-config/3.1.4_postcss@8.4.19:
@@ -6064,7 +5958,7 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.0.6
-      postcss: 8.4.19
+      postcss: registry.npmmirror.com/postcss/8.4.19
       yaml: 1.10.2
     dev: true
 
@@ -6129,7 +6023,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.19
+      postcss: registry.npmmirror.com/postcss/8.4.19
       postcss-selector-parser: 6.0.10
     dev: true
 
@@ -7116,12 +7010,10 @@ packages:
       webpack: 5.75.0_mpgwtum44z4hpjyfxp4bvyw25e
     dev: true
 
-  /tailwindcss/3.2.4_postcss@8.4.19:
+  /tailwindcss/3.2.4:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
@@ -7137,7 +7029,7 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.19
+      postcss: registry.npmmirror.com/postcss/8.4.19
       postcss-import: 14.1.0_postcss@8.4.19
       postcss-js: 4.0.0_postcss@8.4.19
       postcss-load-config: 3.1.4_postcss@8.4.19
@@ -7501,7 +7393,7 @@ packages:
     dependencies:
       util: 0.12.5
     optionalDependencies:
-      '@zxing/text-encoding': 0.9.0
+      '@zxing/text-encoding': registry.npmmirror.com/@zxing/text-encoding/0.9.0
     dev: true
 
   /webidl-conversions/3.0.1:
@@ -7824,4 +7716,205 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: true
+
+  registry.npmmirror.com/@commitlint/load/17.2.0_@swc+core@1.3.15:
+    resolution: {integrity: sha512-HDD57qSqNrk399R4TIjw31AWBG8dBjNj1MrDKZKmC/wvimtnIFlqzcu1+sxfXIOHj/+M6tcMWDtvknGUd7SU+g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@commitlint/load/-/load-17.2.0.tgz}
+    id: registry.npmmirror.com/@commitlint/load/17.2.0
+    name: '@commitlint/load'
+    version: 17.2.0
+    engines: {node: '>=v14'}
+    dependencies:
+      '@commitlint/config-validator': 17.1.0
+      '@commitlint/execute-rule': 17.0.0
+      '@commitlint/resolve-extends': 17.1.0
+      '@commitlint/types': 17.0.0
+      '@types/node': 14.18.33
+      chalk: 4.1.2
+      cosmiconfig: 7.1.0
+      cosmiconfig-typescript-loader: 4.2.0_zhrz2lclwdmp54iaqottwiuipu
+      lodash: 4.17.21
+      resolve-from: 5.0.0
+      ts-node: 10.9.1_dwbyckbjojopyet7wyexkiqocy
+      typescript: 4.8.4
+    transitivePeerDependencies:
+      - '@swc/core'
+      - '@swc/wasm'
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-darwin-arm64/1.3.15:
+    resolution: {integrity: sha512-XDa4jtf+LsL7/cFPhlfeAfkLgwFufKQZ+0SmhRSKL8clA5Me1TU4zxmFoHNyDQZ0el8Q9dCDWOWn3e0Q32lHdQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-darwin-arm64/-/core-darwin-arm64-1.3.15.tgz}
+    name: '@swc/core-darwin-arm64'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-darwin-x64/1.3.15:
+    resolution: {integrity: sha512-f3Dn3s6tx9JyZVWtftOkcO67IUkFHFTRRoJKXlbCxeut6ogudZSJdc42rYomjAiwWkSS8kNpsOic+cDw8EgksQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-darwin-x64/-/core-darwin-x64-1.3.15.tgz}
+    name: '@swc/core-darwin-x64'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-linux-arm-gnueabihf/1.3.15:
+    resolution: {integrity: sha512-bjZByu6FKXGhF+z0EwrdC3hDGt/vQnEc1BF9lettEeCSMbOUdAjz8afbnYEu25p6Un8qgEj5xyQgsnLOzLFJ8g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-linux-arm-gnueabihf/-/core-linux-arm-gnueabihf-1.3.15.tgz}
+    name: '@swc/core-linux-arm-gnueabihf'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-linux-arm64-gnu/1.3.15:
+    resolution: {integrity: sha512-/rm4+ck3oLC7qKi7q7IyqnPRg51HVVvpmcRPBbLrYPnD2m+FnL2uAPhOemAwM+GDv3eS+f5f8ye2Yz3hy99AtA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-linux-arm64-gnu/-/core-linux-arm64-gnu-1.3.15.tgz}
+    name: '@swc/core-linux-arm64-gnu'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-linux-arm64-musl/1.3.15:
+    resolution: {integrity: sha512-TRJcHyBsW/empMTaHEPmVnIKAThI43lTG7xANwtsB8/31ZSIDUEosZ3fEqmLSBqwvCoQfp93++2MFNQGTwMwpQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-linux-arm64-musl/-/core-linux-arm64-musl-1.3.15.tgz}
+    name: '@swc/core-linux-arm64-musl'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-linux-x64-gnu/1.3.15:
+    resolution: {integrity: sha512-Xktb1uP4P9qNvyQ2nVPX2s+pAthWuTPmNeLO2NlS2jumzq01v4r3F64wLK7t31lvTEXyuiZSdfhE0yILcGmEqg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-linux-x64-gnu/-/core-linux-x64-gnu-1.3.15.tgz}
+    name: '@swc/core-linux-x64-gnu'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-linux-x64-musl/1.3.15:
+    resolution: {integrity: sha512-XUppG2CUE8guxKNpfhnbm2ukKdn0/hh+/t6tkQkbNm95CQqe0yiNMSZxUWIyf4wFcw1lymb15oiG8r34T+7iwQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-linux-x64-musl/-/core-linux-x64-musl-1.3.15.tgz}
+    name: '@swc/core-linux-x64-musl'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-win32-arm64-msvc/1.3.15:
+    resolution: {integrity: sha512-gU1HFMrVAiLZaLmgN7LlsdWY5deIFjAvB84/kQzQNvPbnaDJbA9FXN7b0Wi9rn4WCmWmbZBj5H8O3UkCQV7WYw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-win32-arm64-msvc/-/core-win32-arm64-msvc-1.3.15.tgz}
+    name: '@swc/core-win32-arm64-msvc'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-win32-ia32-msvc/1.3.15:
+    resolution: {integrity: sha512-LmKqV6Vv455NaI7kv8P1xTbPCm8S1dNzI7EXb0A87Tm4Tzd5z6KnhDFCbvhMQjHixlq09V1szTdtN5YkIhMXEg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-win32-ia32-msvc/-/core-win32-ia32-msvc-1.3.15.tgz}
+    name: '@swc/core-win32-ia32-msvc'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@swc/core-win32-x64-msvc/1.3.15:
+    resolution: {integrity: sha512-hikhDyJCNyf0C9+b62MXywmTx72+T3cbVBJa9q7vgBV/cKA9z0qbiVMmozAGraIv/gSq9HLHR9Q2nWWWeJl7yg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.3.15.tgz}
+    name: '@swc/core-win32-x64-msvc'
+    version: 1.3.15
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/@zxing/text-encoding/0.9.0:
+    resolution: {integrity: sha512-U/4aVJ2mxI0aDNI8Uq0wEhMgY+u4CNtEb0om3+y3+niDAsoTCOB33UF0sxpzqzdqXLqmvc+vZyAt4O8pPdfkwA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@zxing/text-encoding/-/text-encoding-0.9.0.tgz}
+    name: '@zxing/text-encoding'
+    version: 0.9.0
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/classnames/-/classnames-2.3.2.tgz}
+    name: classnames
+    version: 2.3.2
+    dev: false
+
+  registry.npmmirror.com/fsevents/2.3.2:
+    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/fsevents/-/fsevents-2.3.2.tgz}
+    name: fsevents
+    version: 2.3.2
+    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  registry.npmmirror.com/graceful-fs/4.2.10:
+    resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/graceful-fs/-/graceful-fs-4.2.10.tgz}
+    name: graceful-fs
+    version: 4.2.10
+    dev: true
+
+  registry.npmmirror.com/nanoid/3.3.4:
+    resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/nanoid/-/nanoid-3.3.4.tgz}
+    name: nanoid
+    version: 3.3.4
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+    dev: true
+
+  registry.npmmirror.com/picocolors/1.0.0:
+    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picocolors/-/picocolors-1.0.0.tgz}
+    name: picocolors
+    version: 1.0.0
+    dev: true
+
+  registry.npmmirror.com/postcss/8.4.19:
+    resolution: {integrity: sha512-h+pbPsyhlYj6N2ozBmHhHrs9DzGmbaarbLvWipMRO7RLS+v4onj26MPFXA5OBYFxyqYhUJK456SwDcY9H2/zsA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/postcss/-/postcss-8.4.19.tgz}
+    name: postcss
+    version: 8.4.19
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: registry.npmmirror.com/nanoid/3.3.4
+      picocolors: registry.npmmirror.com/picocolors/1.0.0
+      source-map-js: registry.npmmirror.com/source-map-js/1.0.2
+    dev: true
+
+  registry.npmmirror.com/source-map-js/1.0.2:
+    resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/source-map-js/-/source-map-js-1.0.2.tgz}
+    name: source-map-js
+    version: 1.0.2
+    engines: {node: '>=0.10.0'}
     dev: true
