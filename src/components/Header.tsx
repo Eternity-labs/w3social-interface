@@ -1,73 +1,42 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import useHeaderHook from '@hooks/useHeaderHook';
 
 export default function MenuAppBar() {
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setAuth(event.target.checked);
-  };
-
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const { getButtonClass, buttonSwitch } = useHeaderHook();
 
   return (
-    <AppBar className="bg-white" position="static">
-      <Toolbar>
+    <AppBar className="bg-transparent shadow-none" position="static">
+      <Toolbar className="flex px-0">
         <IconButton
           size="large"
           edge="start"
-          className="text-black"
+          className="text-black flex-1 text-2xl mx-0"
           aria-label="menu"
-          sx={{ mr: 2 }}
         >
           <MenuIcon />
         </IconButton>
-        {auth && (
-          <div>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>My account</MenuItem>
-            </Menu>
-          </div>
-        )}
+        <div className="flex-6 flex box-border rounded-full bg-white">
+          <Button className={getButtonClass(0)} onClick={() => buttonSwitch(0)} variant="contained">
+            DID 推送
+          </Button>
+          <Button className={getButtonClass(1)} onClick={() => buttonSwitch(1)} variant="contained">
+            需求广场
+          </Button>
+        </div>
+        <IconButton
+          size="large"
+          edge="start"
+          className="text-black flex-1 text-2xl mx-0"
+          aria-label="menu"
+        >
+          <AccountCircleIcon />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
