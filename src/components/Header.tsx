@@ -5,20 +5,15 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import useHeaderHook from '@hooks/useHeaderHook';
+import useHeaderHook from '@hooks/useHeader';
 
 export default function MenuAppBar() {
   const { getButtonClass, buttonSwitch } = useHeaderHook();
 
   return (
     <AppBar className="bg-transparent shadow-none" position="static">
-      <Toolbar className="flex px-0">
-        <IconButton
-          size="large"
-          edge="start"
-          className="text-black flex-1 text-2xl mx-0"
-          aria-label="menu"
-        >
+      <Toolbar className="flex px-0 box-border h-[35px]">
+        <IconButton edge="start" className="text-black flex-1 mx-0 text-[30px]" aria-label="menu">
           <MenuIcon />
         </IconButton>
         <div className="flex-6 flex box-border rounded-full bg-white">
@@ -30,9 +25,8 @@ export default function MenuAppBar() {
           </Button>
         </div>
         <IconButton
-          size="large"
           edge="start"
-          className="text-black flex-1 text-2xl mx-0"
+          className="text-black flex-1 mx-0 text-[30px] pr-0"
           aria-label="menu"
         >
           <AccountCircleIcon />
