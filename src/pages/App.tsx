@@ -1,4 +1,3 @@
-import Main from '@pages/MainPage/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -17,6 +16,11 @@ const theme = createTheme({
       },
     },
     MuiPopper: {
+      defaultProps: {
+        container: rootElement,
+      },
+    },
+    MuiModal: {
       defaultProps: {
         container: rootElement,
       },
