@@ -10,6 +10,10 @@ module.exports = {
         3: '3 3 0%',
         6: '6 6 0%',
       },
+      colors: {
+        fNormal: '#494949',
+        fSelect: '#0DCE71',
+      },
     },
   },
   corePlugins: {

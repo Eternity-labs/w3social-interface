@@ -62,3 +62,11 @@ export const allFilters: FilterProps[] = [
     name: 'age',
   },
 ];
+
+export const initFilterState = {
+  identify: 0,
+  sex: 0,
+  time: 0,
+  label: 0,
+  age: [16, 65]
+}

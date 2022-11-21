@@ -1,4 +1,4 @@
-import { allFilters } from '@config/didConfig';
+import { allFilters, initFilterState } from '@config/didConfig';
 
 export const generateFilterLabel = (curName: string, curValue: number | number[]): string => {
   if (Array.isArray(curValue)) {
@@ -20,6 +20,8 @@ export const generateFilterLabel = (curName: string, curValue: number | number[]
   return res;
 };
 
-export const add = (a: number, b: number) => {
-  return a + b;
+export const isInitValue = (value: any): boolean => {
+  if (value === 0) return true;
+  if (value[0] === initFilterState.age[0] && value[1] === initFilterState.age[1]) return true;
+  return false;
 };
