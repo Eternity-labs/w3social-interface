@@ -10,6 +10,9 @@ module.exports = {
         3: '3 3 0%',
         6: '6 6 0%',
       },
+      colors: {
+        gary: 'rgba(0, 0, 0, 0.7)',
+      },
     },
   },
   corePlugins: {
