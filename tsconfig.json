@@ -33,6 +33,8 @@
       "@states/*": ["src/states/*"],
       "@utils/*": ["src/utils/*"],
       "@lib/*": ["src/lib/*"],
+      "@types/*": ["src/types/*"],
+      "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }

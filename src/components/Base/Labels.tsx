@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 function Labels({ labels }: { labels: string[] }) {
-  console.log(labels);
   return (
     <div className="flex">
       {labels.map(label => (
