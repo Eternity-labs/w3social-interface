@@ -14,3 +14,13 @@ export type FilterProps = {
 };
 
 export type FilterActionType = 'ADD' | 'DELETE' | 'CLEAR';
+
+export type NotifyDialogProps = {
+  open: boolean;
+  contentText: string;
+  type?: 'WARNING' | 'SUCCESS';
+  confirmText?: string;
+  handleConfirm?: () => void;
+  cancelText: string;
+  handleCancel: () => void;
+};

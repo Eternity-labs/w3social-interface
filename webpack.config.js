@@ -32,6 +32,10 @@ const webpackBaseConfig = {
             loader: 'postcss-loader'
           },
         ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        type: 'asset/resource'
       }
     ],
   },
