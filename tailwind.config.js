@@ -12,6 +12,10 @@ module.exports = {
       },
       colors: {
         gary: 'rgba(0, 0, 0, 0.7)',
+        slimgray: 'rgba(0, 0, 0, 0.5)',
+      },
+      backgroundImage: {
+        logobg: 'linear-gradient(180deg, #72F9B8 0%, #DAFFC3 173.8%)',
       },
     },
   },

@@ -1,44 +1,42 @@
-import { useState } from 'react';
-import '@assets/styles/loginPage.css';
 import MuiButton from '@mui/material/Button';
-import MuiRadio from '@mui/material/Radio';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import InputCom from '@components/Login/Input';
 
 function LoginPage(): JSX.Element {
-  const [selectedValue, setselectedValue] = useState<boolean>(false);
-  const setRadioValue = () => {
-    setselectedValue(!selectedValue);
-  };
   return (
-    <div className="h-full">
-      <div className=" flex flex-col items-center  justify-between ">
-        <div className=" flex items-center justify-center mt-[80px] w-[300px] h-[300px] rounded-[150px] bg-gradient-to-r from-purple-500 to-pink-500">
-          <div>
-            <div>logo</div>
-            <p className="text-[12px] leading-[16px]  pt-[35px] text-center">
-              Web3.0 年轻人的聚集地
-            </p>
-          </div>
-        </div>
-        <div>
-          <div className="flex ">
-            <MuiRadio
-              size="small"
-              className="w-[9px] h-[9px]"
-              checked={selectedValue === true}
-              onClick={setRadioValue}
-              value={selectedValue}
-              name="radio-buttons"
-            />
-            <p className="text-[8px] text-[gray]">同意服务条款勾选此项声明</p>
-          </div>
-          <MuiButton
-            variant="contained"
-            className=" w-[230px] h-[38px] rounded-full bg-black text-[12px]"
-          >
-            开始探索Web 3.0
-          </MuiButton>
-        </div>
+    <div className="flex h-full flex-col items-center bg-logobg rounded-bl-[230px]">
+      <div>logo</div>
+      <div className="w-[250px] mt-[64px]">
+        <InputCom placeholder="请输入邮箱">
+          <MailOutlineIcon />
+        </InputCom>
+        <InputCom placeholder="请输入密码" className="mt-[30px]">
+          <LockOpenIcon />
+        </InputCom>
       </div>
+      <div className="w-[250px] mt-[4px] text-slimgray text-[8px] text-right">
+        忘记密码&nbsp;&gt;&gt;
+      </div>
+      <MuiButton
+        variant="contained"
+        className=" w-[250px] h-[38px] mt-[14px] rounded-full bg-black text-[12px]"
+      >
+        登陆
+      </MuiButton>
+      <div className="mt-[48px] flex h-[16px] items-center justify-center">
+        <div className="h-px w-[80px] bg-[#878787] " />
+        <p className="h-[8px] ml-[19px] leading-[8px] mr-[19px] text-slimgray text-[8px] ">
+          还没有账号 ？
+        </p>
+        <div className="h-px w-[80px]  bg-[#878787]" />
+      </div>
+      <MuiButton
+        variant="outlined"
+        className=" w-[250px] h-[38px] mt-[26px] border-black text-black rounded-full bg-transparent text-[12px]"
+      >
+        立即注册
+      </MuiButton>
     </div>
   );
 }
