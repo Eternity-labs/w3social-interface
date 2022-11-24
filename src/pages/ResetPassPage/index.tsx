@@ -1,10 +1,11 @@
 import CodeBox from '@components/Login/CodeBox';
 import BackIconCom from '@components/Login/BackIcon';
 import RegisterInputBoxCom from '@components/Login/RegisterInputBox';
-
+import useModal from '@hooks/useModal';
 import MuiButton from '@mui/material/Button';
 
 function RegisterPage(): JSX.Element {
+  const { showModal, hideModal, RenderModal } = useModal();
   const onCodeChange = (code: string) => {};
   const resetPass = () => {};
   return (
@@ -22,6 +23,7 @@ function RegisterPage(): JSX.Element {
           确认修改
         </MuiButton>
       </div>
+      <RenderModal />
     </>
   );
 }

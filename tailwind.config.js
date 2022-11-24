@@ -16,6 +16,8 @@ module.exports = {
       },
       backgroundImage: {
         logobg: 'linear-gradient(180deg, #72F9B8 0%, #DAFFC3 173.8%)',
+        fNormal: '#494949',
+        fSelect: '#0DCE71',
       },
     },
   },

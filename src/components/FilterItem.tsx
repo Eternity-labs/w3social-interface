@@ -23,7 +23,7 @@ function Radios({ list = [], value, name, onChange }: Omit<Props, 'label'>) {
 
   const getStyle = (isCheck: boolean) => {
     const base = `flex h-[20px] m-w-[36px] items-center px-[8px] py-[4px] rounded-[20px] border-[1px] border-solid ml-[12px] text-[10px] border-[currentColor]`;
-    return cn(base, isCheck ? 'text-[#57F2A8]' : 'text-[#494949]');
+    return cn(base, isCheck ? 'text-fSelect' : 'text-fNormal');
   };
 
   return (
@@ -47,6 +47,10 @@ function RangeSlider({ value: defaultVal, onChange, name }: Omit<Props, 'label'>
     defaultVal ? (defaultVal as number[]) : [16, 65]
   );
 
+  React.useEffect(() => {
+    setValue(defaultVal as number[]);
+  }, [defaultVal]);
+
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
   };
@@ -65,7 +69,7 @@ function RangeSlider({ value: defaultVal, onChange, name }: Omit<Props, 'label'>
   return (
     <Box className="flex-1 flex">
       <Slider
-        className="flex-1 mx-[12px] text-[#57F2A8]"
+        className="flex-1 mx-[12px] text-fSelect"
         value={value}
         onChange={handleChange}
         onChangeCommitted={handleCommitted}

@@ -5,7 +5,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TuneIcon from '@mui/icons-material/Tune';
 import Drawer from '@mui/material/Drawer';
 import { styled } from '@mui/material/styles';
-import { allFilters } from '@config/didConfig';
+import { allFilters, initFilterState } from '@config/didConfig';
+import ClearIcon from '@mui/icons-material/Clear';
+import SyncIcon from '@mui/icons-material/Sync';
 import Labels from './Base/Labels';
 import FilterItem from './FilterItem';
 
@@ -30,13 +32,21 @@ const ExpandRow = styled('div')`
 `;
 
 function DidFilter() {
-  const { showFilter, showDrawer, filter, filterList, setShowDrawer, handleFilterChange } =
-    useDidFilter();
+  const {
+    showFilter,
+    showDrawer,
+    filter,
+    filterList,
+    filterLabel,
+    setShowDrawer,
+    handleFilterChange,
+    handleCloseFilterModal,
+  } = useDidFilter();
 
   return (
     <div className="flex justify-between items-center">
       <div className="flex-1">
-        {showFilter ? <Labels labels={['asf', 'adg']} /> : <span>全部</span>}
+        {showFilter ? <Labels labels={filterLabel} /> : <span>全部</span>}
       </div>
 
       <IconButton
@@ -47,18 +57,33 @@ function DidFilter() {
       >
         <TuneIcon />
       </IconButton>
-      <CusDraw anchor="bottom" open={showDrawer} onClose={() => setShowDrawer(false)}>
+      <CusDraw anchor="bottom" open={showDrawer} onClose={handleCloseFilterModal}>
         <DrawContentBox>
-          <ExpandRow>
+          <ExpandRow onClick={handleCloseFilterModal}>
             <IconButton edge="start" className="text-black  mx-0 text-[16px]" aria-label="expand">
               <ExpandMoreIcon />
             </IconButton>
           </ExpandRow>
-          <div className="flex border-b-1">
-            <div>
+          <div className="flex border-0 border-b border-solid justify-between h-[60px]">
+            <div className="flex flex-wrap">
               {filterList.map(({ name, value, label }) => (
-                <span key={name + value}>{label}</span>
+                <div
+                  key={name + value}
+                  className="text-fSelect text-[10px] min-w-[60px] h-[24px] flex items-center justify-between px-[8px] py-[2px] rounded-full border-solid border-[1px] ml-[12px] first:ml-0"
+                >
+                  <span>{label}</span>
+                  <ClearIcon
+                    className="text-[10px]"
+                    onClick={() => handleFilterChange({ [name]: 0 }, 'DELETE')}
+                  />
+                </div>
               ))}
+            </div>
+            <div className="text-[10px] flex-shrink-0 text-fSelect w-[80px] flex justify-end">
+              <span className="h-[12px]" onClick={() => handleFilterChange({ a: 0 }, 'CLEAR')}>
+                清除全部
+                <SyncIcon className="text-[10px]" />
+              </span>
             </div>
           </div>
           {allFilters.map(({ label, name, items }, idx) => (

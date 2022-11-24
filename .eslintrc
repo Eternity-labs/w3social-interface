@@ -35,6 +35,8 @@
     "@typescript-eslint/no-non-null-assertion": "off",
     "import/no-extraneous-dependencies": "off",
     "@typescript-eslint/no-unnecessary-type-constraint": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
     "import/extensions": [
       "error",
       {
@@ -43,7 +45,11 @@
         "js": "never",
         "json": "always",
         "css": "always",
-        "less": "always"
+        "less": "always",
+        "jpg": "always",
+        "webp": "always",
+        "png": "always",
+        "svg": "always"
       }
     ]
   }
