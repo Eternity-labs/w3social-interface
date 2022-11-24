@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import MuiButton from '@mui/material/Button';
 import SelectBox from './selectBox';
 
 function TopicPage() {
@@ -64,10 +65,11 @@ function TopicPage() {
     setTopicList(mockTopicList);
     setCurSelectInfo(mockTopicList[0]);
   });
+  const baseButtonCss = 'w-[107px] h-[38px] mt-[52px] rounded-full bg-black text-[12px]';
 
   return (
     <div className=" h-full">
-      <div className="h-[300px] bg-logobg relative pl-[36px] pr-[33px]">
+      <div className="h-[250px] bg-logobg relative pl-[36px] pr-[33px]">
         <div className="flex font-black pt-[30px] pb-[30px]">
           <span className="text-[15px] text-[#515151]">问题</span>
           <div className="ml-[30px] text-black ">
@@ -77,6 +79,14 @@ function TopicPage() {
         <p className="font-medium text-[14px] leading-[22px]">{curItemInfo.topicText}</p>
       </div>
       <SelectBox value={curItemInfo.value} items={curItemInfo.selectItems} />
+      <div className="flex pl-[60px] pr-[60px] mt-[60px] justify-between">
+        <MuiButton variant="contained" className={baseButtonCss}>
+          {curItemInfo.index === 1 ? '返回' : '上一题'}
+        </MuiButton>
+        <MuiButton variant="contained" className={baseButtonCss}>
+          {curItemInfo.index === topicList.length ? '完成' : '下一题'}
+        </MuiButton>
+      </div>
     </div>
   );
 }
