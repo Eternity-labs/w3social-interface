@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import TuneIcon from '@mui/icons-material/Tune';
 import Drawer from '@mui/material/Drawer';
 import { styled } from '@mui/material/styles';
-import { allFilters, initFilterState } from '@config/didConfig';
+import { allFilters } from '@config/didConfig';
 import ClearIcon from '@mui/icons-material/Clear';
 import SyncIcon from '@mui/icons-material/Sync';
 import Labels from './Base/Labels';
