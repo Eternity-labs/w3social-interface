@@ -7,6 +7,7 @@ import ResetPassPage from '@pages/ResetPassPage';
 import WelcomePage from '@pages/WelcomePage';
 import IntroducePage from '@pages/QuestionPage/IntroducePage';
 import FinishPage from '@pages/QuestionPage/FinishPage';
+import QuestionPage from '@pages/QuestionPage/TopicPage';
 
 const routes: RouteObject[] = [
   {
@@ -36,6 +37,10 @@ const routes: RouteObject[] = [
   {
     path: '/finishquestion',
     element: <FinishPage />,
+  },
+  {
+    path: '/question',
+    element: <QuestionPage />,
   },
   // {
   //   path: '/',
