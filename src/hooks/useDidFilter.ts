@@ -1,7 +1,7 @@
 import { initFilterState } from '@config/didConfig';
 import { generateFilterLabel, isInitValue } from '@utils/index';
 import { useEffect, useState } from 'react';
-import { FilterActionType, FilterAction } from 'src/types';
+import { FilterActionType, FilterAction } from 'src/types1';
 
 const useDidFilter = () => {
   const [showFilter, setShowFilter] = useState(false);
