@@ -8,8 +8,8 @@ import { styled } from '@mui/material/styles';
 import { allFilters } from '@config/didConfig';
 import ClearIcon from '@mui/icons-material/Clear';
 import SyncIcon from '@mui/icons-material/Sync';
-import Labels from './Base/Labels';
-import FilterItem from './FilterItem';
+import Labels from '../Base/Labels';
+import FilterItem from '../FilterItem';
 
 const CusDraw = styled(Drawer)({
   '& .MuiPaper-root': {

@@ -23,7 +23,7 @@ function Radios({ list = [], value, name, onChange }: Omit<Props, 'label'>) {
 
   const getStyle = (isCheck: boolean) => {
     const base = `flex h-[20px] m-w-[36px] items-center px-[8px] py-[4px] rounded-[20px] border-[1px] border-solid ml-[12px] text-[10px] border-[currentColor]`;
-    return cn(base, isCheck ? 'text-fSelect' : 'text-fNormal');
+    return cn(base, isCheck ? 'text-fSelect' : 'text-grey');
   };
 
   return (

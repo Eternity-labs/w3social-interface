@@ -37,7 +37,7 @@ function NotifyDialog({
             <img src={warningIcon} alt="Warning" />
           )}
         </p>
-        <p className="14px">{contentText}</p>
+        <p className="text-[14px] font-medium">{contentText}</p>
       </DialogContent>
       <DialogActions className="flex justify-around pb-[16px]">
         {confirmText && (

@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "@mui/icons-material": "^5.10.14",
+    "@mui/lab": "5.0.0-alpha.109",
     "@mui/material": "^5.10.14",
     "@mui/styled-engine-sc": "^5.10.14",
     "classnames": "^2.3.2",

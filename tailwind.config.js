@@ -11,8 +11,11 @@ module.exports = {
         6: '6 6 0%',
       },
       colors: {
-        fNormal: '#494949',
+        grey: '#666666',
         fSelect: '#0DCE71',
+      },
+      height: {
+        headerHeight: '56px',
       },
     },
   },

@@ -24,3 +24,8 @@ export type NotifyDialogProps = {
   cancelText: string;
   handleCancel: () => void;
 };
+
+export type LabelsProps = {
+  labels: string[];
+  type?: string;
+};

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import Labels from '@components/Base/Labels';
-import UserInfo from './Base/UserInfo';
+import UserInfo from '../Base/UserInfo';
 
 function DidCard() {
   return (
