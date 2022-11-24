@@ -9,7 +9,7 @@ const useHeaderHook = () => {
   };
 
   const getButtonClass = (index: number) => {
-    const base = 'flex-1 rounded-full m-[5px] h-[35px] shadow-none';
+    const base = 'flex-1 rounded-full m-[5px] h-[25px] shadow-none';
     return activeBtnIndex === index
       ? cn(base, 'bg-black text-white')
       : cn(base, 'bg-transparent text-black');

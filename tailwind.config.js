@@ -13,11 +13,14 @@ module.exports = {
       colors: {
         gary: 'rgba(0, 0, 0, 0.7)',
         slimgray: 'rgba(0, 0, 0, 0.5)',
+        grey: '#666666',
+        fSelect: '#0DCE71',
       },
       backgroundImage: {
         logobg: 'linear-gradient(180deg, #72F9B8 0%, #DAFFC3 173.8%)',
-        fNormal: '#494949',
-        fSelect: '#0DCE71',
+      },
+      height: {
+        headerHeight: '56px',
       },
     },
   },
