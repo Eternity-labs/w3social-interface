@@ -3,6 +3,7 @@ import FormControlLabel, { FormControlLabelProps } from '@mui/material/FormContr
 import Radio from '@mui/material/Radio';
 import { styled } from '@mui/material/styles';
 import { useState, useEffect } from 'react';
+import cn from 'classnames';
 
 const MuiRadioGroup = styled(RadioGroup)({
   '& .MuiFormControlLabel-root': {
@@ -43,9 +44,25 @@ function SelectBox(props: SelectBoxprops) {
     setValue(value);
   }, [value]);
   return (
-    <MuiRadioGroup name="use-radio-group" defaultValue={selectValue} onChange={onChange}>
-      {items.map(item => {
-        return <MyFormControlLabel value={item.value} label={item.label} control={<Radio />} />;
+    <MuiRadioGroup
+      name="use-radio-group"
+      className="mt-[30px]"
+      defaultValue={selectValue}
+      onChange={onChange}
+    >
+      {items.map((item, index) => {
+        return (
+          <div
+            className={cn(
+              'flex',
+              'pl-[100px] text-black text-[14px] font-medium',
+              index > 0 ? 'mt-[20px]' : ''
+            )}
+          >
+            <p className="mr-[16px]">{item.value}.</p>
+            <MyFormControlLabel value={item.value} label={item.label} control={<Radio />} />
+          </div>
+        );
       })}
     </MuiRadioGroup>
   );
