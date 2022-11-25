@@ -12,12 +12,12 @@ import UnlockUserPage from '@pages/UnlockUserPage';
 
 const routes: RouteObject[] = [
   {
-    path: '/welcome',
-    element: <WelcomePage />,
+    path: '/',
+    element: <LoginPage />,
   },
   {
-    path: '/login',
-    element: <LoginPage />,
+    path: '/welcome',
+    element: <WelcomePage />,
   },
   {
     path: '/register',

@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import '@assets/styles/loginPage.css';
 import MuiButton from '@mui/material/Button';
 import MuiRadio from '@mui/material/Radio';
+import { Link } from 'react-router-dom';
 
 const CusRadio = styled(MuiRadio)({
   width: '16px',
@@ -12,11 +13,31 @@ const CusRadio = styled(MuiRadio)({
     height: '9px',
   },
 });
+type ExploreButtonProps = {
+  onClick?: () => void;
+};
+function ExploreButton(props: ExploreButtonProps): JSX.Element {
+  const { onClick = () => {} } = props;
+  return (
+    <MuiButton
+      onClick={onClick}
+      variant="contained"
+      className=" w-[230px] h-[38px] mt-[14px] rounded-full bg-black text-[12px]"
+    >
+      开始探索Web 3.0
+    </MuiButton>
+  );
+}
 function WelcomePage(): JSX.Element {
   const [selectedValue, setselectedValue] = useState<boolean>(false);
   const setRadioValue = () => {
     setselectedValue(!selectedValue);
   };
+  const ToastError = () => {
+    alert('错误');
+  };
+
+  const startExplore = () => {};
   return (
     <div className="h-full">
       <div className=" flex flex-col items-center  justify-between ">
@@ -36,15 +57,21 @@ function WelcomePage(): JSX.Element {
               onClick={setRadioValue}
               value={selectedValue}
               name="radio-buttons"
+              sx={{
+                '&.Mui-checked': {
+                  color: '#72F9B8',
+                },
+              }}
             />
             <p className="text-[8px] text-[gray]">同意服务条款勾选此项声明</p>
           </div>
-          <MuiButton
-            variant="contained"
-            className=" w-[230px] h-[38px] mt-[14px] rounded-full bg-black text-[12px]"
-          >
-            开始探索Web 3.0
-          </MuiButton>
+          {selectedValue ? (
+            <Link to="/register">
+              <ExploreButton />
+            </Link>
+          ) : (
+            <ExploreButton onClick={ToastError} />
+          )}
         </div>
       </div>
     </div>
