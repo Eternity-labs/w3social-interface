@@ -5,6 +5,9 @@ module.exports = {
   important: '#main',
   theme: {
     extend: {
+      boxShadow: {
+        buttonunlock: '2px 3px 0px 2px #72F9B8',
+      },
       flex: {
         2: '2 2 0%',
         3: '3 3 0%',

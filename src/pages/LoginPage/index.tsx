@@ -2,6 +2,7 @@ import MuiButton from '@mui/material/Button';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import InputCom from '@components/Login/Input';
+import DividingLine from '@components/Base/DividingLine';
 
 function LoginPage(): JSX.Element {
   return (
@@ -24,13 +25,7 @@ function LoginPage(): JSX.Element {
       >
         登陆
       </MuiButton>
-      <div className="mt-[48px] flex h-[16px] items-center justify-center">
-        <div className="h-px w-[80px] bg-[#878787] " />
-        <p className="h-[8px] ml-[19px] leading-[8px] mr-[19px] text-slimgray text-[8px] ">
-          还没有账号 ？
-        </p>
-        <div className="h-px w-[80px]  bg-[#878787]" />
-      </div>
+      <DividingLine text="还没有账号 ?" className="mt-[30px]" />
       <MuiButton
         variant="outlined"
         className=" w-[250px] h-[38px] mt-[26px] border-black text-black rounded-full bg-transparent text-[12px]"

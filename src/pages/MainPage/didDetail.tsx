@@ -1,4 +1,3 @@
-import * as React from 'react';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import DidUserInfo from '@components/Did/DidUserInfo';
 import Tab from '@mui/material/Tab';

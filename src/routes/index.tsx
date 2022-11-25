@@ -8,6 +8,7 @@ import WelcomePage from '@pages/WelcomePage';
 import IntroducePage from '@pages/QuestionPage/IntroducePage';
 import FinishPage from '@pages/QuestionPage/FinishPage';
 import QuestionPage from '@pages/QuestionPage/TopicPage';
+import UnlockUserPage from '@pages/UnlockUserPage';
 
 const routes: RouteObject[] = [
   {
@@ -41,6 +42,10 @@ const routes: RouteObject[] = [
   {
     path: '/question',
     element: <QuestionPage />,
+  },
+  {
+    path: '/unlock',
+    element: <UnlockUserPage />,
   },
   // {
   //   path: '/',
