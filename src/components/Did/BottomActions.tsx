@@ -5,7 +5,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 function ButtonActions() {
   return (
     <div className="absolute bottom-[16px] left-0 right-0">
-      <div className="flex justify-every mt-[16px] ">
+      <div className="flex justify-around mt-[16px] ">
         <Button variant="text" className="text-black">
           查看他的帖子
         </Button>

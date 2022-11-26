@@ -53,7 +53,7 @@ const webpackBaseConfig = {
       '@utils': resolve('src/utils'),
       '@hooks': resolve('src/hooks'),
       '@routes': resolve('src/routes'),
-      '@types': resolve('src/types'),
+      '@type': resolve('src/types'),
       '@config': resolve('src/config'),
       '@constants': resolve('src/constants'),
       '@mui/styled-engine': '@mui/styled-engine-sc',

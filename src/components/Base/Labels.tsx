@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cn from 'classnames';
-import { LabelsProps } from '@types/index';
+import { LabelsProps } from '@type/index';
 
 function Labels({ labels, type }: LabelsProps) {
   const getCN = (curType: string = 'black') => {
