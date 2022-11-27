@@ -1,22 +1,21 @@
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import MuiButton from '@mui/material/Button';
-import { useRef, useImperativeHandle, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
 import InputCom from './Input';
 
 const emialReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-type InputProps = {
-  onRef: any;
-};
-function RegisterBox(props: InputProps) {
-  const { onRef } = props;
+function RegisterBox() {
+  const [inputData, setData] = useState<any>();
   const emailRef = useRef(!null);
   const passRef = useRef(!null);
   const vertifyPassRef = useRef(!null);
-
+  const getEmailCode = () => {
+    console.log(emailRef.current.value);
+  };
   const [errorObj, setError] = useState<any>({
-    email: '',
+    email: '111',
     pass: '',
     vertifyPass: '',
   });
@@ -72,14 +71,9 @@ function RegisterBox(props: InputProps) {
     }
   };
   const check = () => {
-    console.log('aavvvvv');
     checkEmail();
     checkPass();
     checkVertifyPass();
-  };
-  const getEmailCode = () => {
-    checkEmail();
-    console.log(emailRef.current.value);
   };
   const endAdornmentCom = (
     <MuiButton
@@ -90,14 +84,7 @@ function RegisterBox(props: InputProps) {
       获取验证码
     </MuiButton>
   );
-  useImperativeHandle(onRef, () => {
-    // 需要将暴露的接口返回出去
-    return {
-      check,
-    };
-  });
-
-  return (
+  const InputBoxCom = (
     <>
       <InputCom
         placeholder="输入邮箱"
@@ -118,6 +105,9 @@ function RegisterBox(props: InputProps) {
       {errorObj.vertifyPassRef && <ErrorTip message={errorObj.vertifyPassRef} />}
     </>
   );
+  return {
+    InputBoxCom,
+    check,
+  };
 }
-
 export default RegisterBox;

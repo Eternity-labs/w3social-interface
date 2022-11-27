@@ -1,9 +1,15 @@
-import { useState } from 'react';
+/* eslint-disable no-alert */
+import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import '@assets/styles/loginPage.css';
 import MuiButton from '@mui/material/Button';
 import MuiRadio from '@mui/material/Radio';
 import { Link } from 'react-router-dom';
+import GlobalToast from '@components/Base/Toast';
+import ErrorTip from '@components/Base/ErrorTip';
+import cn from 'classnames';
+// import { useAtom } from 'jotai';
+// import { GolbalToastAtom } from '@states/index';
 
 const CusRadio = styled(MuiRadio)({
   width: '16px',
@@ -30,12 +36,18 @@ function ExploreButton(props: ExploreButtonProps): JSX.Element {
 }
 function WelcomePage(): JSX.Element {
   const [selectedValue, setselectedValue] = useState<boolean>(false);
+  const [error, showError] = useState<boolean>(false);
   const setRadioValue = () => {
     setselectedValue(!selectedValue);
   };
   const ToastError = () => {
-    alert('错误');
+    showError(true);
   };
+  useEffect(() => {
+    if (selectedValue) {
+      showError(false);
+    }
+  }, [selectedValue]);
 
   const startExplore = () => {};
   return (
@@ -57,13 +69,16 @@ function WelcomePage(): JSX.Element {
               onClick={setRadioValue}
               value={selectedValue}
               name="radio-buttons"
+              className={error ? 'text-[#F34747]' : ''}
               sx={{
                 '&.Mui-checked': {
                   color: '#72F9B8',
                 },
               }}
             />
-            <p className="text-[8px] text-[gray]">同意服务条款勾选此项声明</p>
+            <p className={cn('text-[8px] text-[gray]', error ? 'text-[#F34747]' : '')}>
+              同意服务条款勾选此项声明
+            </p>
           </div>
           {selectedValue ? (
             <Link to="/register">

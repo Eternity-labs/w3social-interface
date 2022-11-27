@@ -34,6 +34,7 @@ type InputComProps = {
   placeholder?: string;
   className?: string;
   endAdornmentCom?: any;
+  InputRef: any;
 };
 function InputCom(props: InputComProps): JSX.Element {
   const {
@@ -42,6 +43,7 @@ function InputCom(props: InputComProps): JSX.Element {
     placeholder = '请输入',
     className = '',
     endAdornmentCom = <div />,
+    InputRef,
   } = props;
   return (
     <MuiTextFiled
@@ -49,6 +51,7 @@ function InputCom(props: InputComProps): JSX.Element {
       placeholder={placeholder}
       className={className}
       variant={variant}
+      inputRef={InputRef}
       InputProps={{
         startAdornment: <InputAdornment position="start">{children}</InputAdornment>,
         endAdornment: <InputAdornment position="end">{endAdornmentCom}</InputAdornment>,
