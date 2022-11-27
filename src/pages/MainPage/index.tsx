@@ -1,6 +1,8 @@
 import Header from '@components/Header';
 import DidCard from '@components/Did/DidCard';
 import DidFilter from '@components/Did/DidFilter';
+import UserActions from '@components/Base/UserActions';
+import TimeAndMore from '@components/Base/TimeAndMore';
 import DidContainer from './didContainer';
 import DidDetail from './didDetail';
 
@@ -11,7 +13,9 @@ function MainPage(): JSX.Element {
       <DidContainer>
         <DidFilter />
         <DidCard />
-        <DidDetail />
+        {/* <DidDetail /> */}
+        <UserActions />
+        <TimeAndMore />
       </DidContainer>
     </div>
   );

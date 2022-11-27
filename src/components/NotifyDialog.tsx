@@ -3,7 +3,7 @@ import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import { NotifyDialogProps } from '@types/index';
+import { NotifyDialogProps } from '@type/index';
 import { styled } from '@mui/material/styles';
 import warningIcon from '@assets/images/warning.png';
 import successIcon from '@assets/images/success.png';

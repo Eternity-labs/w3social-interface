@@ -1,4 +1,4 @@
-import { FilterProps } from 'src/types1';
+import { FilterProps } from '@type/index';
 
 export const allFilters: FilterProps[] = [
   {

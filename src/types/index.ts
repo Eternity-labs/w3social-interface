@@ -29,3 +29,7 @@ export type LabelsProps = {
   labels: string[];
   type?: string;
 };
+
+export type UserActionsProps = {
+  thumbCount: number;
+};
