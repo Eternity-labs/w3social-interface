@@ -9,12 +9,15 @@ import { UserActionsProps } from '@type/index';
 
 function UserActions({ thumbCount = 4 }: UserActionsProps) {
   const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+    position: 'relative',
+    left: thumbCount ? '-4px' : 0,
+
     '& .MuiBadge-badge': {
       right: -3,
-      top: 13,
+      top: 10,
       padding: '0 4px',
       color: 'black',
-      'font-size': '10px',
+      'font-size': '14px',
     },
   }));
 

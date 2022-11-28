@@ -1,27 +1,11 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import DidUserInfo from '@components/Did/DidUserInfo';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
 import useDidDetail from '@hooks/useDidDetail';
-import { styled } from '@mui/material/styles';
 import LocalFooter from '@components/Base/LocalFooter';
 import WishList from '@components/Did/WishList';
 import ButtonActions from '@components/Did/BottomActions';
 import DidArticleCard from '@components/Did/DidArticleCard';
-
-const CusTabList = styled(TabList)({
-  '& .MuiTab-root': {
-    color: '#666666',
-  },
-  '& .Mui-selected': {
-    color: 'black',
-  },
-  '& .MuiTabs-indicator': {
-    'background-color': 'black',
-  },
-});
+import { CustomTabList, Tab, TabContext, TabPanel } from '@components/Base/CustomTabList';
 
 function DidDetail() {
   const { tabIndex, handleTabIndexChange } = useDidDetail();
@@ -36,10 +20,10 @@ function DidDetail() {
       </div>
       <DidUserInfo />
       <TabContext value={tabIndex}>
-        <CusTabList onChange={handleTabIndexChange} aria-label="lab API tabs example">
+        <CustomTabList onChange={handleTabIndexChange} aria-label="lab API tabs example">
           <Tab className="pb-0 px-0 min-w-[40px]" label="自我介绍" value="1" />
           <Tab className="pb-0 px-0 min-w-[40px]" label="帖子" value="2" />
-        </CusTabList>
+        </CustomTabList>
         <TabPanel className="h-[180px] p-0 my-[12px] overflow-hidden overflow-y-auto" value="1">
           <div>
             内容填字符，栏收录该内容. 10 篇文章 2 订阅. 订阅专栏. 常规类型的格式化.
