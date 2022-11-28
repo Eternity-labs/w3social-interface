@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import MuiButton from '@mui/material/Button';
-import toast, { Toaster } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-import SelectBox from './selectBox';
+import SelectBox from './selectBoxcopy';
 
 function TopicPage() {
   const [topicList, setTopicList] = useState<any>([]);
   const [curItemInfo, setCurSelectInfo] = useState<any>({});
   const [index, setIndex] = useState<any>(0);
-  const navigate = useNavigate();
   let pos: number;
   // '化的字符串以及连接', '方法用于创建', '栏目收录该内容'
   const mockTopicList = [
@@ -22,7 +19,7 @@ function TopicPage() {
         { value: 'C', label: '方法用于创建' },
         { value: 'D', label: '栏目收录该内容' },
       ],
-      value: '',
+      value: 'A',
     },
     {
       hasCheck: false,
@@ -77,15 +74,6 @@ function TopicPage() {
     }
   };
   const next = () => {
-    if (!topicList[index].value) {
-      toast('请选择...', { duration: 2000, id: 'error' });
-      return;
-    }
-    if (index === topicList.length - 1) {
-      // 提交数据
-      navigate('/main');
-      return;
-    }
     pos = index;
     if (pos < topicList.length - 1) {
       pos = index + 1;
@@ -113,12 +101,11 @@ function TopicPage() {
         </div>
         <p className="font-medium text-[14px] leading-[22px]">{curItemInfo.topicText}</p>
       </div>
-      {/* <SelectBox
+      <SelectBox
         value={curItemInfo.value}
         items={curItemInfo.selectItems}
         onChange={handleSelect}
-      /> */}
-      <SelectBox value={curItemInfo} items={curItemInfo.selectItems} onChange={handleSelect} />
+      />
       <div className="flex pl-[60px] pr-[60px] mt-[60px] justify-between">
         <MuiButton variant="contained" className={baseButtonCss} onClick={prev}>
           {index === 0 ? '返回' : '上一题'}
@@ -127,7 +114,6 @@ function TopicPage() {
           {index === topicList.length - 1 ? '完成' : '下一题'}
         </MuiButton>
       </div>
-      <Toaster toastOptions={{}} />
     </div>
   );
 }

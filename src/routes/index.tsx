@@ -7,7 +7,7 @@ import ResetPassPage from '@pages/ResetPassPage';
 import WelcomePage from '@pages/WelcomePage';
 import IntroducePage from '@pages/QuestionPage/IntroducePage';
 import FinishPage from '@pages/QuestionPage/FinishPage';
-import QuestionPage from '@pages/QuestionPage/TopicPage';
+import QuestionPage from '@pages/QuestionPage/TopicPage/index';
 import UnlockUserPage from '@pages/UnlockUserPage';
 
 const routes: RouteObject[] = [

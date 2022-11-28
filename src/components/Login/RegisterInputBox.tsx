@@ -20,66 +20,74 @@ function RegisterBox(props: InputProps) {
     pass: '',
     vertifyPass: '',
   });
+  let errorData = {
+    email: '',
+    pass: '',
+    vertifyPass: '',
+  };
   const checkEmail = () => {
     if (!emailRef.current.value) {
-      console.log('aaaaaa');
-
-      setError({
-        ...errorObj,
+      errorData = {
+        ...errorData,
         email: '邮箱不能为空',
-      });
-    } else if (emialReg.test(emailRef.current.value)) {
-      setError({
-        ...errorObj,
-        email: '邮箱格式错误',
-      });
+      };
+    } else if (!emialReg.test(emailRef.current.value)) {
+      errorData = {
+        ...errorData,
+        email: '邮箱不符合规范',
+      };
     } else {
-      setError({
-        ...errorObj,
+      errorData = {
+        ...errorData,
         email: '',
-      });
+      };
     }
   };
   const checkPass = () => {
     if (!passRef.current.value) {
-      setError({
-        ...errorObj,
+      errorData = {
+        ...errorData,
         pass: '密码不能为空',
-      });
+      };
     } else {
-      setError({
-        ...errorObj,
+      errorData = {
+        ...errorData,
         pass: '',
-      });
+      };
     }
   };
   const checkVertifyPass = () => {
     if (!vertifyPassRef.current.value) {
-      setError({
-        ...errorObj,
+      errorData = {
+        ...errorData,
         vertifyPass: '确认密码不能为空',
-      });
+      };
     } else if (vertifyPassRef.current.value !== passRef.current.value) {
-      setError({
-        ...errorObj,
+      errorData = {
+        ...errorData,
         vertifyPass: '密码不一致',
-      });
+      };
     } else {
-      setError({
-        ...errorObj,
+      errorData = {
+        ...errorData,
         vertifyPass: '',
-      });
+      };
     }
   };
+
+  const getEmailCode = () => {
+    checkEmail();
+    setError(errorData);
+  };
   const check = () => {
-    console.log('aavvvvv');
     checkEmail();
     checkPass();
     checkVertifyPass();
-  };
-  const getEmailCode = () => {
-    checkEmail();
-    console.log(emailRef.current.value);
+    setError(errorData);
+    return {
+      email: emailRef.current.value,
+      pass: passRef.current.value,
+    };
   };
   const endAdornmentCom = (
     <MuiButton
@@ -90,13 +98,17 @@ function RegisterBox(props: InputProps) {
       获取验证码
     </MuiButton>
   );
-  useImperativeHandle(onRef, () => {
-    // 需要将暴露的接口返回出去
-    return {
-      check,
-    };
-  });
-
+  useImperativeHandle(
+    onRef,
+    () => {
+      // 需要将暴露的接口返回出去
+      return {
+        check,
+      };
+    },
+    [check]
+  );
+  const errorTipCSS = 'w-[250px] pl-[16px]';
   return (
     <>
       <InputCom
@@ -107,15 +119,16 @@ function RegisterBox(props: InputProps) {
       >
         <MailOutlineIcon />
       </InputCom>
-      <ErrorTip message={errorObj.email} />
+      <ErrorTip message={errorObj.email} className={errorTipCSS} />
       <InputCom placeholder="输入密码" className="mt-[20px]" InputRef={passRef}>
         <LockOpenIcon />
       </InputCom>
-      {errorObj.pass && <ErrorTip message={errorObj.pass} />}
+      {errorObj.pass && <ErrorTip message={errorObj.pass} className={errorTipCSS} />}
       <InputCom placeholder="再次输入密码" className="mt-[20px]" InputRef={vertifyPassRef}>
         <LockOpenIcon />
       </InputCom>
       {errorObj.vertifyPassRef && <ErrorTip message={errorObj.vertifyPassRef} />}
+      <ErrorTip message={errorObj.vertifyPass} className={errorTipCSS} />
     </>
   );
 }

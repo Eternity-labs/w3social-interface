@@ -33,27 +33,22 @@ function MyFormControlLabel(props: FormControlLabelProps) {
   );
 }
 type SelectBoxprops = {
-  value: { value: string };
+  value: 'string';
   items: Array<any>;
   onChange?: (value: string) => void;
 };
 function SelectBox(props: SelectBoxprops) {
   const { value, items = [], onChange } = props;
-  const [selectedValue, setValue] = useState('female');
   const hanleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
     if (onChange) {
       onChange(event.target.value);
     }
   };
-  useEffect(() => {
-    setValue(value.value);
-  }, [items]);
   return (
     <MuiRadioGroup
       name="use-radio-group"
       className="mt-[30px]"
-      value={selectedValue || ''}
+      value={value || ''}
       onChange={hanleChange}
     >
       {items.map((item, index) => {

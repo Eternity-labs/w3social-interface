@@ -5,6 +5,12 @@ module.exports = {
   important: '#main',
   theme: {
     extend: {
+      inset: {
+        toast: '50%',
+      },
+      caretColor: {
+        main: '#72F9B8',
+      },
       boxShadow: {
         buttonunlock: '2px 3px 0px 2px #72F9B8',
       },

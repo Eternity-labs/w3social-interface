@@ -1,16 +1,28 @@
 import cn from 'classnames';
-import { useRef, useEffect } from 'react';
+import { useRef, useState, useEffect, useImperativeHandle } from 'react';
+import ErrorTip from '@components/Base/ErrorTip';
 
 interface CodeBoxProps {
   len?: number;
   onChange?: (code: string) => void;
   className?: string;
   autoFocus?: boolean;
+  onRef: any;
+  isCodeError: boolean;
 }
 function CodeBox(props: CodeBoxProps): JSX.Element {
-  const { len = 4, onChange, className = '', autoFocus = false } = props;
+  const {
+    len = 4,
+    onChange,
+    className = '',
+    autoFocus = false,
+    onRef,
+    isCodeError = false,
+  } = props;
   const inputArr = new Array(len).fill('');
   const inputRefs = useRef<any>([]);
+  let storageCode = '';
+  const [errorText, setError] = useState('');
   const getRef = (dom: any) => {
     if (inputRefs?.current?.length === len) {
       return;
@@ -55,14 +67,15 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
       const nextInputRef = inputRefs.current[index + 1];
       nextInputRef.focus();
     }
-
+    console.log('🚗🚗--》', code);
+    storageCode = code;
     onChange?.(code);
   };
   const getInputClassName = (index: number) => {
     const currentInputRef = inputRefs.current[index];
     const value = currentInputRef?.value;
     let defaultClassName =
-      'w-[30px] h-[30px] border boder-black solid rounded-[5px] outline-none text-center';
+      'w-[30px] h-[30px] border boder-black border-solid rounded-[5px] outline-none text-center outline-none caret-main';
     if (index > 0) {
       defaultClassName += ' ml-[8px]';
     }
@@ -75,31 +88,50 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
       inputRefs?.current[0].focus();
     }
   }, [autoFocus]);
-
+  const check = () => {
+    if (storageCode.length < 4 || isCodeError) {
+      setError('验证码错误，请确认后重新输入');
+    } else {
+      setError('');
+    }
+  };
+  useImperativeHandle(
+    onRef,
+    () => {
+      // 需要将暴露的接口返回出去
+      return {
+        check,
+      };
+    },
+    [check]
+  );
   return (
-    <div className={className ? `${className}` : 'flex '}>
-      {/* 渲染每一个验证码输入框 */}
-      {inputArr.map((v, index) => {
-        return (
-          <input
-            ref={getRef}
-            maxLength={1}
-            className={getInputClassName(index)}
-            key={index}
-            type="text"
-            onFocus={() => {
-              inputRefs.current[index].select();
-            }}
-            onKeyDown={e => {
-              onInputKeyDown(e, index);
-            }}
-            onChange={e => {
-              onInputValueChange(index, e);
-            }}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className={className ? `${className}` : 'flex '}>
+        {/* 渲染每一个验证码输入框 */}
+        {inputArr.map((v, index) => {
+          return (
+            <input
+              ref={getRef}
+              maxLength={1}
+              className={getInputClassName(index)}
+              key={index}
+              type="text"
+              onFocus={() => {
+                inputRefs.current[index].select();
+              }}
+              onKeyDown={e => {
+                onInputKeyDown(e, index);
+              }}
+              onChange={e => {
+                onInputValueChange(index, e);
+              }}
+            />
+          );
+        })}
+      </div>
+      {errorText && <ErrorTip isShowIcon message={errorText} className="mt-[5px]" />}
+    </>
   );
 }
 
