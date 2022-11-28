@@ -5,7 +5,7 @@ import { LabelsProps } from '@type/index';
 function Labels({ labels, type }: LabelsProps) {
   const getCN = (curType: string = 'black') => {
     const base =
-      'text-[10px] rounded-full py-[3px] border-[1px] border-solid px-[6px] ml-[6px] first:ml-[0] flex justify-center align-center';
+      'text-[10px] rounded-full py-[2px] border-[1px] border-solid px-[8px] ml-[6px] first:ml-[0] flex justify-center align-center';
     console.log(curType);
     if (curType !== 'black') {
       return cn(base, `bg-${curType} text-${curType} border-current`);

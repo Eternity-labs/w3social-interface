@@ -19,12 +19,12 @@ function UserActions({ thumbCount = 4 }: UserActionsProps) {
   }));
 
   return (
-    <div className="flex justify-around item-content w-[120px]">
+    <div className="flex justify-evenly items-end w-[100px] text-[10px]">
       <StyledBadge badgeContent={thumbCount || ''}>
-        <ThumbUpAltIcon className={cn(thumbCount ? 'text-fSelect' : '')} />
+        <ThumbUpAltIcon className={cn(thumbCount ? 'text-fSelect' : '', 'text-[16px]')} />
       </StyledBadge>
-      <ChatBubbleOutlineIcon />
-      <OpenInNewIcon />
+      <ChatBubbleOutlineIcon className="text-[16px]" />
+      <OpenInNewIcon className="text-[16px]" />
     </div>
   );
 }

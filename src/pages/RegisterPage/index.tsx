@@ -33,7 +33,7 @@ function RegisterPage(): JSX.Element {
   return (
     <>
       <BackIconCom />
-      <div className="flex h-full flex-col items-center bg-logobg rounded-tl-[230px]">
+      <div className="flex h-full flex-col items-center bg-logoBg rounded-tl-[230px]">
         <div className="mt-[48px]">logo</div>
         {/* 表单 */}
         <RegisterInputBoxCom onRef={ChildRef} />

@@ -6,7 +6,7 @@ import DividingLine from '@components/Base/DividingLine';
 
 function LoginPage(): JSX.Element {
   return (
-    <div className="flex h-full flex-col items-center bg-logobg rounded-bl-[230px]">
+    <div className="flex h-full flex-col items-center bg-logoBg rounded-bl-[230px]">
       <div>logo</div>
       <div className="w-[250px] mt-[64px]">
         <InputCom placeholder="请输入邮箱">
@@ -16,7 +16,7 @@ function LoginPage(): JSX.Element {
           <LockOpenIcon />
         </InputCom>
       </div>
-      <div className="w-[250px] mt-[4px] text-slimgray text-[8px] text-right">
+      <div className="w-[250px] mt-[4px] text-slimGray text-[8px] text-right">
         忘记密码&nbsp;&gt;&gt;
       </div>
       <MuiButton

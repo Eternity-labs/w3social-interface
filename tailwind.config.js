@@ -12,7 +12,7 @@ module.exports = {
         main: '#72F9B8',
       },
       boxShadow: {
-        buttonunlock: '2px 3px 0px 2px #72F9B8',
+        buttonUnlock: '2px 3px 0px 2px #72F9B8',
       },
       flex: {
         2: '2 2 0%',
@@ -21,12 +21,13 @@ module.exports = {
       },
       colors: {
         gary: 'rgba(0, 0, 0, 0.7)',
-        slimgray: 'rgba(0, 0, 0, 0.5)',
+        slimGray: 'rgba(0, 0, 0, 0.5)',
         grey: '#666666',
         fSelect: '#0DCE71',
+        oMainColor: 'rgba(114, 249, 184, 0.2)',
       },
       backgroundImage: {
-        logobg: 'linear-gradient(180deg, #72F9B8 0%, #DAFFC3 173.8%)',
+        logoBg: 'linear-gradient(180deg, #72F9B8 0%, #DAFFC3 173.8%)',
       },
       height: {
         headerHeight: '56px',

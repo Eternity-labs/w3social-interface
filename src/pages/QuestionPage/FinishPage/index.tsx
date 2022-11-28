@@ -4,7 +4,7 @@ import FinishIcon from '@/assets/images/finishedIcon.png';
 function IntroducePage() {
   return (
     <div className=" h-full">
-      <div className="h-[300px] bg-logobg relative">
+      <div className="h-[300px] bg-logoBg relative">
         <div>logo</div>
         <img
           className="w-[120px] absolute  -bottom-[10px] left-[calc(50%-80px)]"

@@ -30,7 +30,7 @@ function UnlockUser() {
       })}
       <MuiButton
         variant="outlined"
-        className=" w-[275px] h-[50px] mt-[34px] border-black text-black rounded-full bg-transparent text-[13px] font-medium shadow-buttonunlock"
+        className=" w-[275px] h-[50px] mt-[34px] border-black text-black rounded-full bg-transparent text-[13px] font-medium shadow-buttonUnlock"
       >
         199CNY
       </MuiButton>

@@ -53,7 +53,7 @@ function WelcomePage(): JSX.Element {
   return (
     <div className="h-full">
       <div className=" flex flex-col items-center  justify-between ">
-        <div className=" flex items-center justify-center mt-[80px] w-[300px] h-[300px] rounded-[150px] bg-logobg">
+        <div className=" flex items-center justify-center mt-[80px] w-[300px] h-[300px] rounded-[150px] bg-logoBg">
           <div>
             <div>logo</div>
             <p className="text-[12px] leading-[16px]  pt-[35px] text-center">
