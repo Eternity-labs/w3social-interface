@@ -2,7 +2,7 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 import MainPage from '@pages/MainPage';
 import LoginPage from '@pages/LoginPage';
 import RegisterPage from '@pages/RegisterPage';
-import ResetPassPage from '@pages/ResetPassPage';
+import ResetPassPage from '@pages/ResetPassPage/index';
 
 import WelcomePage from '@pages/WelcomePage';
 import IntroducePage from '@pages/QuestionPage/IntroducePage';
