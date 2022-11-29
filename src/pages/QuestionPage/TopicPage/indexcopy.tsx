@@ -92,7 +92,7 @@ function TopicPage() {
 
   return (
     <div className=" h-full">
-      <div className="h-[250px] bg-logobg relative pl-[36px] pr-[33px]">
+      <div className="h-[250px] bg-logoBg relative pl-[36px] pr-[33px]">
         <div className="flex font-black pt-[30px] pb-[30px]">
           <span className="text-[15px] text-[#515151]">问题</span>
           <div className="ml-[30px] text-black ">

@@ -53,7 +53,7 @@ function LoginPage(): JSX.Element {
     // 发送请求
   };
   return (
-    <div className="flex h-full flex-col items-center bg-logobg rounded-bl-[230px]">
+    <div className="flex h-full flex-col items-center bg-logoBg rounded-bl-[230px]">
       <div>logo</div>
       <div className="w-[250px] mt-[64px]">
         <InputCom placeholder="请输入邮箱" InputRef={emailRef}>

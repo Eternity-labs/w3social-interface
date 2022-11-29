@@ -12,7 +12,7 @@ function DividingLine(props: DividingLineProps) {
   return (
     <div className={cn('flex h-[16px] items-center justify-center', className || '')}>
       <div className={cn(baseLineCss, lineWidth)} />
-      <p className="h-[8px] ml-[19px] leading-[8px] mr-[19px] text-slimgray text-[8px] ">{text}</p>
+      <p className="h-[8px] ml-[19px] leading-[8px] mr-[19px] text-slimGray text-[8px] ">{text}</p>
       <div className={cn(baseLineCss, lineWidth)} />
     </div>
   );
