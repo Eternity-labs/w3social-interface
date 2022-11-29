@@ -1,18 +1,16 @@
+import * as React from 'react';
+import { Outlet } from 'react-router-dom';
 import Header from '@components/Header';
-import DidCard from '@components/Did/DidCard';
-import DidFilter from '@components/Did/DidFilter';
-import DidContentCard from '@components/Did/DidContentCard';
-import DidContainer from './didContainer';
+import MainContainer from '@components/Base/MainContainer';
+import DidRoutes from '@routes/didRoute';
 
 function MainPage(): JSX.Element {
   return (
     <div className="bg-gray-100 box-border h-screen">
       <Header />
-      <DidContainer>
-        <DidFilter />
-        <DidCard />
-        <DidContentCard />
-      </DidContainer>
+      <MainContainer>
+        <Outlet />
+      </MainContainer>
     </div>
   );
 }

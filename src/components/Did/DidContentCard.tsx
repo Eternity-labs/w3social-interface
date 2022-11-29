@@ -3,8 +3,10 @@ import Labels from '@components/Base/Labels';
 import TimeAndMore from '@components/Base/TimeAndMore';
 import UserActions from '@components/Base/UserActions';
 import UserInfo from '@components/Base/UserInfo';
+import useDidContentCard from '@hooks/useDidContentCard';
 
 function DidContentCard() {
+  const { jumpToContent } = useDidContentCard();
   return (
     <div className="border-0 border-b-[1px] border-solid py-[16px] mt-[16px] relative">
       <div className="absolute top-0 right-0">
@@ -13,7 +15,7 @@ function DidContentCard() {
       <div className="flex">
         <UserInfo />
       </div>
-      <div className="my-[16px]">
+      <div onClick={() => jumpToContent()} className="my-[16px]">
         <IntroduceContent />
       </div>
       <div className="flex justify-between">

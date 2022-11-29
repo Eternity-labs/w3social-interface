@@ -9,6 +9,8 @@ import IntroducePage from '@pages/QuestionPage/IntroducePage';
 import FinishPage from '@pages/QuestionPage/FinishPage';
 import QuestionPage from '@pages/QuestionPage/TopicPage/index';
 import UnlockUserPage from '@pages/UnlockUserPage';
+import DidList from '@pages/MainPage/didList';
+import DidDetail from '@pages/MainPage/didDetail';
 
 const routes: RouteObject[] = [
   {
@@ -30,6 +32,16 @@ const routes: RouteObject[] = [
   {
     path: '/main',
     element: <MainPage />,
+    children: [
+      {
+        path: '',
+        element: <DidList />,
+      },
+      {
+        path: 'detail/:id',
+        element: <DidDetail />,
+      },
+    ],
   },
   {
     path: '/startquestion',
