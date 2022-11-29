@@ -1,7 +1,14 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 
-function DidArticleCard() {
+export type DidArticleCardProps = {
+  title: string;
+  avatar: string;
+  userName: string;
+  children?: any;
+};
+function DidArticleCard(props: DidArticleCardProps) {
+  const { title, avatar, userName, children } = props;
   return (
     <div className="flex flex-col justify-between p-[12px] mb-[12px] rounded-[8px] bg-fSelect">
       <h4 className="text-[12px] truncate mb-[28px]">
@@ -14,5 +21,4 @@ function DidArticleCard() {
     </div>
   );
 }
-
 export default DidArticleCard;

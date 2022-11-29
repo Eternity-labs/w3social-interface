@@ -35,6 +35,7 @@ type InputComProps = {
   className?: string;
   endAdornmentCom?: any;
   InputRef: any;
+  defaultValue?: string;
 };
 function InputCom(props: InputComProps): JSX.Element {
   const {
@@ -44,6 +45,7 @@ function InputCom(props: InputComProps): JSX.Element {
     className = '',
     endAdornmentCom = <div />,
     InputRef,
+    defaultValue,
   } = props;
   return (
     <MuiTextFiled
@@ -52,6 +54,7 @@ function InputCom(props: InputComProps): JSX.Element {
       className={className}
       variant={variant}
       inputRef={InputRef}
+      defaultValue={defaultValue || ''}
       InputProps={{
         startAdornment: <InputAdornment position="start">{children}</InputAdornment>,
         endAdornment: <InputAdornment position="end">{endAdornmentCom}</InputAdornment>,
