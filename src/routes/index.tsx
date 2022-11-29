@@ -9,6 +9,7 @@ import IntroducePage from '@pages/QuestionPage/IntroducePage';
 import FinishPage from '@pages/QuestionPage/FinishPage';
 import QuestionPage from '@pages/QuestionPage/TopicPage/index';
 import UnlockUserPage from '@pages/UnlockUserPage';
+import NeedTab from '@pages/MainPage/needTab';
 import DidList from '@pages/MainPage/didList';
 import DidDetail from '@pages/MainPage/didDetail';
 
@@ -16,6 +17,10 @@ const routes: RouteObject[] = [
   {
     path: '/',
     element: <LoginPage />,
+  },
+  {
+    path: '/needTab',
+    element: <NeedTab />,
   },
   {
     path: '/welcome',

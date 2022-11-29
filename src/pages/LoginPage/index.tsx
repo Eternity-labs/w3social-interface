@@ -3,17 +3,20 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import InputCom from '@components/Login/Input';
 import DividingLine from '@components/Base/DividingLine';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
+import type { LoginPageUrlParams } from '@routes/types';
 
 function LoginPage(): JSX.Element {
+  const navigate = useNavigate();
   const emailRef = useRef(!null);
   const passRef = useRef(!null);
   const initialError = {
     email: '',
     pass: '',
   };
+  const [searchParams] = useSearchParams();
   const [errorObj, setError] = useState({ ...initialError });
   let storageErr = {
     ...initialError,
@@ -52,11 +55,23 @@ function LoginPage(): JSX.Element {
     setError({ ...storageErr });
     // 发送请求
   };
+  const jumpResetPassPage = () => {
+    const email = emailRef?.current?.value;
+    if (email) {
+      navigate(`/resetPass?email=${email}`);
+    } else {
+      navigate(`/resetPass`);
+    }
+  };
   return (
     <div className="flex h-full flex-col items-center bg-logoBg rounded-bl-[230px]">
       <div>logo</div>
       <div className="w-[250px] mt-[64px]">
-        <InputCom placeholder="请输入邮箱" InputRef={emailRef}>
+        <InputCom
+          placeholder="请输入邮箱"
+          InputRef={emailRef}
+          defaultValue={searchParams.get('email') || ''}
+        >
           <MailOutlineIcon />
         </InputCom>
         {errorObj.email && <ErrorTip message={errorObj.email} className="pl-[16px]" />}
@@ -65,11 +80,12 @@ function LoginPage(): JSX.Element {
         </InputCom>
         {errorObj.pass && <ErrorTip message={errorObj.pass} className="pl-[16px]" />}
       </div>
-      <Link to="/resetPass">
-        <div className="w-[250px] mt-[4px] text-slimgray text-[8px] text-right">
-          忘记密码&nbsp;&gt;&gt;
-        </div>
-      </Link>
+      <div
+        className="w-[250px] mt-[4px] text-slimGray text-[8px] text-right"
+        onClick={jumpResetPassPage}
+      >
+        忘记密码&nbsp;&gt;&gt;
+      </div>
 
       <MuiButton
         onClick={login}
