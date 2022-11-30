@@ -5,13 +5,17 @@ import useDidList from '@hooks/useDidList';
 import * as React from 'react';
 
 function DidIndex() {
-  const { handleRefresh, handleLoadMore } = useDidList();
+  const { list, handleRefresh, handleLoadMore } = useDidList();
   return (
     <>
       <DidFilter />
-      <ListContainer onPullDown={handleRefresh} onPullUp={handleLoadMore}>
-        <DidCard />
-      </ListContainer>
+      <div className="h-[calc(100%-20px)] box-border overflow-hidden overflow-y-auto">
+        <ListContainer onPullDown={handleRefresh} onPullUp={handleLoadMore}>
+          {list.map((item, idx) => {
+            return <DidCard classNames="mt-[12px]" key={item} />;
+          })}
+        </ListContainer>
+      </div>
     </>
   );
 }
