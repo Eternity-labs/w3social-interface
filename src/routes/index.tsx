@@ -14,6 +14,7 @@ import NeedDetailPage from '@pages/NeedDetailPage/index';
 import DidList from '@pages/MainPage/didList';
 import DidDetail from '@pages/MainPage/didDetail';
 import MessagePage from '@pages/MessagePage';
+import Square from '@pages/MainPage/square';
 
 const routes: RouteObject[] = [
   {
@@ -45,12 +46,16 @@ const routes: RouteObject[] = [
     element: <MainPage />,
     children: [
       {
-        path: '',
+        index: true,
         element: <DidList />,
       },
       {
         path: 'detail/:id',
         element: <DidDetail />,
+      },
+      {
+        path: 'square',
+        element: <Square />,
       },
     ],
   },

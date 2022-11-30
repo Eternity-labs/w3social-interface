@@ -33,6 +33,17 @@ module.exports = {
       height: {
         headerHeight: '56px',
       },
+      animation: {
+        pingSlow: 'pingSlow 1s cubic-bezier(0, 0, 0.2, 1) infinite;',
+      },
+      keyframes: {
+        pingSlow: {
+          '75%, 100%': {
+            transform: 'scale(1.2)',
+            opacity: 0.5,
+          },
+        },
+      },
     },
   },
   corePlugins: {
