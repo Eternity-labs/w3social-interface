@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '@components/Header';
 import MainContainer from '@components/Base/MainContainer';
-import DidRoutes from '@routes/didRoute';
 
 function MainPage(): JSX.Element {
   return (
