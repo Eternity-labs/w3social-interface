@@ -10,6 +10,7 @@ import FinishPage from '@pages/QuestionPage/FinishPage';
 import QuestionPage from '@pages/QuestionPage/TopicPage/index';
 import UnlockUserPage from '@pages/UnlockUserPage';
 import NeedTab from '@pages/MainPage/needTab';
+import NeedDetailPage from '@pages/NeedDetailPage/index';
 
 const routes: RouteObject[] = [
   {
@@ -51,6 +52,10 @@ const routes: RouteObject[] = [
   {
     path: '/unlock',
     element: <UnlockUserPage />,
+  },
+  {
+    path: '/needDetail',
+    element: <NeedDetailPage />,
   },
   // {
   //   path: '/',
