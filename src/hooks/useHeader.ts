@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 const useHeaderHook = () => {
   const [activeBtnIndex, setActiveBtnIndex] = useState(0);
+  const [needNotify, setNeedNotify] = useState(false);
 
   const buttonSwitch = (index: number) => {
     setActiveBtnIndex(index);
@@ -17,6 +18,7 @@ const useHeaderHook = () => {
 
   return {
     activeBtnIndex,
+    needNotify,
     buttonSwitch,
     getButtonClass,
   };

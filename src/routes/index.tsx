@@ -11,6 +11,9 @@ import QuestionPage from '@pages/QuestionPage/TopicPage/index';
 import UnlockUserPage from '@pages/UnlockUserPage';
 import NeedTab from '@pages/MainPage/needTab';
 import NeedDetailPage from '@pages/NeedDetailPage/index';
+import DidList from '@pages/MainPage/didList';
+import DidDetail from '@pages/MainPage/didDetail';
+import MessagePage from '@pages/MessagePage';
 
 const routes: RouteObject[] = [
   {
@@ -34,8 +37,22 @@ const routes: RouteObject[] = [
     element: <ResetPassPage />,
   },
   {
+    path: '/message',
+    element: <MessagePage />,
+  },
+  {
     path: '/main',
     element: <MainPage />,
+    children: [
+      {
+        path: '',
+        element: <DidList />,
+      },
+      {
+        path: 'detail/:id',
+        element: <DidDetail />,
+      },
+    ],
   },
   {
     path: '/startquestion',
