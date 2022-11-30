@@ -6,6 +6,11 @@ const notifier = require('node-notifier');
 
 module.exports = {
   devtool: false,
+  output: {
+    filename: 'assets/js/main.js',
+    path: resolve(__dirname, 'dist'),
+    publicPath: "/"
+  },
   devServer: {
     historyApiFallback: true,
     proxy: {

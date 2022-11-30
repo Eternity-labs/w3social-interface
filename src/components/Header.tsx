@@ -30,7 +30,11 @@ export default function MenuAppBar() {
           className="text-black flex-1 mx-0 text-[30px] pr-0"
           aria-label="menu"
         >
-          {needNotify ? <NotificationsActiveIcon /> : <NotificationsIcon />}
+          {needNotify ? (
+            <NotificationsActiveIcon className="animate-pingSlow" />
+          ) : (
+            <NotificationsIcon />
+          )}
         </IconButton>
       </Toolbar>
     </AppBar>

@@ -8,8 +8,8 @@ const { join } = require('path');
  */
 module.exports = {
   output: {
-    path: join(__dirname, '../dist/asstest'),
-    publicPath: './asstest/[name].[contenthash:5].bundle.[ext]',
+    path: join(__dirname, '../dist/assets'),
+    publicPath: './assets/[name].[contenthash:5].bundle.[ext]',
     assetModuleFilename: '',
   },
   optimization: {
