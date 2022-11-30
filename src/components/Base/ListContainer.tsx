@@ -6,8 +6,6 @@ function ListContainer({ children, ...props }: any) {
   return (
     <PullToRefresh
       className="h-[calc(100%-20px)] box-border"
-      indicator={{ activate: ' ', deactivate: ' ', release: 'loading', finish: ' ' }}
-      distanceToRefresh={50}
       loadingClassName="bg-transparent"
       {...props}
     >
