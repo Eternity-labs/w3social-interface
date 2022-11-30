@@ -32,4 +32,6 @@ export type LabelsProps = {
 
 export type UserActionsProps = {
   thumbCount: number;
+  onLike: () => void;
+  onComment: () => void;
 };

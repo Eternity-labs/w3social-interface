@@ -10,8 +10,10 @@ import FinishPage from '@pages/QuestionPage/FinishPage';
 import QuestionPage from '@pages/QuestionPage/TopicPage/index';
 import UnlockUserPage from '@pages/UnlockUserPage';
 import NeedTab from '@pages/MainPage/needTab';
+import NeedDetailPage from '@pages/NeedDetailPage/index';
 import DidList from '@pages/MainPage/didList';
 import DidDetail from '@pages/MainPage/didDetail';
+import MessagePage from '@pages/MessagePage';
 import Square from '@pages/MainPage/square';
 
 const routes: RouteObject[] = [
@@ -34,6 +36,10 @@ const routes: RouteObject[] = [
   {
     path: '/resetPass',
     element: <ResetPassPage />,
+  },
+  {
+    path: '/message',
+    element: <MessagePage />,
   },
   {
     path: '/main',
@@ -68,6 +74,10 @@ const routes: RouteObject[] = [
   {
     path: '/unlock',
     element: <UnlockUserPage />,
+  },
+  {
+    path: '/needDetail',
+    element: <NeedDetailPage />,
   },
   // {
   //   path: '/',
