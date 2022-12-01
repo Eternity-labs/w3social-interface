@@ -6,13 +6,13 @@ interface ImessageCardProps {
   avatar: string;
 }
 const messageCard = (props: ImessageCardProps) => {
-  const list = ['招募开发', 'Token支付', '寻找合伙人'];
+  const list = ['招发', 'Tok付', 'df人'];
 
   return (
-    <div className="h-[52px]">
+    <div className="h-[52px] flex">
       <Avatar className="text-[20px] mr-[14px]">H</Avatar>
-      <div>
-        <div>
+      <div className="flex flex-col flex-1">
+        <div className="flex ">
           <div>此用户身份</div>
           <div>Builder</div>
         </div>

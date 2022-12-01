@@ -1,6 +1,7 @@
 import { CustomTabList, Tab, TabContext, TabPanel } from '@components/Base/CustomTabList';
 import useDidDetail from '@hooks/useDidDetail';
 import Header from './header';
+import MessageCard from './messageCard';
 
 function MessagePage() {
   const { tabIndex, handleTabIndexChange, handleBack } = useDidDetail();
@@ -15,7 +16,7 @@ function MessagePage() {
             <Tab className="pb-0 px-0 min-w-[40px]" label="已读" value="2" />
           </CustomTabList>
           <TabPanel className="h-[180px] p-0 my-[12px] overflow-hidden overflow-y-auto" value="1">
-            <div>新消息</div>
+            <MessageCard />
           </TabPanel>
           <TabPanel className="h-[180px] p-0 my-[12px] overflow-hidden overflow-y-auto" value="2">
             <div>已读</div>
