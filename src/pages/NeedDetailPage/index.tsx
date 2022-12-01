@@ -1,6 +1,7 @@
 import Header from './header';
 import DetailHead from './detailHead';
 import LabelList from './labelList';
+import DragButton from './dragButton';
 
 function NeedDetail() {
   return (
@@ -11,6 +12,7 @@ function NeedDetail() {
         <LabelList className="mt-[20px]" />
         <div className="text-slimGray text-[10px] font-mediu py-[20px]">两周前</div>
       </div>
+      <DragButton />
     </div>
   );
 }
