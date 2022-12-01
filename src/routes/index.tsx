@@ -15,6 +15,7 @@ import DidList from '@pages/MainPage/didList';
 import DidDetail from '@pages/MainPage/didDetail';
 import MessagePage from '@pages/MessagePage';
 import Square from '@pages/MainPage/square';
+import PublishNeedPage from '@pages/publishNeedPage/';
 
 const routes: RouteObject[] = [
   {
@@ -24,6 +25,10 @@ const routes: RouteObject[] = [
   {
     path: '/needTab',
     element: <NeedTab />,
+  },
+  {
+    path: '/publishNeed',
+    element: <PublishNeedPage />,
   },
   {
     path: '/welcome',
