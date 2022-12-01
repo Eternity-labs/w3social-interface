@@ -27,6 +27,6 @@ function ModifyModal(props: RenderModalProps) {
     buttonText: '去登陆',
   };
 
-  return <Modal {...props} options={options} />;
+  return <Modal {...props} options={options} isShowExit={false} />;
 }
 export default ModifyModal;

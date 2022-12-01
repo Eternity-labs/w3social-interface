@@ -5,13 +5,14 @@ import { useRef, useState } from 'react';
 import MuiButton from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import ModifyModal from '@components/Login/ModifyModal';
+import useModal from '@hooks/useModal';
 
 function RegisterPage(): JSX.Element {
   const navigate = useNavigate();
 
   const [code, setCode] = useState<string>('');
   const [vertifyRes, setRes] = useState<string>('');
-  const [isOpen, setOpen] = useState<boolean>(false);
+  const { isOpen, handleClose, handleOpen } = useModal();
   const [modifyValue, setModifyValue] = useState({ email: '', pass: '' });
   const onCodeChange = (data: string) => {
     setCode(data);
@@ -25,7 +26,7 @@ function RegisterPage(): JSX.Element {
     console.log('🚗-code-》', code);
     CodeRef.current.check();
     // 修改成功
-    setOpen(true);
+    handleOpen();
   };
 
   const jumpLoginpage = () => {
@@ -57,7 +58,7 @@ function RegisterPage(): JSX.Element {
         />
         {RegisterButton}
       </div>
-      {isOpen && <ModifyModal isOpen={isOpen} confirm={jumpLoginpage} />}
+      <ModifyModal isOpen={isOpen} confirm={jumpLoginpage} />
     </>
   );
 }
