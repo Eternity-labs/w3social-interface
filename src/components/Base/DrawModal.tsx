@@ -32,7 +32,7 @@ const ExpandRow = styled('div')`
 `;
 export interface BaseDrawProps {
   isOpen: boolean;
-  closeDrawModal: () => void;
+  closeDrawModal: <T>(data?: T) => void;
   children?: JSX.Element;
 }
 function Draw(props: BaseDrawProps) {
