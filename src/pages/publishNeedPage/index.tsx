@@ -1,4 +1,13 @@
+import useDidFilter from '@hooks/useDidFilter';
+import FilterList from './filter';
+
 const publishNeedPage = () => {
-  return <div>dfdff</div>;
+  // const { showDrawer, setShowDrawer } = useDidFilter();
+  return (
+    <div>
+      dff
+      {/* <FilterList isOpen={showDrawer} /> */}
+    </div>
+  );
 };
 export default publishNeedPage;
