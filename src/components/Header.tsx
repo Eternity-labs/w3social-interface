@@ -4,8 +4,8 @@ import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Badge from '@mui/material/Badge';
 import useHeaderHook from '@hooks/useHeader';
 
 export default function MenuAppBar() {
@@ -31,7 +31,9 @@ export default function MenuAppBar() {
           aria-label="menu"
         >
           {needNotify ? (
-            <NotificationsActiveIcon className="animate-pingSlow" />
+            <Badge color="error" variant="dot">
+              <NotificationsIcon />
+            </Badge>
           ) : (
             <NotificationsIcon />
           )}
