@@ -24,6 +24,7 @@
   },
   "plugins": ["react", "import", "@typescript-eslint", "jest"],
   "rules": {
+    "no-param-reassign": "off",
     "react/jsx-props-no-spreading": "off",
     "react-hooks/exhaustive-deps": "off",
     "react/no-array-index-key": "off",
