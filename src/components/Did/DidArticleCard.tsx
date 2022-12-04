@@ -1,3 +1,4 @@
+import useDidArticleCard from '@hooks/useDidArticleCard';
 import Avatar from '@mui/material/Avatar';
 import cn from 'classnames';
 
@@ -12,10 +13,13 @@ interface DidArticleCardProps extends DidBaseArticleCardProps {
 }
 function DidArticleCard(props: DidArticleCardProps) {
   const { title, avatar, userName, children, className } = props;
+
+  const { handleToDetail } = useDidArticleCard();
   return (
     <div
+      onClick={handleToDetail}
       className={cn(
-        'flex flex-col justify-between p-[12px] mb-[12px] rounded-[8px] bg-fSelect',
+        'flex flex-col justify-between p-[12px] mb-[12px] rounded-[8px] bg-white',
         className || ''
       )}
     >
