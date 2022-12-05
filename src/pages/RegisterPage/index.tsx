@@ -36,7 +36,9 @@ function RegisterPage(): JSX.Element {
       code: String(codeRes),
     };
     LoginService.register(params).then(res => {
-      console.log('汽车🚗---》', res);
+      if (res.code === 200 && res.data.token) {
+        navigate('/startQuestion');
+      }
     });
   };
   const RegisterButton = (
@@ -54,7 +56,7 @@ function RegisterPage(): JSX.Element {
       <div className="flex h-full flex-col items-center bg-logoBg rounded-tl-[230px]">
         <div className="mt-[48px]">logo</div>
         {/* 表单 */}
-        <RegisterInputBoxCom onRef={RegisInfoRef} />
+        <RegisterInputBoxCom onRef={RegisInfoRef} type={0} />
         <CodeBox
           len={4}
           className="mt-[50px]"

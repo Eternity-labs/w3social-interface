@@ -25,7 +25,7 @@ class Request {
         if (code !== 200) {
           handleGeneralError(code, message);
         }
-        return res.data.data;
+        return res.data;
       },
       (err: any) => {
         Promise.reject(err);

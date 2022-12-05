@@ -1,32 +1,46 @@
-import CodeBox from '@components/Login/CodeBox';
+import CodeBox, { CodeBoxHandle } from '@components/Login/CodeBox';
 import BackIconCom from '@components/Login/BackIcon';
-import RegisterInputBoxCom from '@components/Login/RegisterInputBox';
+import RegisterInputBoxCom, { RegisterBoxHandle } from '@components/Login/RegisterInputBox';
 import { useRef, useState } from 'react';
 import MuiButton from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import ModifyModal from '@components/Login/ModifyModal';
 import useModal from '@hooks/useModal';
+import { IchangePasswordReq } from '@apis/model/LoginModel';
+import LoginService from '@apis/services/LoginService';
 
 function RegisterPage(): JSX.Element {
   const navigate = useNavigate();
 
   const [code, setCode] = useState<string>('');
-  const [vertifyRes, setRes] = useState<string>('');
-  const { isOpen, handleClose, handleOpen } = useModal();
+  const { isOpen, handleOpen } = useModal();
   const [modifyValue, setModifyValue] = useState({ email: '', pass: '' });
   const onCodeChange = (data: string) => {
     setCode(data);
   };
-  const ChildRef = useRef(!null);
-  const CodeRef = useRef(!null);
+  const ChildRef = useRef<RegisterBoxHandle>();
+  const CodeRef = useRef<CodeBoxHandle>();
 
-  const modify = () => {
-    const value = ChildRef.current.check();
-    setModifyValue(value);
-    console.log('🚗-code-》', code);
-    CodeRef.current.check();
-    // 修改成功
-    handleOpen();
+  const modify = async () => {
+    const regisInfoRes = ChildRef.current!.check();
+    const codeRes = CodeRef.current!.check();
+
+    if (!regisInfoRes || !codeRes) {
+      return;
+    }
+    setModifyValue(regisInfoRes);
+    const params: IchangePasswordReq = {
+      loginInfo: {
+        email: regisInfoRes.email,
+        password: regisInfoRes.pass,
+      },
+      code: String(codeRes),
+    };
+    LoginService.changePassword(params).then(res => {
+      if (res.code === 200 && res.data.token) {
+        handleOpen();
+      }
+    });
   };
 
   const jumpLoginpage = () => {
@@ -58,7 +72,7 @@ function RegisterPage(): JSX.Element {
         />
         {RegisterButton}
       </div>
-      <ModifyModal isOpen={isOpen} confirm={jumpLoginpage} />
+      {isOpen && <ModifyModal isOpen={isOpen} confirm={jumpLoginpage} />}
     </>
   );
 }

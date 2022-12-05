@@ -14,15 +14,13 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     proxy: {
-      '/mock': 'http://localhost:3000',
-      changeOrigin: true,
-      secure: false,
+      '/api': 'http://localhost:3000',
     },
     static: {
       directory: join(__dirname, '../public'),
     },
     hot: true,
-    port: 3001,
+    port: 3000,
   },
   plugins: [
     // new BundleAnalayzerPlugin(),

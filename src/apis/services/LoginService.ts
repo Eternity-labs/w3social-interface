@@ -18,7 +18,7 @@ class LoginServices {
   }
 
   static sendCode(params: ISendCoderReq): Promise<ISendCoderRes> {
-    return request.post(`${pre}/w3social/login/sendCode}`, params);
+    return request.post(`${pre}/w3social/login/sendCode`, params);
   }
 
   static login(params: ILoginReq): Promise<ILoginRes> {

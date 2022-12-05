@@ -3,14 +3,16 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import MuiButton from '@mui/material/Button';
 import { useRef, useImperativeHandle, useState, forwardRef } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
+import LoginServices from '@apis/services/LoginService';
 import InputCom from './Input';
 
 const emialReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 type InputProps = {
   onRef: any;
+  type?: number;
 };
 function RegisterBox(props: InputProps) {
-  const { onRef } = props;
+  const { onRef, type = 1 } = props;
   const emailRef = useRef<HTMLInputElement>();
   const passRef = useRef<HTMLInputElement>();
   const vertifyPassRef = useRef<HTMLInputElement>();
@@ -44,7 +46,7 @@ function RegisterBox(props: InputProps) {
     }
   };
   const checkPass = () => {
-    if (!passRef.current.value) {
+    if (!passRef.current!.value) {
       errorData = {
         ...errorData,
         pass: '密码不能为空',
@@ -75,9 +77,17 @@ function RegisterBox(props: InputProps) {
     }
   };
 
-  const getEmailCode = () => {
+  const getEmailCode = async () => {
     checkEmail();
     setError(errorData);
+    if (!errorData.email) {
+      const res = await LoginServices.sendCode({
+        loginInfo: {
+          email: emailRef.current!.value,
+        },
+        type: 0,
+      });
+    }
   };
   const check = (): null | { email: string; pass: string } => {
     checkEmail();

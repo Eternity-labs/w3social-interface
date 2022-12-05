@@ -7,12 +7,13 @@ import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
 import type { LoginPageUrlParams } from '@routes/types';
+import LoginService from '@apis/services/LoginService';
 import Demo from './demo';
 
 function LoginPage(): JSX.Element {
   const navigate = useNavigate();
-  const emailRef = useRef(!null);
-  const passRef = useRef(!null);
+  const emailRef = useRef<HTMLInputElement>();
+  const passRef = useRef<HTMLInputElement>();
   const initialError = {
     email: '',
     pass: '',
@@ -23,7 +24,7 @@ function LoginPage(): JSX.Element {
     ...initialError,
   };
   const checkEmail = () => {
-    if (!emailRef?.current?.value) {
+    if (!emailRef.current!.value) {
       storageErr = {
         ...storageErr,
         email: '邮箱不能为空',
@@ -37,7 +38,7 @@ function LoginPage(): JSX.Element {
   };
   const checkPass = () => {
     if (!passRef?.current?.value) {
-      console.log(passRef.current.value);
+      console.log(passRef.current!.value);
       storageErr = {
         ...storageErr,
         pass: '密码不能为空',
@@ -49,15 +50,25 @@ function LoginPage(): JSX.Element {
       };
     }
   };
-  const login = () => {
+  const login = async () => {
     checkEmail();
     checkPass();
-    console.log('🚗--》', storageErr);
     setError({ ...storageErr });
+    if (!storageErr.email && !storageErr.pass) {
+      const res = await LoginService.login({
+        loginInfo: {
+          email: emailRef.current!.value,
+          password: passRef.current!.value,
+        },
+      });
+      if (res.code === 200) {
+        navigate('/main');
+      }
+    }
     // 发送请求
   };
   const jumpResetPassPage = () => {
-    const email = emailRef?.current?.value;
+    const email = emailRef.current!.value;
     if (email) {
       navigate(`/resetPass?email=${email}`);
     } else {

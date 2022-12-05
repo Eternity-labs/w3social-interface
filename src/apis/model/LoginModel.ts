@@ -5,7 +5,7 @@ interface ILoginInfo {
   email: string;
   password: string;
 }
-interface IRegiterData {
+export interface IRegiterData {
   token: string;
 }
 // 注册
@@ -16,7 +16,8 @@ export interface IRegisterReq {
 export type IRegisterRes = IResponse<IRegiterData>;
 
 // 发送验证码
-export interface ISendCoderReq extends Omit<ILoginInfo, 'password'> {
+export interface ISendCoderReq {
+  loginInfo: Omit<ILoginInfo, 'password'>;
   type: number;
 }
 // 发送验证码
@@ -30,4 +31,4 @@ export type ILoginRes = IResponse<string>;
 
 // 修改密码
 export type IchangePasswordReq = IRegisterReq;
-export type IchangePasswordRes = ILoginRes;
+export type IchangePasswordRes = IRegisterRes;
