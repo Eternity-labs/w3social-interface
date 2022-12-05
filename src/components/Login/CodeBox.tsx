@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useRef, useState, useEffect, useImperativeHandle } from 'react';
+import { useRef, useState, useEffect, useImperativeHandle, forwardRef } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
 
 interface CodeBoxProps {
@@ -21,8 +21,9 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
   } = props;
   const inputArr = new Array(len).fill('');
   const inputRefs = useRef<any>([]);
-  let storageCode = '';
+  const storageCode = '';
   const [errorText, setError] = useState('');
+  const [curcode, setCode] = useState('');
   const getRef = (dom: any) => {
     if (inputRefs?.current?.length === len) {
       return;
@@ -47,12 +48,15 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
     }
   };
   const onInputValueChange = (index: number, e: any) => {
+    if (errorText) {
+      setError('');
+    }
     let code = '';
     inputRefs.current?.forEach((ref: any) => {
       if (ref?.value) {
         code += ref.value;
       } else {
-        code += ' ';
+        code += '';
       }
     });
 
@@ -67,8 +71,7 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
       const nextInputRef = inputRefs.current[index + 1];
       nextInputRef.focus();
     }
-    console.log('🚗🚗--》', code);
-    storageCode = code;
+    setCode(code);
     onChange?.(code);
   };
   const getInputClassName = (index: number) => {
@@ -88,23 +91,20 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
       inputRefs?.current[0].focus();
     }
   }, [autoFocus]);
-  const check = () => {
-    if (storageCode.length < 4 || isCodeError) {
+  const check = (): string => {
+    if (curcode.length < 4 || isCodeError) {
       setError('验证码错误，请确认后重新输入');
-    } else {
-      setError('');
+      return '';
     }
+    setError('');
+    return curcode;
   };
-  useImperativeHandle(
-    onRef,
-    () => {
-      // 需要将暴露的接口返回出去
-      return {
-        check,
-      };
-    },
-    [check]
-  );
+  useImperativeHandle(onRef, () => {
+    // 需要将暴露的接口返回出去
+    return {
+      check,
+    };
+  });
   return (
     <>
       <div className={className ? `${className}` : 'flex '}>
@@ -134,5 +134,8 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
     </>
   );
 }
+export type CodeBoxHandle = {
+  check: () => string;
+};
 
-export default CodeBox;
+export default forwardRef<CodeBoxHandle, CodeBoxProps>(CodeBox);

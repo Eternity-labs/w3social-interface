@@ -14,7 +14,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/mock': 'http://localhost:3000',
+      changeOrigin: true,
+      secure: false,
     },
     static: {
       directory: join(__dirname, '../public'),
