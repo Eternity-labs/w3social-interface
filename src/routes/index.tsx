@@ -35,6 +35,8 @@ const PublishNeedPage = lazy(() => import('@pages/publishNeedPage'));
 
 const MainPage = lazy(() => import('@pages/MainPage'));
 
+const UserInfoDetail = lazy(() => import('@pages/User'));
+
 function Layout() {
   return (
     <Suspense fallback={<Loading />}>
@@ -112,6 +114,10 @@ const routes: RouteObject[] = [
       {
         path: '/needDetail',
         element: <NeedDetailPage />,
+      },
+      {
+        path: '/userDetail',
+        element: <UserInfoDetail />,
       },
     ],
   },

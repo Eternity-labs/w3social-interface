@@ -5,7 +5,7 @@ import MuiButton from '@mui/material/button';
 import CloseIcon from '@mui/icons-material/Close';
 
 const CustomModal = styled(Dialog)({});
-type RenderModalProps = {
+export type RenderModalProps = {
   children?: any;
   isOpen: boolean;
   confirm?: () => void;
@@ -24,7 +24,7 @@ function Modal(props: RenderModalProps) {
     <MuiButton
       onClick={confirm}
       variant="contained"
-      className=" w-[80px] h-[27px] mt-[45px] rounded-full bg-black text-[12px]"
+      className="w-[80px] h-[27px] mt-[45px] rounded-full bg-black flex items-center justify-center text-[12px]"
     >
       {options?.buttonText}
     </MuiButton>
