@@ -1,10 +1,13 @@
 import { rest } from 'msw';
 import baseResponse from './index';
-import trendingListJson from './data/trendingList.json';
+import registerJson from './data/register.json';
 
 const handles = [
-  rest.get('/tending/list', (req, res, ctx) => {
-    return res(ctx.json(baseResponse(trendingListJson)));
+  rest.post('/mock/w3social/login/register', (req, res, ctx) => {
+    return res(ctx.json(baseResponse(registerJson)));
+  }),
+  rest.post('/mock/w3social/login/changePassword', (req, res, ctx) => {
+    return res(ctx.json(baseResponse(registerJson)));
   }),
 ];
 export default handles;

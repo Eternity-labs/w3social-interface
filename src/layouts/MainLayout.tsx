@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 function MainLayout(): JSX.Element {
   return (
-    <section>
+    <section className="h-full">
       <Outlet />
     </section>
   );

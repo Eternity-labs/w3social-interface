@@ -1,25 +1,45 @@
-import CodeBox from '@components/Login/CodeBox';
+import CodeBox, { CodeBoxHandle } from '@components/Login/CodeBox';
 import BackIconCom from '@components/Login/BackIcon';
-import RegisterInputBoxCom from '@components/Login/RegisterInputBox';
+import RegisterInputBoxCom, { RegisterBoxHandle } from '@components/Login/RegisterInputBox';
 import { useRef, useState } from 'react';
 import MuiButton from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import LoginService from '@apis/services/LoginService';
+import { IRegisterReq } from '@apis/model/LoginModel';
 
 function RegisterPage(): JSX.Element {
+  const navigate = useNavigate();
   const [code, setCode] = useState<string>('');
   const [vertifyRes, setRes] = useState<string>('');
 
   const onCodeChange = (data: string) => {
     setCode(data);
   };
-  const ChildRef = useRef(!null);
-  const CodeRef = useRef(!null);
+  const RegisInfoRef = useRef<RegisterBoxHandle>();
+  const CodeRef = useRef<CodeBoxHandle>();
 
   const register = () => {
-    const a = ChildRef.current.check();
-    console.log('🚗--》', a);
-    console.log('🚗-code-》', code);
-    CodeRef.current.check();
+    const regisInfoRes = RegisInfoRef.current!.check();
+    const codeRes = CodeRef.current!.check();
+
+    if (!regisInfoRes || !codeRes) {
+      return;
+    }
+    console.log(regisInfoRes);
+    console.log(codeRes);
+
+    const params: IRegisterReq = {
+      loginInfo: {
+        email: regisInfoRes.email,
+        password: regisInfoRes.pass,
+      },
+      code: String(codeRes),
+    };
+    LoginService.register(params).then(res => {
+      if (res.code === 200 && res.data.token) {
+        navigate('/startQuestion');
+      }
+    });
   };
   const RegisterButton = (
     <MuiButton
@@ -36,7 +56,7 @@ function RegisterPage(): JSX.Element {
       <div className="flex h-full flex-col items-center bg-logoBg rounded-tl-[230px]">
         <div className="mt-[48px]">logo</div>
         {/* 表单 */}
-        <RegisterInputBoxCom onRef={ChildRef} />
+        <RegisterInputBoxCom onRef={RegisInfoRef} type={0} />
         <CodeBox
           len={4}
           className="mt-[50px]"
@@ -44,7 +64,7 @@ function RegisterPage(): JSX.Element {
           onRef={CodeRef}
           isCodeError={false}
         />
-        <Link to="/startquestion">{RegisterButton}</Link>
+        {RegisterButton}
       </div>
     </>
   );

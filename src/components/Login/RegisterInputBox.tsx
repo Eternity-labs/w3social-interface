@@ -1,19 +1,21 @@
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import MuiButton from '@mui/material/Button';
-import { useRef, useImperativeHandle, useState } from 'react';
+import { useRef, useImperativeHandle, useState, forwardRef } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
+import LoginServices from '@apis/services/LoginService';
 import InputCom from './Input';
 
 const emialReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 type InputProps = {
   onRef: any;
+  type?: number;
 };
 function RegisterBox(props: InputProps) {
-  const { onRef } = props;
-  const emailRef = useRef(!null);
-  const passRef = useRef(!null);
-  const vertifyPassRef = useRef(!null);
+  const { onRef, type = 1 } = props;
+  const emailRef = useRef<HTMLInputElement>();
+  const passRef = useRef<HTMLInputElement>();
+  const vertifyPassRef = useRef<HTMLInputElement>();
 
   const [errorObj, setError] = useState<any>({
     email: '',
@@ -26,12 +28,12 @@ function RegisterBox(props: InputProps) {
     vertifyPass: '',
   };
   const checkEmail = () => {
-    if (!emailRef.current.value) {
+    if (!emailRef.current!.value) {
       errorData = {
         ...errorData,
         email: '邮箱不能为空',
       };
-    } else if (!emialReg.test(emailRef.current.value)) {
+    } else if (!emialReg.test(emailRef.current!.value)) {
       errorData = {
         ...errorData,
         email: '邮箱不符合规范',
@@ -44,7 +46,7 @@ function RegisterBox(props: InputProps) {
     }
   };
   const checkPass = () => {
-    if (!passRef.current.value) {
+    if (!passRef.current!.value) {
       errorData = {
         ...errorData,
         pass: '密码不能为空',
@@ -57,12 +59,12 @@ function RegisterBox(props: InputProps) {
     }
   };
   const checkVertifyPass = () => {
-    if (!vertifyPassRef.current.value) {
+    if (!vertifyPassRef.current!.value) {
       errorData = {
         ...errorData,
         vertifyPass: '确认密码不能为空',
       };
-    } else if (vertifyPassRef.current.value !== passRef.current.value) {
+    } else if (vertifyPassRef.current!.value !== passRef.current!.value) {
       errorData = {
         ...errorData,
         vertifyPass: '密码不一致',
@@ -75,19 +77,30 @@ function RegisterBox(props: InputProps) {
     }
   };
 
-  const getEmailCode = () => {
+  const getEmailCode = async () => {
     checkEmail();
     setError(errorData);
+    if (!errorData.email) {
+      const res = await LoginServices.sendCode({
+        loginInfo: {
+          email: emailRef.current!.value,
+        },
+        type: 0,
+      });
+    }
   };
-  const check = () => {
+  const check = (): null | { email: string; pass: string } => {
     checkEmail();
     checkPass();
     checkVertifyPass();
     setError(errorData);
-    return {
-      email: emailRef.current.value,
-      pass: passRef.current.value,
-    };
+    if (!errorData.email && !errorData.vertifyPass && !errorData.pass) {
+      return {
+        email: emailRef.current!.value,
+        pass: passRef.current!.value,
+      };
+    }
+    return null;
   };
   const endAdornmentCom = (
     <MuiButton
@@ -98,16 +111,12 @@ function RegisterBox(props: InputProps) {
       获取验证码
     </MuiButton>
   );
-  useImperativeHandle(
-    onRef,
-    () => {
-      // 需要将暴露的接口返回出去
-      return {
-        check,
-      };
-    },
-    [check]
-  );
+  useImperativeHandle(onRef, () => {
+    // 需要将暴露的接口返回出去
+    return {
+      check,
+    };
+  });
   const errorTipCSS = 'w-[250px] pl-[16px]';
   return (
     <>
@@ -132,5 +141,8 @@ function RegisterBox(props: InputProps) {
     </>
   );
 }
+export type RegisterBoxHandle = {
+  check: () => { email: string; pass: string };
+};
 
-export default RegisterBox;
+export default forwardRef<RegisterBoxHandle, InputProps>(RegisterBox);

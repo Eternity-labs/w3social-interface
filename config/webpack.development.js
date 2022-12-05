@@ -20,7 +20,7 @@ module.exports = {
       directory: join(__dirname, '../public'),
     },
     hot: true,
-    port: 3001,
+    port: 3000,
   },
   plugins: [
     // new BundleAnalayzerPlugin(),

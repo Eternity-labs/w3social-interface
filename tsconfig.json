@@ -33,6 +33,7 @@
       "@states/*": ["src/states/*"],
       "@utils/*": ["src/utils/*"],
       "@lib/*": ["src/lib/*"],
+      "@apis/*": ["src/apis/*"],
       "@type/*": ["src/types/*"],
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
