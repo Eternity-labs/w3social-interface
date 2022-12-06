@@ -18,7 +18,6 @@ const CusDraw = styled(Drawer)({
 });
 
 const DrawContentBox = styled('div')({
-  'min-height': '45vh',
   padding: '0 16px',
   'box-sizing': 'border-box',
 });
@@ -42,7 +41,7 @@ function Draw(props: BaseDrawProps) {
       <CusDraw anchor="bottom" open={isOpen} onClose={closeDrawModal}>
         <DrawContentBox>
           <ExpandRow onClick={closeDrawModal}>
-            <IconButton edge="start" className="text-black  mx-0 text-[16px]" aria-label="expand">
+            <IconButton edge="start" className="text-black  mx-0 text-[32px]" aria-label="expand">
               <ExpandMoreIcon />
             </IconButton>
           </ExpandRow>

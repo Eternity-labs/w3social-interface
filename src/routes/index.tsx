@@ -37,6 +37,12 @@ const MainPage = lazy(() => import('@pages/MainPage'));
 
 const UserInfoDetail = lazy(() => import('@pages/User'));
 
+const About = lazy(() => import('@pages/User/about'));
+
+const Setting = lazy(() => import('@pages/User/setting'));
+
+const UserDetail = lazy(() => import('@pages/User/detail'));
+
 function Layout() {
   return (
     <Suspense fallback={<Loading />}>
@@ -116,8 +122,20 @@ const routes: RouteObject[] = [
         element: <NeedDetailPage />,
       },
       {
-        path: '/userDetail',
+        path: '/user',
         element: <UserInfoDetail />,
+      },
+      {
+        path: '/about',
+        element: <About />,
+      },
+      {
+        path: '/setting',
+        element: <Setting />,
+      },
+      {
+        path: '/userDetail',
+        element: <UserDetail />,
       },
     ],
   },
