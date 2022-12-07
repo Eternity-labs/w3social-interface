@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 import GlobalToast from '@components/Base/Toast';
 import ErrorTip from '@components/Base/ErrorTip';
 import cn from 'classnames';
-// import { useAtom } from 'jotai';
-// import { GolbalToastAtom } from '@states/index';
 
 const CusRadio = styled(MuiRadio)({
   width: '16px',

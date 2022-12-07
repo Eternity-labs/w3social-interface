@@ -1,4 +1,3 @@
-import { IntSupportOption } from 'prettier';
 import type { IResponse } from './common';
 
 interface ILoginInfo {

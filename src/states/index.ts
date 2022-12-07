@@ -1,7 +1,5 @@
-import { atom } from 'jotai';
+import { atomWithImmer } from 'jotai-immer';
+import type { UserInfo } from '@apis/model/UserModel';
 
-const GolbalToastAtom = atom({
-  isOpen: false,
-  message: '',
-});
-export { GolbalToastAtom };
+const userInfo = atomWithImmer<UserInfo>(null);
+export { userInfo };
