@@ -14,7 +14,7 @@ import request from '@apis/request';
 const pre = process.env.NODE_ENV === 'development' ? '/mock' : '';
 class LoginServices {
   static register(params: IRegisterReq): Promise<IRegisterRes> {
-    return request.post(`${pre}/w3social/login/register`, { data: params });
+    return request.post(`${pre}/w3social/login/register`, params);
   }
 
   static sendCode(params: ISendCoderReq): Promise<ISendCoderRes> {
@@ -22,7 +22,7 @@ class LoginServices {
   }
 
   static login(params: ILoginReq): Promise<ILoginRes> {
-    return request.post(`${pre}/w3social/login/sendCode`, params);
+    return request.post(`${pre}/w3social/login/login`, params);
   }
 
   static changePassword(params: IchangePasswordReq): Promise<IchangePasswordRes> {

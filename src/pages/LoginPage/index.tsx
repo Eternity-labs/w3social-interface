@@ -8,7 +8,6 @@ import { useRef, useState } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
 import type { LoginPageUrlParams } from '@routes/types';
 import LoginService from '@apis/services/LoginService';
-import Demo from './demo';
 
 function LoginPage(): JSX.Element {
   const navigate = useNavigate();
@@ -77,7 +76,6 @@ function LoginPage(): JSX.Element {
   };
   return (
     <div className="flex h-full flex-col items-center bg-logoBg rounded-bl-[230px]">
-      <Demo />
       <div>logo</div>
       <div className="w-[250px] mt-[64px]">
         <InputCom

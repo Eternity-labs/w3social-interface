@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import AppRoutes from '@routes/index';
 import { StyledEngineProvider, ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { Toaster } from 'react-hot-toast';
 
 const queryClient = new QueryClient();
 const rootElement = document.getElementById('main');
@@ -38,6 +39,7 @@ function App(): JSX.Element {
           <Router>
             <AppRoutes />
           </Router>
+          <Toaster toastOptions={{ duration: 2000, id: 'info' }} />
         </ThemeProvider>
       </StyledEngineProvider>
     </QueryClientProvider>

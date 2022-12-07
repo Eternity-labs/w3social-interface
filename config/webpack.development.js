@@ -15,6 +15,7 @@ module.exports = {
     historyApiFallback: true,
     proxy: {
       '/api': 'http://localhost:3000',
+      '/w3social':'http://114.55.67.80:8081'
     },
     static: {
       directory: join(__dirname, '../public'),

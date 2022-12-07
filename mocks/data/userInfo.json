@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "email": "autumndesea@qq.com",
+  "phone": "176****2433",
+  "loginId": 1,
+  "nickname": "kk",
+  "birthday": null,
+  "identity": "1",
+  "wechat": "lance",
+  "headSculpture": "1",
+  "hide": 1,
+  "gender": null,
+  "city": "北京",
+  "profession": null,
+  "education": "本科",
+  "question": null,
+  "lastIdentity": null,
+  "createTime": "2022-09-24T05:49:03.000+0000",
+  "updateTime": "2022-09-28T07:58:48.000+0000"
+
+}

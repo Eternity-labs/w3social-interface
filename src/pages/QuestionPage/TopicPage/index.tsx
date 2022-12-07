@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import MuiButton from '@mui/material/Button';
-import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import SelectBox from './selectBox';
 
 function TopicPage() {
@@ -78,7 +78,7 @@ function TopicPage() {
   };
   const next = () => {
     if (!topicList[index].value) {
-      toast('请选择...', { duration: 2000, id: 'error' });
+      toast('请选择...');
       return;
     }
     if (index === topicList.length - 1) {
@@ -127,7 +127,6 @@ function TopicPage() {
           {index === topicList.length - 1 ? '完成' : '下一题'}
         </MuiButton>
       </div>
-      <Toaster toastOptions={{}} />
     </div>
   );
 }
