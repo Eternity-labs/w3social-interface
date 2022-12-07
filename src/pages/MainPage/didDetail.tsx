@@ -6,9 +6,12 @@ import WishList from '@components/Did/WishList';
 import ButtonActions from '@components/Did/BottomActions';
 import DidArticleCard from '@components/Did/DidArticleCard';
 import { CustomTabList, Tab, TabContext, TabPanel } from '@components/Base/CustomTabList';
+import useButtonActions from '@hooks/useBottomActions';
+import NotifyDialog from '@components/NotifyDialog';
 
 function DidDetail() {
   const { tabIndex, handleTabIndexChange, handleBack } = useDidDetail();
+  const { modelProps, handleCheckArticle, handleGetUserInfo } = useButtonActions();
 
   return (
     <div className="p-[16px] pb-[60px] h-full box-border bg-green relative">
@@ -50,7 +53,8 @@ function DidDetail() {
       </TabContext>
       <LocalFooter />
       <WishList />
-      <ButtonActions />
+      <ButtonActions onArticle={handleCheckArticle} onUserName={handleGetUserInfo} />
+      <NotifyDialog {...modelProps} />
     </div>
   );
 }
