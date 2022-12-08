@@ -20,7 +20,7 @@ const CusFormControlLabel = styled(FormControlLabel)({
   },
 });
 function CheckItem(props: CheckItemProps) {
-  const { checked, onChange, label, id, index } = props;
+  const { checked = false, onChange, label, index = 0 } = props;
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.checked, index);
   };
@@ -31,7 +31,14 @@ function CheckItem(props: CheckItemProps) {
         'text-[#494949] text-[9px] border border-solid rounded-full border-[#494949]',
         checked ? 'border-[#0DCE71] text-[#0DCE71]' : ''
       )}
-      control={<Checkbox checked={checked} style={{ display: 'none' }} onChange={handleChange} />}
+      control={
+        <Checkbox
+          checked={checked}
+          style={{ display: 'none' }}
+          onChange={handleChange}
+          inputProps={{ 'aria-label': 'controlled' }}
+        />
+      }
     />
   );
 }

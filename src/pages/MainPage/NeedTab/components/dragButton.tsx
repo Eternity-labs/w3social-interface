@@ -1,4 +1,4 @@
-import Draggable from 'react-draggable';
+import AddIcon from '@mui/icons-material/Add';
 
 type DragButtonprops = {
   onClick?: () => void;
@@ -16,13 +16,9 @@ function dragButton(props: DragButtonprops) {
   };
   return (
     <div onClick={publishNeed}>
-      {/* <Draggable axis="y" defaultPosition={defaultPosition} bounds="parent"> */}
-      <div>
-        <div className="fixed bottom-[80px] right-[0px] text-white bg-black w-[45px] h-[45px] rounded-full text-center">
-          发帖
-        </div>
+      <div className="fixed bottom-[100px] right-[20px] text-white bg-opacityButton w-[50px] h-[50px] rounded-full flex items-center justify-center">
+        <AddIcon className="text-[40px]" />
       </div>
-      {/* </Draggable> */}
     </div>
   );
 }

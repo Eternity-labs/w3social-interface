@@ -4,8 +4,8 @@ import { VariableSizeList as List } from 'react-window';
 import { forwardRef } from 'react';
 import UseModal from '@hooks/useModal';
 import type { ListChildComponentProps } from 'react-window';
-import DragButton from './dragButton';
-import PermissionsFailModal from './permissionsFailModal';
+import DragButton from './components/dragButton';
+import PermissionsFailModal from './components/permissionsFailModal';
 
 const PADDING_SIZE = 10;
 function needPage() {

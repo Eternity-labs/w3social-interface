@@ -5,8 +5,6 @@ import '@assets/styles/loginPage.css';
 import MuiButton from '@mui/material/Button';
 import MuiRadio from '@mui/material/Radio';
 import { Link } from 'react-router-dom';
-import GlobalToast from '@components/Base/Toast';
-import ErrorTip from '@components/Base/ErrorTip';
 import cn from 'classnames';
 
 const CusRadio = styled(MuiRadio)({
@@ -20,6 +18,7 @@ const CusRadio = styled(MuiRadio)({
 type ExploreButtonProps = {
   onClick?: () => void;
 };
+
 function ExploreButton(props: ExploreButtonProps): JSX.Element {
   const { onClick = () => {} } = props;
   return (
@@ -74,9 +73,11 @@ function WelcomePage(): JSX.Element {
                 },
               }}
             />
-            <p className={cn('text-[8px] text-[gray]', error ? 'text-[#F34747]' : '')}>
-              同意服务条款勾选此项声明
-            </p>
+            <Link to="/protocal?pageName=agreement">
+              <p className={cn('text-[8px]', 'text-slimGray', error ? 'text-[#F34747]' : '')}>
+                同意服务条款勾选此项声明
+              </p>
+            </Link>
           </div>
           {selectedValue ? (
             <Link to="/register">

@@ -86,7 +86,6 @@ function TopicPage() {
   const handleSelect = (value: any) => {
     const info = topicList[index];
     info.value = value;
-    console.log('🍌🍌--》', info);
     setCurSelectInfo(info);
   };
 

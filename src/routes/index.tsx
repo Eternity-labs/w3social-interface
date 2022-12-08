@@ -19,7 +19,7 @@ const QuestionPage = lazy(() => import('@pages/QuestionPage/TopicPage/index'));
 
 const UnlockUserPage = lazy(() => import('@pages/UnlockUserPage'));
 
-const NeedTab = lazy(() => import('@pages/MainPage/needTab'));
+const NeedTab = lazy(() => import('@pages/MainPage/NeedTab/needTab'));
 
 const NeedDetailPage = lazy(() => import('@pages/NeedDetailPage/index'));
 
@@ -42,6 +42,7 @@ const About = lazy(() => import('@pages/User/about'));
 const Setting = lazy(() => import('@pages/User/setting'));
 
 const UserDetail = lazy(() => import('@pages/User/detail'));
+const ProtocalPage = lazy(() => import('@pages/ProtocalPage'));
 
 const Wallet = lazy(() => import('@pages/Wallet/index'));
 
@@ -64,6 +65,10 @@ const routes: RouteObject[] = [
       {
         path: '/needTab',
         element: <NeedTab />,
+      },
+      {
+        path: '/protocal',
+        element: <ProtocalPage />,
       },
       {
         path: '/publishNeed',
