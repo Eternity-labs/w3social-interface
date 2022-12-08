@@ -25,6 +25,7 @@ module.exports = {
         grey: '#666666',
         fSelect: '#0DCE71',
         oMainColor: 'rgba(114, 249, 184, 0.2)',
+        opacityButton: 'rgba(114, 249, 184, 0.8)',
         labelBg: 'rgba(114, 249, 184, 0.4)',
         mainBgColor: 'linear-gradient(180deg, #72F9B8 0%, #DAFFC3 173.8%)',
       },

@@ -16,7 +16,7 @@ function Header(props: Headerprops) {
   return (
     <div className="fixed h-[44px] w-full flex items-center justify-between pr-[10px] bg-white z-10">
       {left || (
-        <div onClick={back} className="h-[36px]">
+        <div onClick={back} className="w-[44px] h-[44px] flex items-center justify-center">
           <ArrowBackIosIcon className="text-[#C1C1C1] p-[8px] text-[36px]" />
         </div>
       )}

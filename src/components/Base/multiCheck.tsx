@@ -1,15 +1,15 @@
-import CheckItem from './checkItem';
+import CheckItem from './CheckItem';
 
 interface MultiCheckprops {
-  onChange: (value: any, index?: number) => void;
+  onChange: (value: any, index: number) => void;
   selectList: Array<any>;
   className?: string;
 }
 function MultiCheck(props: MultiCheckprops) {
   const { selectList, onChange, className } = props;
 
-  const handleChange = (value: boolean, index: number = 0) => {
-    onChange(value, index);
+  const handleChange = (value: boolean, index: number) => {
+    onChange(value, index || 0);
   };
   return (
     <div className={className || ''}>

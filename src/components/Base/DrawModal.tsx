@@ -39,7 +39,7 @@ function Draw(props: BaseDrawProps) {
   return (
     <div className="flex">
       <CusDraw anchor="bottom" open={isOpen} onClose={closeDrawModal}>
-        <DrawContentBox>
+        <DrawContentBox className="pb-[30px]">
           <ExpandRow onClick={closeDrawModal}>
             <IconButton edge="start" className="text-black  mx-0 text-[32px]" aria-label="expand">
               <ExpandMoreIcon />

@@ -11,7 +11,7 @@ import {
 } from '@apis/model/LoginModel';
 import request from '@apis/request';
 
-const pre = process.env.NODE_ENV === 'development' ? '/mock' : '';
+const pre = process.env.NODE_ENV === 'development' ? '' : '';
 class LoginServices {
   static register(params: IRegisterReq): Promise<IRegisterRes> {
     return request.post(`${pre}/w3social/login/register`, params);
