@@ -22,6 +22,21 @@ class SquareService {
   static getTagList(): Promise<GetTagsRes> {
     return request.get(`${pre}/w3social/square/moment/getTagList`);
   }
+
+  // 点赞
+  static likeMoment(): Promise<GetTagsRes> {
+    return request.get(`${pre}/w3social/square/moment/like`);
+  }
+
+  // 取消点赞
+  static unLikeMoment(): Promise<GetTagsRes> {
+    return request.get(`${pre}/w3social/square/moment/unLike`);
+  }
+
+  // 分页查询
+  static getMoment(): Promise<GetTagsRes> {
+    return request.get(`${pre}/w3social/square/moment/getMoment`);
+  }
 }
 
 export default SquareService;

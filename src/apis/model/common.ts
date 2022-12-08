@@ -4,3 +4,10 @@ export interface IResponse<T> {
   message?: string;
   data: T;
 }
+export interface ISearchList {
+  page: number;
+  size: number;
+}
+export interface ISearchID {
+  id: number;
+}
