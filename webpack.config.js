@@ -58,6 +58,7 @@ const webpackBaseConfig = {
       '@config': resolve('src/config'),
       '@layouts': resolve('src/layouts'),
       '@constants': resolve('src/constants'),
+      '@connector': resolve('src/connector'),
       '@mui/styled-engine': '@mui/styled-engine-sc',
     },
     extensions: ['.js', '.ts', '.tsx', 'jsx', 'json'],
