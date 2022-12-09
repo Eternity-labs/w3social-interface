@@ -10,7 +10,7 @@ interface CodeBoxProps {
   onRef: any;
   isCodeError: boolean;
 }
-function CodeBox(props: CodeBoxProps): JSX.Element {
+function CodeBox(props: CodeBoxProps, refValue: unknown) {
   const {
     len = 4,
     onChange,
@@ -20,25 +20,24 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
     isCodeError = false,
   } = props;
   const inputArr = new Array(len).fill('');
-  const inputRefs = useRef<any>([]);
+  const inputRefs = useRef<Array<HTMLInputElement>>([]);
   const storageCode = '';
   const [errorText, setError] = useState('');
   const [curcode, setCode] = useState('');
-  const getRef = (dom: any) => {
-    if (inputRefs?.current?.length === len) {
+  const getRef = (dom: HTMLInputElement) => {
+    if (inputRefs.current?.length === len) {
       return;
     }
     inputRefs.current.push(dom);
   };
-  const onInputKeyDown = (e: any, index: number) => {
+  const onInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
     switch (e.key) {
       case 'Backspace':
-        if (index > 0 && !e.target.value) {
+        if (index > 0 && (e.target as HTMLInputElement).value) {
           const currentInputRef = inputRefs.current[index];
           currentInputRef.value = '';
           const prevInputRef = inputRefs.current[index - 1];
           prevInputRef.focus();
-          // prevInputRef.select();
           e.preventDefault();
         }
         break;
@@ -47,12 +46,12 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
       }
     }
   };
-  const onInputValueChange = (index: number, e: any) => {
+  const onInputValueChange = (index: number, e: React.ChangeEvent<HTMLInputElement>) => {
     if (errorText) {
       setError('');
     }
     let code = '';
-    inputRefs.current?.forEach((ref: any) => {
+    inputRefs.current?.forEach((ref: HTMLInputElement) => {
       if (ref?.value) {
         code += ref.value;
       } else {
@@ -61,13 +60,13 @@ function CodeBox(props: CodeBoxProps): JSX.Element {
     });
 
     // 判断是删除操作
-    if (index > 0 && !e.target.value) {
+    if (index > 0 && (e.target as HTMLInputElement).value) {
       const prevInputRef = inputRefs.current[index - 1];
       prevInputRef.focus();
     }
 
     // 判断是写入操作
-    if (index < len - 1 && e.target.value) {
+    if (index < len - 1 && (e.target as HTMLInputElement).value) {
       const nextInputRef = inputRefs.current[index + 1];
       nextInputRef.focus();
     }

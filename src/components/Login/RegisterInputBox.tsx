@@ -11,7 +11,7 @@ type InputProps = {
   onRef: any;
   type?: number;
 };
-function RegisterBox(props: InputProps) {
+function RegisterBox(props: InputProps, ref: any) {
   const { onRef, type = 1 } = props;
   const emailRef = useRef<HTMLInputElement>();
   const passRef = useRef<HTMLInputElement>();
