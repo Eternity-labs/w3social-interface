@@ -44,6 +44,8 @@ const Setting = lazy(() => import('@pages/User/setting'));
 const UserDetail = lazy(() => import('@pages/User/detail'));
 const ProtocalPage = lazy(() => import('@pages/ProtocalPage'));
 
+const Wallet = lazy(() => import('@pages/Wallet/index'));
+
 function Layout() {
   return (
     <Suspense fallback={<Loading />}>
@@ -141,6 +143,10 @@ const routes: RouteObject[] = [
       {
         path: '/userDetail',
         element: <UserDetail />,
+      },
+      {
+        path: '/wallet',
+        element: <Wallet />,
       },
     ],
   },
