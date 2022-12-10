@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
-import Loading from '@components/Loading';
+import Loading from '@components/common/Loading';
 import MainLayout from '@layouts/MainLayout';
 
 const LoginPage = lazy(() => import('@pages/LoginPage'));
@@ -45,6 +45,7 @@ const UserDetail = lazy(() => import('@pages/User/detail'));
 const ProtocalPage = lazy(() => import('@pages/ProtocalPage'));
 
 const Wallet = lazy(() => import('@pages/Wallet/index'));
+const NotFoundPage = lazy(() => import('@pages/NotFoundPage/index'));
 
 function Layout() {
   return (
@@ -148,6 +149,7 @@ const routes: RouteObject[] = [
         path: '/wallet',
         element: <Wallet />,
       },
+      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ];

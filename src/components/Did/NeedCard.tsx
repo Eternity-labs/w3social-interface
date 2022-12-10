@@ -1,26 +1,27 @@
 import UserActions from '@components/Base/UserActions';
 import cn from 'classnames';
+import SquareService from '@apis/services/SquareService';
 import DidArticleCard from './DidArticleCard';
 import type { DidBaseArticleCardProps } from './DidArticleCard';
 // interface NeedCardProps extends DidBaseArticleCardProps {
 //   entryDetail: () => void;
 // }
-
-function NeedCard(props: DidBaseArticleCardProps) {
-  const { title, avatar, userName, className } = props;
+interface NeedCardProps {
+  id: number;
+  onLike: () => void;
+}
+function NeedCard(props: DidBaseArticleCardProps & NeedCardProps) {
+  const { content, avatar, userName, className, isLike, likes = 0, onLike, id } = props;
   const DidArticleCardProps = {
-    title,
+    content,
     avatar,
     userName,
-  };
-  const onLike = () => {
-    // eslint-disable-next-line no-alert
-    alert('点赞');
+    id,
   };
   const onComment = () => {};
   return (
     <DidArticleCard {...DidArticleCardProps} className={cn('bg-gray-200', className || '')}>
-      <UserActions thumbCount={1} onLike={onLike} onComment={onComment} />
+      <UserActions thumbCount={likes} onLike={onLike} onComment={onComment} isLike={!!isLike} />
     </DidArticleCard>
   );
 }

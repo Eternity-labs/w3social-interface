@@ -8,7 +8,15 @@ import { Toaster } from 'react-hot-toast';
 import DataContainer from '@layouts/DataContainer';
 import WalletProvider from '@layouts/WalletProvider';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 const rootElement = document.getElementById('main');
 
 const theme = createTheme({
@@ -44,7 +52,15 @@ function App(): JSX.Element {
           <Router>
             <AppRoutes />
           </Router>
-          <Toaster toastOptions={{ duration: 2000, id: 'info' }} />
+          <Toaster
+            toastOptions={{
+              duration: 2000,
+              style: {
+                fontSize: '12px',
+                padding: '4px 8px',
+              },
+            }}
+          />
         </ThemeProvider>
       </StyledEngineProvider>
     </QueryClientProvider>

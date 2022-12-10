@@ -34,9 +34,8 @@ class Request {
         const { data, code, message } = res.data;
         if (code !== 200) {
           handleGeneralError(code, message);
-        }
-        if (tokenUrl.indexOf(res.config.url || '') > 0) {
-          localStorage.setItem('w3SocialThoen', data.token);
+        } else if (tokenUrl.indexOf(res.config.url || '') > 0) {
+          localStorage.setItem('w3SocialThoen', data?.token);
         }
         return res.data;
       },

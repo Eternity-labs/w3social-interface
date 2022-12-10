@@ -19,14 +19,14 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   },
 }));
 function UserActions(props: UserActionsProps) {
-  const { thumbCount = 0, onLike, onComment } = props;
+  const { thumbCount = 0, onLike, onComment, isLike } = props;
 
   const iconCss = 'h-[30px] flex items-center pl-[5px] pr-[5px]';
   return (
     <div className="flex items-center justify-center w-[100px] text-[10px] h-[40px]">
       <div onClick={onLike} className={iconCss}>
-        <StyledBadge badgeContent={thumbCount || ''}>
-          {thumbCount ? (
+        <StyledBadge badgeContent={thumbCount || 0}>
+          {isLike ? (
             <ThumbUpAltIcon className="text-fSelect text-[16px]" />
           ) : (
             <ThumbUpAltOutlinedIcon className="text-[16px]" />

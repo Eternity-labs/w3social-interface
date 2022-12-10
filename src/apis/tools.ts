@@ -6,7 +6,7 @@ export const handleGeneralError = (errno: number, errmsg: string) => {
   if (errno === 401) {
     toast(errmsg);
   } else {
-    toast(errmsg);
+    toast(errmsg, { id: 'requestError' });
   }
   return true;
 };

@@ -7,7 +7,7 @@ import {
 } from '@apis/model/UserModel';
 import request from '@apis/request';
 
-const pre = process.env.NODE_ENV === 'development' ? '/mock' : '';
+const pre = process.env.NODE_ENV === 'development' ? '' : '';
 class UserServices {
   static getUserInfo(): Promise<IGetUserInfoRes> {
     return request.get(`${pre}/w3socialLogin/user/getUserInfo`);

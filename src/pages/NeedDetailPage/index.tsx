@@ -1,8 +1,14 @@
+import { useSearchParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import SquareService from '@apis/services/SquareService';
 import Header from './header';
 import DetailHead from './detailHead';
 import LabelList from './labelList';
 
 function NeedDetail() {
+  const [searchParams] = useSearchParams();
+  const sourceID = Number(searchParams.get('id')) || 0;
+  const Detail = useQuery('GetMomentDetail', () => SquareService.getMomentById({ id: sourceID }));
   return (
     <div className="">
       <Header />

@@ -7,16 +7,20 @@ import {
   GetMomentByIdReq,
   GetMomentByIdRes,
   GetTagsRes,
+  GetMomentReq,
+  GetMomentRes,
+  LinkOrUnlikeMomentReq,
+  LinkOrUnlikeMomentRes,
 } from '@apis/model/SquareModel';
 
-const pre = process.env.NODE_ENV === 'development' ? '/mock' : '';
+const pre = process.env.NODE_ENV === 'development' ? '' : '';
 class SquareService {
   static addMoment(params: AddMomentReq): Promise<AddMomentRes> {
-    return request.get(`${pre}/w3social/square/moment/addMoment`);
+    return request.post(`${pre}/w3social/square/moment/addMoment`, params);
   }
 
   static getMomentById(params: GetMomentByIdReq): Promise<GetMomentByIdRes> {
-    return request.get(`${pre}/w3social/square/moment/getMomentById`);
+    return request.get(`${pre}/w3social/square/moment/getMomentById`, { params });
   }
 
   static getTagList(): Promise<GetTagsRes> {
@@ -24,18 +28,18 @@ class SquareService {
   }
 
   // 点赞
-  static likeMoment(): Promise<GetTagsRes> {
-    return request.get(`${pre}/w3social/square/moment/like`);
+  static likeMoment(params: LinkOrUnlikeMomentReq): Promise<LinkOrUnlikeMomentRes> {
+    return request.get(`${pre}/w3social/square/moment/like`, { params });
   }
 
   // 取消点赞
-  static unLikeMoment(): Promise<GetTagsRes> {
-    return request.get(`${pre}/w3social/square/moment/unLike`);
+  static unLikeMoment(params: LinkOrUnlikeMomentReq): Promise<LinkOrUnlikeMomentRes> {
+    return request.get(`${pre}/w3social/square/moment/unLike`, { params });
   }
 
   // 分页查询
-  static getMoment(): Promise<GetTagsRes> {
-    return request.get(`${pre}/w3social/square/moment/getMoment`);
+  static getMomentList(params: GetMomentReq): Promise<GetMomentRes> {
+    return request.post(`${pre}/w3social/square/moment/getMoment`, params);
   }
 }
 
