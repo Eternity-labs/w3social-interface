@@ -14,17 +14,6 @@ export function useWalletGlobal() {
     isActivating,
   } = interfaceContext;
   useEffect(() => {
-    console.log(
-      'global wallet:',
-      accounts,
-      chainId,
-      connector,
-      error,
-      isActivating,
-      isActive,
-      library,
-      library?.provider
-    );
     walletTypeStore.setState(draft => {
       draft.chainId = chainId;
       draft.account = accounts?.[0] || '';

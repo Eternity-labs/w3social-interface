@@ -305,16 +305,6 @@ function getAugmentedHooks<T extends Connector>(
   { useAccounts, useChainId }: ReturnType<typeof getStateHooks>,
   { useAccount, useIsActive }: ReturnType<typeof getDerivedHooks>
 ) {
-  /**
-   * Avoid type erasure by returning the most qualified type if not otherwise set.
-   * Note that this function's return type is `T | undefined`, but there is a code path
-   * that returns a Web3Provider, which could conflict with a user-provided T. So,
-   * it's important that users only provide an override for T if they know that
-   * `connector.customProvider` is going to be defined and of type T.
-   *
-   * @typeParam T - A type argument must only be provided if using `connector.customProvider`, in which case it
-   * must match the type of this property.
-   */
   function useProvider<B extends BaseProvider = Web3Provider>(
     network?: Networkish,
     enabled = true
