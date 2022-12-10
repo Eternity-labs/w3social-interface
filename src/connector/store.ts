@@ -23,7 +23,6 @@ export class ChainIdNotAllowedError extends Error {
     super('this network is not supported');
     this.chainId = chainId;
     this.name = ChainIdNotAllowedError.name;
-    // Object.create(this)
     Object.setPrototypeOf(this, ChainIdNotAllowedError.prototype);
   }
 }

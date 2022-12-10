@@ -90,6 +90,20 @@ export function Web3ReactProvider({
   const ENSName = useSelectedENSName(connector, lookupENS ? provider : undefined);
   const error = useSelectedError(connector);
 
+  console.log('provider: ', {
+    connector,
+    chainId,
+    accounts,
+    isActivating,
+    account,
+    isActive,
+    provider,
+    ENSNames,
+    ENSName,
+    hooks,
+    error,
+  });
+
   return (
     <Web3Context.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
