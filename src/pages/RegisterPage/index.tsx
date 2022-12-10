@@ -10,7 +10,6 @@ import { IRegisterReq } from '@apis/model/LoginModel';
 function RegisterPage(): JSX.Element {
   const navigate = useNavigate();
   const [code, setCode] = useState<string>('');
-  const [vertifyRes, setRes] = useState<string>('');
 
   const onCodeChange = (data: string) => {
     setCode(data);

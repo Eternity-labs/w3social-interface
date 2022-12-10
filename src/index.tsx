@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import App from '@pages/App';
 import works from '../mocks/browser';
+import './wdyr';
 
 import '@assets/styles/base.css';
 
