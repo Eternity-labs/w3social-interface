@@ -59,9 +59,6 @@ function PublishNeedPage() {
       });
     } else {
       setTagList(draft => {
-        console.log('🍌---》', draft[index || 0]);
-        console.log('🍌---》', index);
-
         draft[index as number].checked = false;
         return draft;
       });
@@ -70,8 +67,6 @@ function PublishNeedPage() {
   const publish = () => {
     const a = quillInstance.getText();
     setQuillText(a);
-    console.log('🍌---》〉', a);
-
     queryClient.invalidateQueries('AddMoment');
   };
   const rightButton = (

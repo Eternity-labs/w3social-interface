@@ -2,10 +2,6 @@ import axios, { AxiosResponse } from 'axios';
 import type { IResponse } from '@apis/model/common';
 import { handleGeneralError } from './tools';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : '/w3social';
-
-axios.defaults.baseURL = baseURL;
-
 // 添加请求拦截器
 axios.interceptors.request.use(config => {
   if (config.headers) config.headers.Authorization = localStorage.getItem('w3SocialThoen') || '';
@@ -22,7 +18,6 @@ axios.interceptors.response.use(
       // }
       return Promise.reject(new Error(data.message));
     }
-    console.log('🍌香蕉--------》〉》〉》', data.data);
     return data.data;
   },
   error => {

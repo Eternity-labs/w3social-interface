@@ -21,10 +21,8 @@ function NeedPage() {
     // () => Promise.resolve({ data: { records: [{}], totalElements: 1 } })
     () => SquareService.getMomentList({ page, size: 10 })
   );
-  console.log('🍌🍌render.....');
   const LikeComentMutation = useMutation(SquareService.likeMoment, {
     onSuccess: () => {
-      console.log('🍌🍌onSuccess.....');
       QueryClient.invalidateQueries(['needTab', page]);
     },
   });
@@ -43,8 +41,6 @@ function NeedPage() {
   };
   const handleLike = (data: MomentData, index: number) => {
     if (data.isLike) {
-      console.log('🍌🍌isLike.....');
-
       unLikeComentMutation.mutate({ id: data.id });
     } else {
       LikeComentMutation.mutate({ id: data.id });
