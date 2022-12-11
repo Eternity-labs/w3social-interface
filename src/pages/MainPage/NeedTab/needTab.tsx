@@ -59,7 +59,7 @@ function NeedPage() {
               <List
                 className="List"
                 height={height}
-                itemCount={data.data.totalElements}
+                itemCount={data.totalElements}
                 width={width}
                 itemSize={getItemList}
                 initialScrollOffset={20}
@@ -73,9 +73,9 @@ function NeedPage() {
                       }}
                     >
                       <NeedCard
-                        {...data.data.records[index]}
+                        {...data.records[index]}
                         onLike={() => {
-                          handleLike(data.data.records[index], index);
+                          handleLike(data.records[index], index);
                         }}
                       />
                     </div>

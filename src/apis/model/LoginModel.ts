@@ -1,5 +1,3 @@
-import type { IResponse } from './common';
-
 interface ILoginInfo {
   email: string;
   password: string;
@@ -12,7 +10,7 @@ export interface IRegisterReq {
   loginInfo: ILoginInfo;
   code: string;
 }
-export type IRegisterRes = IResponse<IRegiterData>;
+export type IRegisterRes = IRegiterData;
 
 // 发送验证码
 export interface ISendCoderReq {
@@ -20,13 +18,13 @@ export interface ISendCoderReq {
   type: number;
 }
 // 发送验证码
-export type ISendCoderRes = IResponse<string>;
+export type ISendCoderRes = string;
 
 // 登陆
 export interface ILoginReq {
   loginInfo: ILoginInfo;
 }
-export type ILoginRes = IResponse<string>;
+export type ILoginRes = string;
 
 // 修改密码
 export type IchangePasswordReq = IRegisterReq;

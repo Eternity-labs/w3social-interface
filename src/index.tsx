@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import App from '@pages/App';
-
+import '@apis/index';
 import './wdyr';
 
 import '@assets/styles/base.css';

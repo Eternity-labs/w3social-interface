@@ -1,20 +1,19 @@
 // import axios from 'axios';
 
-import request from '@apis/request';
 import { GetAboutsRes, GetAgreementRes, GetPrivacyRes } from '@apis/model/DidModel';
+import axios from 'axios';
 
-const pre = process.env.NODE_ENV === 'development' ? '' : '';
 class DidServices {
   static getAbouts(): Promise<GetAboutsRes> {
-    return request.get(`${pre}/w3social/login/register`);
+    return axios.get(`/login/register`);
   }
 
   static getAgreement(): Promise<GetAboutsRes> {
-    return request.get(`${pre}/w3social/did/getAgreement`);
+    return axios.get(`/did/getAgreement`);
   }
 
   static getPrivacy(): Promise<GetAboutsRes> {
-    return request.get(`${pre}/w3social/did/getPrivacy`);
+    return axios.get(`/did/getPrivacy`);
   }
 }
 

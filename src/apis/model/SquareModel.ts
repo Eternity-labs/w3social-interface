@@ -1,4 +1,4 @@
-import type { IResponse, ISearchList, ISearchID } from './common';
+import type { ISearchList, ISearchID } from './common';
 
 export interface MomentData {
   id: number;
@@ -17,7 +17,7 @@ export interface MomentData {
 export type GetMomentByIdReq = {
   id: number;
 };
-export type GetMomentByIdRes = IResponse<MomentData>;
+export type GetMomentByIdRes = MomentData;
 // 添加帖子
 export type AddMomentReq = {
   moment: {
@@ -27,13 +27,13 @@ export type AddMomentReq = {
     imgs?: string;
   };
 };
-export type AddMomentRes = IResponse<MomentData>;
+export type AddMomentRes = MomentData;
 export interface TagInfo {
   id: number;
   label: string;
   checked?: boolean;
 }
-export type GetTagsRes = IResponse<Array<TagInfo>>;
+export type GetTagsRes = Array<TagInfo>;
 
 export interface GetMomentReq extends ISearchList {
   userId?: number;
@@ -49,7 +49,7 @@ type GetMomentResData = {
   pageSize: number;
   totalPages: number;
 };
-export type GetMomentRes = IResponse<GetMomentResData>;
+export type GetMomentRes = GetMomentResData;
 export type LinkOrUnlikeMomentReq = ISearchID;
-export type LinkOrUnlikeMomentRes = IResponse<null | string>;
-export type UnLinkMomentRes = IResponse<null | string>;
+export type LinkOrUnlikeMomentRes = null | string;
+export type UnLinkMomentRes = null | string;
