@@ -19,8 +19,8 @@ export type Web3ContextType<T extends BaseProvider = Web3Provider> = {
   account: ReturnType<Web3ReactPriorityHooks['useSelectedAccount']>;
   isActive: ReturnType<Web3ReactPriorityHooks['useSelectedIsActive']>;
   provider: T | undefined;
-  ENSNames: ReturnType<Web3ReactPriorityHooks['useSelectedENSNames']>;
-  ENSName: ReturnType<Web3ReactPriorityHooks['useSelectedENSName']>;
+  // ENSNames: ReturnType<Web3ReactPriorityHooks['useSelectedENSNames']>;
+  // ENSName: ReturnType<Web3ReactPriorityHooks['useSelectedENSName']>;
   hooks: ReturnType<typeof getPriorityConnector>;
   error: ReturnType<Web3ReactPriorityHooks['useSelectedError']>;
 };
@@ -67,8 +67,8 @@ export function Web3ReactProvider({
     useSelectedAccount,
     useSelectedIsActive,
     useSelectedProvider,
-    useSelectedENSNames,
-    useSelectedENSName,
+    // useSelectedENSNames,
+    // useSelectedENSName,
     useSelectedError,
   } = hooks;
 
@@ -86,8 +86,8 @@ export function Web3ReactProvider({
   // conflict because Web3Context can't take a generic. however, this isn't particularly
   // important, because useWeb3React (below) is manually typed
   const provider = useSelectedProvider(connector, network);
-  const ENSNames = useSelectedENSNames(connector, lookupENS ? provider : undefined);
-  const ENSName = useSelectedENSName(connector, lookupENS ? provider : undefined);
+  // const ENSNames = useSelectedENSNames(connector, lookupENS ? provider : undefined);
+  // const ENSName = useSelectedENSName(connector, lookupENS ? provider : undefined);
   const error = useSelectedError(connector);
 
   console.log('provider: ', {
@@ -98,8 +98,8 @@ export function Web3ReactProvider({
     account,
     isActive,
     provider,
-    ENSNames,
-    ENSName,
+    // ENSNames,
+    // ENSName,
     hooks,
     error,
   });
@@ -115,8 +115,8 @@ export function Web3ReactProvider({
         account,
         isActive,
         provider,
-        ENSNames,
-        ENSName,
+        // ENSNames,
+        // ENSName,
         hooks,
         error,
       }}

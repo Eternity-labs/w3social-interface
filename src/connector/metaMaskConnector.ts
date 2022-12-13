@@ -44,7 +44,6 @@ export class MetaMask extends Connector {
   }
 
   private async isomorphicInitialize(): Promise<void> {
-    console.log('isomorphicInitialize eagerConnection', this.eagerConnection);
     if (this.eagerConnection) {
       return;
     }
@@ -58,23 +57,19 @@ export class MetaMask extends Connector {
               this.provider.providers.find(p => p.isMetaMask) ?? this.provider.providers[0];
           }
           this.provider.on('connect', ({ chainId }: ProviderConnectInfo): void => {
-            console.log('isomorphicInitialize connect', chainId);
             this.actions.update({ chainId: parseChainId(chainId) });
           });
           this.provider.on('disconnect', (): void => {
-            console.log('isomorphicInitialize disconnect');
             this.actions.reportError(undefined);
             // this.activate();
           });
           this.provider.on('chainChanged', (chainId: string): void => {
-            console.log('isomorphicInitialize chainChanged', chainId);
             this.actions.update({ chainId: parseChainId(chainId) });
           });
           this.provider.on('accountsChanged', async (accounts: string[]): Promise<void> => {
             if (accounts.length === 0) {
               this.actions.reportError(undefined);
             } else {
-              console.log('isomorphicInitialize accountsChanged', accounts);
               this.actions.update({ accounts });
               // this.activate();
             }
@@ -129,6 +124,12 @@ export class MetaMask extends Connector {
         const accounts = (await temp.request({
           method: 'eth_requestAccounts',
         })) as string[];
+        console.log('activate accounts: ', accounts, chainId);
+        const keys = (await temp.request({
+          method: 'eth_getEncryptionPublicKey',
+          params: accounts,
+        })) as string[];
+        console.log('activate keys: ', keys);
         // 避免获取的chainid 0x56565
         const receivedChainId = parseChainId(chainId);
         // 解析一下当前的传递主动链接的chainID是啥

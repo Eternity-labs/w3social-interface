@@ -38,6 +38,7 @@
       "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
       "@connector/*": ["src/connector/*"],
+      "@abis/*": ["src/abis/*"],
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
   },

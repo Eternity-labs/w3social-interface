@@ -35,9 +35,9 @@ function App(): JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={process.env.NODE_ENV === 'development'} />
-      {/* <WalletProvider>
+      <WalletProvider>
         <DataContainer />
-      </WalletProvider> */}
+      </WalletProvider>
       <StyledEngineProvider injectFirst>
         <CssBaseline />
         <ThemeProvider theme={theme}>
