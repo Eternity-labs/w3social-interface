@@ -3,8 +3,14 @@ import { UseQueryResult } from 'react-query';
 import cn from 'classnames';
 import { Button } from '@mui/material';
 import Loading from '../../stories/Loading';
-import errorImage from '@/assets/error.webp';
+import errorImage from '@/assets/error.png';
 
+interface IResponse<T> {
+  code: number;
+  success?: boolean;
+  message?: string;
+  data: T;
+}
 export interface HandleBoundaryProps<T> {
   /**
    * 传入函数，参数data 为响应结果

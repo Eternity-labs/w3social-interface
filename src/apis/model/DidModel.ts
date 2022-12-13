@@ -1,14 +1,30 @@
-import type { IResponse } from './common';
+interface DidBaseData {
+  email?: string;
+  age?: Array<number>;
+  identify?: number;
+  gender?: number;
+}
+export interface IDidReq extends DidBaseData {
+  id: number;
+  page: number;
+  size: number;
+}
+export interface IDidResData extends DidBaseData {
+  id: number;
+  publickey: string;
+  tag: Array<string>;
+  address: string;
+}
 
-interface AboutsData {
-  abouts: string;
+export interface IDidInfoData extends DidBaseData {
+  introduce: string;
+  wishtag: Array<string>;
 }
-interface AgreementData {
-  useragreement: string;
+export interface IDidMomentData {
+  useId: number;
+  content: string;
+  likes: number;
+  img: string | null;
+  pageView: number;
+  createTime: string;
 }
-interface PrivacyData {
-  useragreement: string;
-}
-export type GetAboutsRes = IResponse<AboutsData>;
-export type GetAgreementRes = IResponse<AgreementData>;
-export type GetPrivacyRes = IResponse<PrivacyData>;

@@ -5,20 +5,21 @@ import {
   IUpdateUserInfoRes,
   ILayoutRes,
 } from '@apis/model/UserModel';
-import request from '@apis/request';
+import axios from 'axios';
 
-const pre = process.env.NODE_ENV === 'development' ? '/mock' : '';
+const baseURL = process.env.NODE_ENV === 'development' ? '/w3socialLogin' : '/w3socialLogin';
+
 class UserServices {
   static getUserInfo(): Promise<IGetUserInfoRes> {
-    return request.get(`${pre}/w3socialLogin/user/getUserInfo`);
+    return axios.get(`${baseURL}/user/getUserInfo`);
   }
 
   static updateUserInfo(params: IUpdateUserInfoReq): Promise<IUpdateUserInfoRes> {
-    return request.post(`${pre}/w3socialLogin/user/updateUserInfo`, params);
+    return axios.post(`${baseURL}/user/updateUserInfo`, params);
   }
 
   static logout(): Promise<ILayoutRes> {
-    return request.get(`${pre}/w3socialLogin/user/logout`);
+    return axios.get(`${baseURL}/user/logout`);
   }
 }
 

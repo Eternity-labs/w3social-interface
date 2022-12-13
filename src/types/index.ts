@@ -34,4 +34,5 @@ export type UserActionsProps = {
   thumbCount: number;
   onLike: () => void;
   onComment: () => void;
+  isLike: boolean;
 };

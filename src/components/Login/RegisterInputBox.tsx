@@ -85,7 +85,7 @@ function RegisterBox(props: InputProps, ref: any) {
         loginInfo: {
           email: emailRef.current!.value,
         },
-        type: 0,
+        type,
       });
     }
   };

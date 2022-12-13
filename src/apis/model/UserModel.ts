@@ -1,6 +1,5 @@
-import type { IResponse } from './common';
-
 export type UserInfo = {
+  id: number;
   email: string;
   phone: string;
   loginId: number;
@@ -11,9 +10,9 @@ export type UserInfo = {
   education: string;
   [props: string]: any;
 } | null;
-export type IGetUserInfoRes = IResponse<UserInfo>;
+export type IGetUserInfoRes = UserInfo;
 export type IUpdateUserInfoReq = {
   userInfo: UserInfo;
 };
-export type IUpdateUserInfoRes = IResponse<String>;
-export type ILayoutRes = IResponse<String>;
+export type IUpdateUserInfoRes = string;
+export type ILayoutRes = string;

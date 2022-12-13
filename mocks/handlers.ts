@@ -3,6 +3,7 @@ import baseResponse from './index';
 import registerJson from './data/register.json';
 import userInfoJson from './data/userInfo.json';
 import tagListJson from './data/tagList.json';
+import momentListJson from './data/momentList.json';
 
 const handles = [
   rest.post('/mock/w3social/login/register', (req, res, ctx) => {
@@ -19,6 +20,9 @@ const handles = [
   }),
   rest.get('/mock/w3social/square/moment/getTagList', (req, res, ctx) => {
     return res(ctx.json(baseResponse(tagListJson)));
+  }),
+  rest.get('/mock/w3social/square/moment/getMoment', (req, res, ctx) => {
+    return res(ctx.json(baseResponse(momentListJson)));
   }),
 ];
 export default handles;

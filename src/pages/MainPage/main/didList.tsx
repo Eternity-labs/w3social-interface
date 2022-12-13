@@ -2,7 +2,6 @@ import ListContainer from '@components/Base/ListContainer';
 import DidCard from '@components/Did/DidCard';
 import DidFilter from '@components/Did/DidFilter';
 import useDidList from '@hooks/useDidList';
-import * as React from 'react';
 
 function DidIndex() {
   const { list, handleRefresh, handleLoadMore } = useDidList();

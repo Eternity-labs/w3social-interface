@@ -6,8 +6,6 @@ import { useQuery } from 'react-query';
 import userService from '@apis/services/UserService';
 
 function MainPage(): JSX.Element {
-  const userInfo = useQuery('getUserInfo', () => userService.getUserInfo());
-  console.log('🚗🚗--', userInfo);
   return (
     <div className="bg-gray-100 box-border h-screen">
       <Header />

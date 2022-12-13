@@ -9,24 +9,25 @@ import {
   IchangePasswordReq,
   IchangePasswordRes,
 } from '@apis/model/LoginModel';
-import request from '@apis/request';
+import axios from 'axios';
 
-const pre = process.env.NODE_ENV === 'development' ? '' : '';
+const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : '/w3social';
+
 class LoginServices {
   static register(params: IRegisterReq): Promise<IRegisterRes> {
-    return request.post(`${pre}/w3social/login/register`, params);
+    return axios.post(`${baseURL}/login/register`, params);
   }
 
   static sendCode(params: ISendCoderReq): Promise<ISendCoderRes> {
-    return request.post(`${pre}/w3social/login/sendCode`, params);
+    return axios.post(`${baseURL}/login/sendCode`, params);
   }
 
   static login(params: ILoginReq): Promise<ILoginRes> {
-    return request.post(`${pre}/w3social/login/login`, params);
+    return axios.post(`${baseURL}/login/login`, params);
   }
 
   static changePassword(params: IchangePasswordReq): Promise<IchangePasswordRes> {
-    return request.post(`${pre}/w3social/login/changePassword`, params);
+    return axios.post(`${baseURL}/login/changePassword`, params);
   }
 }
 

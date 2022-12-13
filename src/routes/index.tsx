@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
-import Loading from '@components/Loading';
-import MainLayout from '@layouts/MainLayout';
+import Loading from '@components/common/Loading';
+import MainLayout from '@layouts/PageLayout';
 
 const LoginPage = lazy(() => import('@pages/LoginPage'));
 
@@ -19,13 +19,11 @@ const QuestionPage = lazy(() => import('@pages/QuestionPage/TopicPage/index'));
 
 const UnlockUserPage = lazy(() => import('@pages/UnlockUserPage'));
 
-const NeedTab = lazy(() => import('@pages/MainPage/NeedTab/needTab'));
-
 const NeedDetailPage = lazy(() => import('@pages/NeedDetailPage/index'));
 
-const DidList = lazy(() => import('@pages/MainPage/didList'));
+const DidList = lazy(() => import('@pages/MainPage/main/didList'));
 
-const DidDetail = lazy(() => import('@pages/MainPage/didDetail'));
+const DidDetail = lazy(() => import('@pages/MainPage/main/didDetail'));
 
 const MessagePage = lazy(() => import('@pages/MessagePage'));
 
@@ -33,7 +31,7 @@ const Square = lazy(() => import('@pages/MainPage/square'));
 
 const PublishNeedPage = lazy(() => import('@pages/publishNeedPage'));
 
-const MainPage = lazy(() => import('@pages/MainPage'));
+const MainPage = lazy(() => import('@pages/MainPage/main'));
 
 const UserInfoDetail = lazy(() => import('@pages/User'));
 
@@ -45,6 +43,7 @@ const UserDetail = lazy(() => import('@pages/User/detail'));
 const ProtocalPage = lazy(() => import('@pages/ProtocalPage'));
 
 const Wallet = lazy(() => import('@pages/Wallet/index'));
+const NotFoundPage = lazy(() => import('@pages/NotFoundPage/index'));
 
 function Layout() {
   return (
@@ -61,10 +60,6 @@ const routes: RouteObject[] = [
       {
         path: '/',
         element: <LoginPage />,
-      },
-      {
-        path: '/needTab',
-        element: <NeedTab />,
       },
       {
         path: '/protocal',
@@ -148,6 +143,7 @@ const routes: RouteObject[] = [
         path: '/wallet',
         element: <Wallet />,
       },
+      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ];

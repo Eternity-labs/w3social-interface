@@ -9,12 +9,18 @@ import ErrorTip from '@components/Base/ErrorTip';
 import type { LoginPageUrlParams } from '@routes/types';
 import LoginService from '@apis/services/LoginService';
 // import Demo from './demo';
+import { useMutation } from 'react-query';
 
 function LoginPage(): JSX.Element {
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>();
   const passRef = useRef<HTMLInputElement>();
-  const [test, setTest] = useState(0);
+  const LoginMutaion = useMutation(LoginService.login, {
+    onSuccess: token => {
+      localStorage.setItem('w3SocialThoen', token);
+      navigate('/main');
+    },
+  });
   const initialError = {
     email: '',
     pass: '',
@@ -56,15 +62,12 @@ function LoginPage(): JSX.Element {
     checkPass();
     setError({ ...storageErr });
     if (!storageErr.email && !storageErr.pass) {
-      const res = await LoginService.login({
+      LoginMutaion.mutate({
         loginInfo: {
           email: emailRef.current!.value,
           password: passRef.current!.value,
         },
       });
-      if (res.code === 200) {
-        navigate('/main');
-      }
     }
     // 发送请求
   };
