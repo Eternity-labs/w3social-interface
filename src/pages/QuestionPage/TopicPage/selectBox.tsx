@@ -4,6 +4,7 @@ import Radio from '@mui/material/Radio';
 import { styled } from '@mui/material/styles';
 import { useState, useEffect } from 'react';
 import cn from 'classnames';
+import { ChoiceItem, QuestionInfo } from '@apis/model/SingleuserModel';
 
 const MuiRadioGroup = styled(RadioGroup)({
   '& .MuiFormControlLabel-root': {
@@ -33,13 +34,13 @@ function MyFormControlLabel(props: FormControlLabelProps) {
   );
 }
 type SelectBoxprops = {
-  value: { value: string };
-  items: Array<any>;
+  value: QuestionInfo;
+  items: Array<ChoiceItem>;
   onChange?: (value: string) => void;
 };
 function SelectBox(props: SelectBoxprops) {
   const { value, items = [], onChange } = props;
-  const [selectedValue, setValue] = useState('female');
+  const [selectedValue, setValue] = useState('');
   const hanleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     if (onChange) {
@@ -47,8 +48,12 @@ function SelectBox(props: SelectBoxprops) {
     }
   };
   useEffect(() => {
-    setValue(value.value);
-  }, [items]);
+    if (value?.value) {
+      setValue(value?.value);
+    } else {
+      setValue('');
+    }
+  }, [value?.questionId]);
   return (
     <MuiRadioGroup
       name="use-radio-group"

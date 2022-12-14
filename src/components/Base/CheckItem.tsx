@@ -6,7 +6,7 @@ import cn from 'classnames';
 interface CheckItemProps {
   id: number;
   checked: boolean;
-  label: string;
+  tag: string;
   index?: number;
   onChange: (value: boolean, index?: number) => void;
 }
@@ -20,13 +20,13 @@ const CusFormControlLabel = styled(FormControlLabel)({
   },
 });
 function CheckItem(props: CheckItemProps) {
-  const { checked = false, onChange, label, index = 0 } = props;
+  const { checked = false, onChange, tag, index = 0 } = props;
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.checked, index);
   };
   return (
     <CusFormControlLabel
-      label={label}
+      label={tag}
       className={cn(
         'text-[#494949] text-[9px] border border-solid rounded-full border-[#494949]',
         checked ? 'border-[#0DCE71] text-[#0DCE71]' : ''

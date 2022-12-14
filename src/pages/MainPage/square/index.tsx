@@ -23,7 +23,7 @@ function NeedPage() {
   const QueryClient = useQueryClient();
   const [page, setPage] = useState<number>(1);
   const { isOpen, handleOpen } = UseModal();
-  const [memoMomentList, setMemoMomentList] = useState<any>([]);
+  const [memoMomentList, setMemoMomentList] = useState<Array<MomentData>>([]);
   const [isHasNextPage, setNextPageStatus] = useState<boolean>(false);
   // const [userId, setUserId] = useState<number | null>(null);
   // const listRef = useRef<VariableSizeList<any> | null>(null);
@@ -73,8 +73,16 @@ function NeedPage() {
   };
   const handleLike = (data: MomentData, index: number) => {
     if (data.isLike) {
+      const newData = JSON.parse(JSON.stringify(memoMomentList));
+      newData[index].isLike = false;
+      newData[index].likes = --newData[index].likes;
+      setMemoMomentList(newData);
       unLikeComentMutation.mutate({ id: data.id });
     } else {
+      const newData = JSON.parse(JSON.stringify(memoMomentList));
+      newData[index].isLike = true;
+      newData[index].likes = ++newData[index].likes;
+      setMemoMomentList(newData);
       LikeComentMutation.mutate({ id: data.id });
     }
   };

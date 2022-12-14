@@ -8,7 +8,9 @@ function IntroducePage() {
       <div className="h-[300px] bg-logoBg relative">
         <div className="flex justify-between pl-[28px] pr-[28px] pt-[20px]">
           <div>logo</div>
-          <div className="font-black text-[15px] text-[#515151]">跳过灵魂绑定</div>
+          <Link to="/main">
+            <div className="font-black text-[15px] text-[#515151]">跳过灵魂绑定</div>
+          </Link>
         </div>
         <img
           className="w-[202px] absolute bottom-[20px] left-[calc(50%-101px)]"

@@ -3,7 +3,7 @@ import type { ISearchList, ISearchID } from './common';
 export interface MomentData {
   id: number;
   content: string;
-  linkes: number;
+  likes: number;
   tag: number;
   imgs: Array<string>;
   pageView: number;
@@ -23,14 +23,14 @@ export type AddMomentReq = {
   moment: {
     title?: string;
     content: string;
-    tags?: string;
+    tags?: Array<number | string>;
     imgs?: string;
   };
 };
 export type AddMomentRes = MomentData;
 export interface TagInfo {
   id: number;
-  label: string;
+  tag: string;
   checked?: boolean;
 }
 export type GetTagsRes = Array<TagInfo>;

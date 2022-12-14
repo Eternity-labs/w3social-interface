@@ -25,7 +25,7 @@ function chipList(props: ChipListProps) {
             item.checked && (
               <Chip
                 size="small"
-                label={item.label}
+                label={item.tag}
                 deleteIcon={<CloseIcon className="text-[#0DCE71]" />}
                 onDelete={e => {
                   deleteItem(index);

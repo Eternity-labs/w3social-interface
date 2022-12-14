@@ -1,11 +1,23 @@
 import { CustomTabList, Tab, TabContext, TabPanel } from '@components/Base/CustomTabList';
 import useDidDetail from '@hooks/useDidDetail';
+import UserService from '@apis/services/SingleuserService';
+import { useQuery } from 'react-query';
+import useStore from '@states/useStore';
 import Header from './header';
 import MessageCard from './messageCard';
 
 function MessagePage() {
+  const { userInfo } = useStore();
   const { tabIndex, handleTabIndexChange, handleBack } = useDidDetail();
-
+  useQuery(
+    'getMessage',
+    () => {
+      UserService.getMessage({ userId: userInfo!.id });
+    },
+    {
+      enabled: !!userInfo?.id,
+    }
+  );
   return (
     <div>
       <Header />
