@@ -14,7 +14,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     proxy: {
-      '/w3social':'http://114.55.67.80:8081'
+      '/w3social':'http://114.55.67.80:8081',
+      '/user':'http://114.55.67.80:8080'
+
     },
     static: {
       directory: join(__dirname, '../public'),

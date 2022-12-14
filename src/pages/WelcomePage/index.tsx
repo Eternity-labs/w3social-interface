@@ -6,6 +6,7 @@ import MuiButton from '@mui/material/Button';
 import MuiRadio from '@mui/material/Radio';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
+import logImg from '@assets/images/logo3.png';
 
 const CusRadio = styled(MuiRadio)({
   width: '16px',
@@ -49,10 +50,11 @@ function WelcomePage(): JSX.Element {
   const startExplore = () => {};
   return (
     <div className="h-full">
+      {/* bg-logoBg */}
       <div className=" flex flex-col items-center  justify-between ">
         <div className=" flex items-center justify-center mt-[80px] w-[300px] h-[300px] rounded-[150px] bg-logoBg">
           <div>
-            <div>logo</div>
+            <img src={logImg} alt="logo" className="w-[160px]" />
             <p className="text-[12px] leading-[16px]  pt-[35px] text-center">
               Web3.0 年轻人的聚集地
             </p>

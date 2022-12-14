@@ -2,6 +2,8 @@ import useDidFilter from '@hooks/useDidFilter';
 import MainButton from '@components/Base/MainButton';
 import { useQuery, useQueryClient } from 'react-query';
 import SquareService from '@apis/services/SquareService';
+import UserService from '@apis/services/user';
+
 import { TagList } from '@states/index';
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
@@ -15,7 +17,7 @@ function PublishNeedPage() {
   const queryClient = useQueryClient();
   const [tagList, setTagList] = useAtom(TagList);
   const [quillText, setQuillText] = useState<string>('');
-  const { status, data } = useQuery('getTagList', () => SquareService.getTagList(), {
+  const { status, data } = useQuery('getTagList', () => UserService.getTagList(), {
     enabled: !(tagList.length > 0),
   });
   const AddMoment = useQuery('AddMoment', () =>

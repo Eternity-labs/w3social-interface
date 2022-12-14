@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import DidService from '@apis/services/DidService';
 import UserService from '@apis/services/UserService';
 
-const useDidList = () => {
+const usePaging = () => {
   const [page, setPage] = useState(1);
   const { data } = useQuery('GetUserInfo', () => UserService.getUserInfo());
   const userId = data?.id;
@@ -37,4 +37,4 @@ const useDidList = () => {
   };
 };
 
-export default useDidList;
+export default usePaging;

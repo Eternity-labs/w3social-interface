@@ -20,6 +20,7 @@ specifiers:
   '@types/react-dom': ^18.0.8
   '@types/react-virtualized-auto-sizer': ^1.0.1
   '@types/react-window': ^1.8.5
+  '@types/react-window-infinite-loader': ^1.0.6
   '@typescript-eslint/eslint-plugin': ^5.13.0
   '@typescript-eslint/parser': ^5.0.0
   '@welldone-software/why-did-you-render': ^7.0.1
@@ -64,6 +65,7 @@ specifiers:
   react-hot-toast: ^2.4.0
   react-is: ^18.2.0
   react-material-ui-carousel: ^3.4.2
+  react-pull-to-refresh: ^2.0.1
   react-query: ^3.39.2
   react-router-dom: ^6.4.3
   react-virtualized-auto-sizer: ^1.0.7
@@ -113,11 +115,11 @@ dependencies:
   react-hot-toast: 2.4.0_owo25xnefcwdq3zjgtohz6dbju
   react-is: 18.2.0
   react-material-ui-carousel: 3.4.2_twl5l5havclw7dxslo3cdroroe
+  react-pull-to-refresh: 2.0.1_react@18.2.0
   react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.4.3_biqbaboplfbrettd7655fr4n2y
   react-virtualized-auto-sizer: 1.0.7_biqbaboplfbrettd7655fr4n2y
   react-window: 1.8.8_biqbaboplfbrettd7655fr4n2y
-  react-window-infinite-loader: 1.0.8_biqbaboplfbrettd7655fr4n2y
   recoil: 0.7.6_biqbaboplfbrettd7655fr4n2y
   rmc-pull-updown-to-refresh: 2.0.4_yalvw3r2waubxycyb7k7qsruca
   styled-components: 5.3.6_7i5myeigehqah43i5u7wbekgba
@@ -133,6 +135,7 @@ devDependencies:
   '@types/react-dom': 18.0.8
   '@types/react-virtualized-auto-sizer': 1.0.1
   '@types/react-window': 1.8.5
+  '@types/react-window-infinite-loader': 1.0.6
   '@typescript-eslint/eslint-plugin': 5.42.1_2udltptbznfmezdozpdoa2aemq
   '@typescript-eslint/parser': 5.42.1_rmayb2veg2btbq6mbmnyivgasy
   '@welldone-software/why-did-you-render': 7.0.1_react@18.2.0
@@ -161,6 +164,7 @@ devDependencies:
   postcss: 8.4.19
   postcss-loader: 7.0.1_upg3rk2kpasnbk27hkqapxaxfq
   prettier: 2.7.1
+  react-window-infinite-loader: 1.0.8_biqbaboplfbrettd7655fr4n2y
   scripty: 2.1.1
   style-loader: 3.3.1_webpack@5.75.0
   swc-loader: 0.2.3_636tzi34xn6xi5gghyfmnflkzm
@@ -2273,6 +2277,13 @@ packages:
     resolution: {integrity: sha512-GH8sAnBEM5GV9LTeiz56r4ZhMOUSrP43tAQNSRVxNexDjcNKLCEtnxusAItg1owFUFE6k0NslV26gqVClVvong==}
     dependencies:
       '@types/react': 18.0.25
+    dev: true
+
+  /@types/react-window-infinite-loader/1.0.6:
+    resolution: {integrity: sha512-V8g8sBDLVeJJAfEENJS7VXZK+DRJ+jzPNtk8jpj2G+obhf+iqGNUDGwNWCbBhLiD+KpHhf3kWQlKBRi0tAeU4Q==}
+    dependencies:
+      '@types/react': 18.0.25
+      '@types/react-window': 1.8.5
     dev: true
 
   /@types/react-window/1.8.5:
@@ -5135,6 +5146,11 @@ packages:
     resolution: {integrity: sha512-+xGQY0YyAWCnqy7Cd++hc2JqMYzlm0dG30Jd0beaA64sROr8C4nt8Yc9V5Ro3avlSUDTN0ulqP/VBKi1/lLygw==}
     dev: true
 
+  /hammerjs/2.0.8:
+    resolution: {integrity: sha512-tSQXBXS/MWQOn/RKckawJ61vvsDpCom87JgxiYdGwHdOa0ht0vzUWDlfioofFCRU0L+6NGDt6XzbgoJvZkMeRQ==}
+    engines: {node: '>=0.8.0'}
+    dev: false
+
   /hamt_plus/1.0.2:
     resolution: {integrity: sha512-t2JXKaehnMb9paaYA7J0BX8QQAY8lwfQ9Gjf4pg/mk4krt+cmwmU652HOoWonf+7+EQV97ARPMhhVgU1ra2GhA==}
     dev: false
@@ -7499,7 +7515,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-hot-toast/2.4.0_owo25xnefcwdq3zjgtohz6dbju:
     resolution: {integrity: sha512-qnnVbXropKuwUpriVVosgo8QrB+IaPJCpL8oBI6Ov84uvHZ5QQcTp2qg6ku2wNfgJl6rlQXJIQU5q+5lmPOutA==}
@@ -7540,6 +7555,15 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/react'
+    dev: false
+
+  /react-pull-to-refresh/2.0.1_react@18.2.0:
+    resolution: {integrity: sha512-mbNI9r3sBF4X+2fBO8c9CuXDLIywNuoZ24AIGU3Odi+L8C4MpS0tuhMQUSg5cSOuUtDFkE8Z/YnBYixo10QI6Q==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      hammerjs: 2.0.8
+      react: 18.2.0
     dev: false
 
   /react-query/3.39.2_biqbaboplfbrettd7655fr4n2y:
@@ -7618,7 +7642,7 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-    dev: false
+    dev: true
 
   /react-window/1.8.8_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-D4IiBeRtGXziZ1n0XklnFGu7h9gU684zepqyKzgPNzrsrk7xOCxni+TCckjg2Nr/DiaEEGVVmnhYSlT2rB47dQ==}
@@ -7943,7 +7967,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /schema-utils/3.1.1:
     resolution: {integrity: sha512-Y5PQxS4ITlC+EahLuXaY86TXfR7Dc5lw294alXOq86JAHCihAIZfqv8nNCWvaEJvaC51uN9hbLGeV0cFBdH+Fw==}

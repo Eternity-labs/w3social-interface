@@ -40,6 +40,10 @@ class SquareService {
 
   // 分页查询
   static getMomentList(params: GetMomentReq): Promise<GetMomentRes> {
+    let i = 100000000;
+    while (i < 0) {
+      i--;
+    }
     return axios.post(`${baseURL}/square/moment/getMoment`, params);
   }
 }
