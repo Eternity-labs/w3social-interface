@@ -17,7 +17,7 @@ function LoginPage(): JSX.Element {
   const passRef = useRef<HTMLInputElement>();
   const LoginMutaion = useMutation(LoginService.login, {
     onSuccess: token => {
-      localStorage.setItem('w3SocialThoen', token);
+      localStorage.setItem('w3SocialToken', token);
       navigate('/main');
     },
   });

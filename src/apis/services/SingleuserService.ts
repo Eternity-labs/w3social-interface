@@ -10,7 +10,11 @@ class UserService {
   }
 
   static getPublicPermission(params: ISearchID): Promise<boolean> {
-    return axios.get(`${baseURL}/user/pulishcheck`);
+    return axios.get(`${baseURL}/user/pulishcheck`, { params });
+  }
+
+  static getMessage(params: ISearchID): Promise<boolean> {
+    return axios.get(`${baseURL}/user/frzsnews`, { params });
   }
 }
 

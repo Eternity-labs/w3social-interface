@@ -1,6 +1,7 @@
 import Modal from '@components/Base/Modal';
 import { useNavigate, Link } from 'react-router-dom';
 import MuiButton from '@mui/material/Button';
+import NoPerMissionImg from '@assets/images/noPermission.png';
 
 type PermissionsFailModal = {
   isOpen: boolean;
@@ -13,7 +14,7 @@ function permissionsFailModal(props: PermissionsFailModal) {
   const buyDid = () => {};
   return (
     <Modal {...props}>
-      <div>图片占位</div>
+      <img src={NoPerMissionImg} alt="noPermission" />
       <p className="mt-[25px] text-[14px] text-[#515151]">身份权限不够，请购买DID身份</p>
       <Link to="/publishNeed">
         <MuiButton
@@ -26,7 +27,7 @@ function permissionsFailModal(props: PermissionsFailModal) {
       </Link>
 
       <div
-        className="w-full mt-[30px] text-[10px] text-[#515151] py-[10px]  text-right"
+        className="w-full mt-[10px] text-[10px] text-[#515151] py-[10px]  text-right"
         onClick={handleClose}
       >
         继续逛逛&nbsp;&gt;&gt;

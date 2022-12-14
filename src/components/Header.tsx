@@ -7,10 +7,11 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Badge from '@mui/material/Badge';
 import useHeaderHook from '@hooks/useHeader';
+import { useNavigate } from 'react-router-dom';
 
 export default function MenuAppBar() {
   const { needNotify, getButtonClass, buttonSwitch } = useHeaderHook();
-
+  const navigate = useNavigate();
   return (
     <AppBar className="bg-transparent shadow-none" position="static">
       <Toolbar className="flex px-0 box-border h-[35px]">
@@ -29,6 +30,7 @@ export default function MenuAppBar() {
           edge="start"
           className="text-black flex-1 mx-0 text-[30px] pr-0"
           aria-label="menu"
+          onClick={() => navigate('/message')}
         >
           {needNotify ? (
             <Badge color="error" variant="dot">

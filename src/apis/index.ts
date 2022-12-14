@@ -4,7 +4,7 @@ import { handleGeneralError } from './tools';
 
 // 添加请求拦截器
 axios.interceptors.request.use(config => {
-  if (config.headers) config.headers.Authorization = localStorage.getItem('w3SocialThoen') || '';
+  if (config.headers) config.headers.Authorization = localStorage.getItem('w3SocialToken') || '';
 
   return config;
 });

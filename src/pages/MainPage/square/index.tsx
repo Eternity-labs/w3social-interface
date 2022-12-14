@@ -9,8 +9,13 @@ import SquareService from '@apis/services/SquareService';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 import type { GetMomentRes, MomentData } from '@apis/model/SquareModel';
 import ReactPullToRefresh from 'react-pull-to-refresh';
+import UserService from '@apis/services/SingleuserService';
+import UserService2 from '@apis/services/UserService';
+import useStore from '@states/useStore';
 import DragButton from './components/dragButton';
+
 import PermissionsFailModal from './components/permissionsFailModal';
+
 import './pullDown.css';
 
 const PADDING_SIZE = 10;
@@ -20,9 +25,12 @@ function NeedPage() {
   const { isOpen, handleOpen } = UseModal();
   const [memoMomentList, setMemoMomentList] = useState<any>([]);
   const [isHasNextPage, setNextPageStatus] = useState<boolean>(false);
+  // const [userId, setUserId] = useState<number | null>(null);
   // const listRef = useRef<VariableSizeList<any> | null>(null);
   // const listItemRefs = useRef<Array<HTMLDivElement>>([]);
   const [totalElements, setTotal] = useState(0);
+  const { userInfo } = useStore();
+
   const SquarListMutaion = useMutation(SquareService.getMomentList, {
     onSuccess: res => {
       const newMemoList = [...memoMomentList, ...res.records];
@@ -30,6 +38,13 @@ function NeedPage() {
       setTotal(res.totalElements);
       if (newMemoList.length < res.totalElements) {
         setNextPageStatus(true);
+      }
+    },
+  });
+  const PublicPermissionMutaion = useMutation(UserService.getPublicPermission, {
+    onSuccess: res => {
+      if (!res) {
+        handleOpen();
       }
     },
   });
@@ -85,6 +100,9 @@ function NeedPage() {
   useEffect(() => {
     SquarListMutaion.mutate({ page, size: 10 });
   }, [page]);
+  const getPublicPermission = () => {
+    PublicPermissionMutaion.mutate({ id: userInfo?.id as number });
+  };
   return (
     <div className="h-full squareRoot">
       <CommonPage
@@ -106,7 +124,7 @@ function NeedPage() {
           );
         }}
       </CommonPage>
-      <DragButton onClick={handleOpen} />
+      <DragButton onClick={getPublicPermission} />
       <PermissionsFailModal isOpen={isOpen} handleClose={handleOpen} />
     </div>
   );
