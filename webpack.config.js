@@ -59,6 +59,7 @@ const webpackBaseConfig = {
       '@layouts': resolve('src/layouts'),
       '@constants': resolve('src/constants'),
       '@connector': resolve('src/connector'),
+      '@abis': resolve('src/abis'),
       '@mui/styled-engine': '@mui/styled-engine-sc',
     },
     extensions: ['.js', '.ts', '.tsx', 'jsx', 'json'],

@@ -1,41 +1,39 @@
-import { metaMask, hooks } from '@connector/metaMask';
+import { metaMask } from '@connector/metaMask';
 import { useWallet } from '@hooks/useWallet';
-import * as React from 'react';
+import { Card } from '@mui/material';
+import { useEffect, memo, useState } from 'react';
+import { Accounts } from './Accounts';
+import Chain from './Chain';
+import { ConnectWithSelect } from './ConnectWithSelect';
+import ContractInfo from './Contract';
+import { Status } from './Status';
 
-function Wallet() {
-  const { useAccount, useAccounts, useChainId, useIsActive, useIsActivating, useProvider } = hooks;
-  const account = useAccount();
-  const accounts = useAccounts();
-  const chainId = useChainId();
-  const isActive = useIsActive();
-  const isActivating = useIsActivating();
-  const provider = useProvider();
-
-  const res = useWallet();
-
-  const handleConnectMetaMask = async () => {
-    await metaMask.connectEagerly();
-    metaMask.activate();
-  };
-
-  React.useEffect(() => {
-    console.log('account: ', account);
-    console.log('accounts: ', accounts);
-    console.log('chainId: ', chainId);
-    console.log('isActive: ', isActive);
-    console.log('isActivating: ', isActivating);
-    console.log('provider: ', provider);
-  }, [account, accounts, chainId, isActive, isActivating, provider]);
-
-  React.useEffect(() => {
-    console.log('🌺🌺provider🌺🌺', res);
-  }, [res]);
+function MetaMaskCard() {
+  console.log('🌺🌺组件被渲染🌺🌺');
+  const { chainId, accounts, library, errMsg, isActive, isActivating } = useWallet();
+  useEffect(() => {
+    // 链接钱包
+    void metaMask.connectEagerly();
+  }, []);
 
   return (
-    <div>
-      <span onClick={handleConnectMetaMask}>连接钱包</span>
-    </div>
+    <Card>
+      <div>
+        <h3 className="p-[20px] text-center">连接钱包</h3>
+        <Status isActivating={isActivating} error={errMsg} isActive={isActive} />
+        <Chain chainId={chainId} />
+        <Accounts accounts={accounts} provider={library} />
+      </div>
+      <ConnectWithSelect
+        connector={metaMask}
+        chainId={chainId}
+        isActivating={isActivating}
+        error={errMsg}
+        isActive={isActive}
+      />
+      <ContractInfo />
+    </Card>
   );
 }
-
-export default React.memo(Wallet);
+MetaMaskCard.whyDidYouRender = true;
+export default memo(MetaMaskCard);

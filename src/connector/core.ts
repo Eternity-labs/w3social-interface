@@ -136,21 +136,21 @@ export function getSelectedConnector(
     return values[index];
   }
 
-  function useSelectedENSNames(connector: Connector, provider?: BaseProvider) {
-    const index = getIndex(connector);
-    const values = initializedConnectors.map(([, { useENSNames }], i) =>
-      useENSNames(i === index ? provider : undefined)
-    );
-    return values[index];
-  }
+  // function useSelectedENSNames(connector: Connector, provider?: BaseProvider) {
+  //   const index = getIndex(connector);
+  //   const values = initializedConnectors.map(([, { useENSNames }], i) =>
+  //     useENSNames(i === index ? provider : undefined)
+  //   );
+  //   return values[index];
+  // }
 
-  function useSelectedENSName(connector: Connector, provider?: BaseProvider) {
-    const index = getIndex(connector);
-    const values = initializedConnectors.map(([, { useENSName }], i) =>
-      useENSName(i === index ? provider : undefined)
-    );
-    return values[index];
-  }
+  // function useSelectedENSName(connector: Connector, provider?: BaseProvider) {
+  //   const index = getIndex(connector);
+  //   const values = initializedConnectors.map(([, { useENSName }], i) =>
+  //     useENSName(i === index ? provider : undefined)
+  //   );
+  //   return values[index];
+  // }
 
   return {
     useSelectedStore,
@@ -161,8 +161,8 @@ export function getSelectedConnector(
     useSelectedError,
     useSelectedIsActive,
     useSelectedProvider,
-    useSelectedENSNames,
-    useSelectedENSName,
+    // useSelectedENSNames,
+    // useSelectedENSName,
   };
 }
 
@@ -186,8 +186,8 @@ export function getPriorityConnector(
     useSelectedAccount,
     useSelectedIsActive,
     useSelectedProvider,
-    useSelectedENSNames,
-    useSelectedENSName,
+    // useSelectedENSNames,
+    // useSelectedENSName,
     useSelectedError,
   } = getSelectedConnector(...initializedConnectors);
 
@@ -234,13 +234,13 @@ export function getPriorityConnector(
     return useSelectedProvider<T>(usePriorityConnector(), network);
   }
 
-  function usePriorityENSNames(provider?: BaseProvider) {
-    return useSelectedENSNames(usePriorityConnector(), provider);
-  }
+  // function usePriorityENSNames(provider?: BaseProvider) {
+  //   return useSelectedENSNames(usePriorityConnector(), provider);
+  // }
 
-  function usePriorityENSName(provider?: BaseProvider) {
-    return useSelectedENSName(usePriorityConnector(), provider);
-  }
+  // function usePriorityENSName(provider?: BaseProvider) {
+  //   return useSelectedENSName(usePriorityConnector(), provider);
+  // }
 
   return {
     useSelectedStore,
@@ -250,8 +250,8 @@ export function getPriorityConnector(
     useSelectedAccount,
     useSelectedIsActive,
     useSelectedProvider,
-    useSelectedENSNames,
-    useSelectedENSName,
+    // useSelectedENSNames,
+    // useSelectedENSName,
     useSelectedError,
     usePriorityConnector,
     usePriorityStore,
@@ -261,8 +261,8 @@ export function getPriorityConnector(
     usePriorityAccount,
     usePriorityIsActive,
     usePriorityProvider,
-    usePriorityENSNames,
-    usePriorityENSName,
+    // usePriorityENSNames,
+    // usePriorityENSName,
     usePriorityError,
   };
 }
@@ -272,33 +272,33 @@ export function getPriorityConnector(
  * indicated that names cannot be fetched because there's no provider, or they're in the process of being fetched,
  * or `string | null`, depending on whether an ENS name has been set for the account in question or not.
  */
-function useENS(provider?: BaseProvider, accounts: string[] = []): undefined[] | (string | null)[] {
-  const [ENSNames, setENSNames] = useState<(string | null)[] | undefined>();
+// function useENS(provider?: BaseProvider, accounts: string[] = []): undefined[] | (string | null)[] {
+//   const [ENSNames, setENSNames] = useState<(string | null)[] | undefined>();
 
-  useEffect(() => {
-    if (provider && accounts.length) {
-      let stale = false;
+//   useEffect(() => {
+//     if (provider && accounts.length) {
+//       let stale = false;
 
-      Promise.all(accounts.map(account => provider.lookupAddress(account)))
-        .then(name => {
-          if (stale) return;
-          setENSNames(name);
-        })
-        .catch(error => {
-          if (stale) return;
-          console.debug('Could not fetch ENS names', error);
-          setENSNames(new Array<null>(accounts.length).fill(null));
-        });
+//       Promise.all(accounts.map(account => provider.lookupAddress(account)))
+//         .then(name => {
+//           if (stale) return;
+//           setENSNames(name);
+//         })
+//         .catch(error => {
+//           if (stale) return;
+//           console.debug('Could not fetch ENS names', error);
+//           setENSNames(new Array<null>(accounts.length).fill(null));
+//         });
 
-      return () => {
-        stale = true;
-        setENSNames(undefined);
-      };
-    }
-  }, [provider, accounts]);
+//       return () => {
+//         stale = true;
+//         setENSNames(undefined);
+//       };
+//     }
+//   }, [provider, accounts]);
 
-  return ENSNames ?? new Array<undefined>(accounts.length).fill(undefined);
-}
+//   return ENSNames ?? new Array<undefined>(accounts.length).fill(undefined);
+// }
 
 function getAugmentedHooks<T extends Connector>(
   connector: T,
@@ -346,18 +346,18 @@ function getAugmentedHooks<T extends Connector>(
     }, [loaded, enabled, isActive, chainId, network]);
   }
 
-  function useENSNames(provider?: BaseProvider): undefined[] | (string | null)[] {
-    const accounts = useAccounts();
-    return useENS(provider, accounts);
-  }
+  // function useENSNames(provider?: BaseProvider): undefined[] | (string | null)[] {
+  //   const accounts = useAccounts();
+  //   return useENS(provider, accounts);
+  // }
 
-  function useENSName(provider?: BaseProvider): undefined | string | null {
-    const account = useAccount();
-    const accounts = useMemo(() => (account === undefined ? undefined : [account]), [account]);
-    return useENS(provider, accounts)?.[0];
-  }
+  // function useENSName(provider?: BaseProvider): undefined | string | null {
+  //   const account = useAccount();
+  //   const accounts = useMemo(() => (account === undefined ? undefined : [account]), [account]);
+  //   return useENS(provider, accounts)?.[0];
+  // }
 
-  return { useProvider, useENSNames, useENSName };
+  return { useProvider /* useENSNames, useENSName */ };
 }
 
 // 派生基础的hooks

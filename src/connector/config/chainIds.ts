@@ -1,5 +1,5 @@
 import { AddEthereumChainParameter, BasicChainInformation, ExtendedChainInformation } from '@type/wallet';
-import { MainnetIcon, BscIcon, MaticIcon, ArbitrumICON } from './misc';
+import { MainnetIcon, BscIcon, MaticIcon, ArbitrumICON, MoonbeamIcon } from './misc';
 
 export enum SupportedChainId {
   MAINNET = 1,
@@ -7,6 +7,8 @@ export enum SupportedChainId {
   MATIC = 137,
   ARBITRUM = 42161,
   TESTNET = 1337,
+  MOONBEAM = 1284,
+  MOONBEAM_TEST = 1287,
 }
 
 export enum SupportedChainId16 {
@@ -15,6 +17,8 @@ export enum SupportedChainId16 {
   '0x89' = 137,
   '0xa4b1' = 42161,
   '0x539' = 1337,
+  '0x504' = 1284,
+  '0x507' = 1287,
 }
 
 export const NETWORK_LABEL: { [chainId in SupportedChainId]: string } = {
@@ -27,6 +31,8 @@ export const NETWORK_LABEL: { [chainId in SupportedChainId]: string } = {
   [SupportedChainId.ARBITRUM]: 'Arbitrum',
   //[SupportedChainId.ARBITRUM_TESTNET]: 'Arbitrum Testnet',
   [SupportedChainId.TESTNET]: 'Testnet',
+  [SupportedChainId.MOONBEAM]: 'Moonbeam',
+  [SupportedChainId.MOONBEAM_TEST]: 'Moonbeam test',
 };
 
 export const ALL_SUPPORTED_CHAIN_IDS = [
@@ -37,6 +43,8 @@ export const ALL_SUPPORTED_CHAIN_IDS = [
   SupportedChainId.MATIC,
   //SupportedChainId.MATIC_TESTNET,
   SupportedChainId.ARBITRUM,
+  SupportedChainId.MOONBEAM,
+  SupportedChainId.MOONBEAM_TEST,
 ];
 // per EIP-3085
 export interface ChainInfoItem {
@@ -63,7 +71,7 @@ export const CHAIN_INFO: ChainInfo = {
       symbol: 'ETH',
       decimals: 18,
     },
-    rpcUrls: [`https://mainnet.infura.io/v3/你的秘钥`],
+    rpcUrls: [`https://mainnet.infura.io/v3/`],
     blockExplorerUrls: ['https://etherscan.com'],
     iconUrls: [MainnetIcon],
   },
@@ -122,6 +130,30 @@ export const CHAIN_INFO: ChainInfo = {
     blockExplorerUrls: ['https://etherscan.com'],
     iconUrls: [MainnetIcon],
   },
+  [SupportedChainId.MOONBEAM]: {
+    chainId: SupportedChainId16[SupportedChainId.MOONBEAM],
+    chainName: 'Moonbeam',
+    nativeCurrency: {
+      name: 'Moonbeam',
+      symbol: 'GLMR',
+      decimals: 18,
+    },
+    rpcUrls: [`https://rpc.ankr.com/moonbeam`, `https://moonbeam.public.blastapi.io`, `https://1rpc.io/glmr`, `https://rpc.api.moonbeam.network`],
+    blockExplorerUrls: ['https://moonscan.io/'],
+    iconUrls: [MoonbeamIcon],
+  },
+  [SupportedChainId.MOONBEAM_TEST]: {
+    chainId: SupportedChainId16[SupportedChainId.MOONBEAM_TEST],
+    chainName: 'MoonbeamTest',
+    nativeCurrency: {
+      name: 'MoonbeamTest',
+      symbol: 'DEV',
+      decimals: 18,
+    },
+    rpcUrls: [`https://rpc.testnet.moonbeam.network`, `https://moonbase-alpha.public.blastapi.io`, `wss://wss.api.moonbase.moonbeam.network`, `https://rpc.api.moonbase.moonbeam.network`],
+    blockExplorerUrls: ['https://moonbase.moonscan.io/'],
+    iconUrls: [MoonbeamIcon],
+  },
 };
 
 export const URLS: { [chainId: number]: string[] } = Object.keys(CHAIN_INFO).reduce<{
@@ -157,3 +189,5 @@ export function getAddChainParameters(chainId: number): AddEthereumChainParamete
     return chainId;
   }
 }
+
+export const Connector_Address = '0xdEe7D41d9c9F6774C8E0c2e17ECD7e4ab21F8210'
