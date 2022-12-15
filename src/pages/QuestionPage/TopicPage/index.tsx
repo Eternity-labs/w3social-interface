@@ -26,7 +26,7 @@ function TopicPage() {
 
   const postQuestionMutaion = useMutation(UserService.postQuestion, {
     onSuccess: () => {
-      navigate('/main');
+      navigate('/finishquestion');
     },
   });
 

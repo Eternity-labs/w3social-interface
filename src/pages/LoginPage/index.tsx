@@ -10,6 +10,7 @@ import type { LoginPageUrlParams } from '@routes/types';
 import LoginService from '@apis/services/LoginService';
 // import Demo from './demo';
 import { useMutation } from 'react-query';
+import logoImg from '@assets/images/logo.png';
 
 function LoginPage(): JSX.Element {
   const navigate = useNavigate();
@@ -81,8 +82,7 @@ function LoginPage(): JSX.Element {
   };
   return (
     <div className="flex h-full flex-col items-center bg-logoBg rounded-bl-[230px]">
-      {/* <Demo /> */}
-      <div>logo</div>
+      <img src={logoImg} alt="logo" className="w-[120px] mt-[60px]" />
       <div className="w-[250px] mt-[64px]">
         <InputCom
           placeholder="请输入邮箱"
@@ -92,7 +92,7 @@ function LoginPage(): JSX.Element {
           <MailOutlineIcon />
         </InputCom>
         {errorObj.email && <ErrorTip message={errorObj.email} className="pl-[16px]" />}
-        <InputCom placeholder="请输入密码" className="mt-[30px]" InputRef={passRef}>
+        <InputCom placeholder="请输入密码" className="mt-[30px]" InputRef={passRef} type="password">
           <LockOpenIcon />
         </InputCom>
         {errorObj.pass && <ErrorTip message={errorObj.pass} className="pl-[16px]" />}

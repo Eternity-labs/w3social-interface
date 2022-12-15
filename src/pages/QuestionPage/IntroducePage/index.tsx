@@ -1,13 +1,14 @@
 import MuiButton from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+// import logoImg from '@assets/images/logo.png';
 import ComputerGus from '@/assets/images/computerGuy.png';
 
 function IntroducePage() {
   return (
     <div className=" h-full">
       <div className="h-[300px] bg-logoBg relative">
-        <div className="flex justify-between pl-[28px] pr-[28px] pt-[20px]">
-          <div>logo</div>
+        <div className="flex flex-end pl-[28px] pr-[28px] pt-[20px]">
+          {/* <img src={logoImg} alt="logo" className="w-[60px]" /> */}
           <Link to="/main">
             <div className="font-black text-[15px] text-[#515151]">跳过灵魂绑定</div>
           </Link>

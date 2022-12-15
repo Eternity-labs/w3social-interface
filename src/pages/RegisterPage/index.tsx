@@ -6,6 +6,7 @@ import MuiButton from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginService from '@apis/services/LoginService';
 import { IRegisterReq } from '@apis/model/LoginModel';
+import logoImg from '@assets/images/logo.png';
 
 function RegisterPage(): JSX.Element {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ function RegisterPage(): JSX.Element {
     <>
       <BackIconCom />
       <div className="flex h-full flex-col items-center bg-logoBg rounded-tl-[230px]">
-        <div className="mt-[48px]">logo</div>
+        <img src={logoImg} alt="logo" className="w-[120px] mt-[48px]" />
         {/* 表单 */}
         <RegisterInputBoxCom onRef={RegisInfoRef} type={0} />
         <CodeBox

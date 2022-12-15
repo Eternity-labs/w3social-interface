@@ -129,11 +129,16 @@ function RegisterBox(props: InputProps, ref: any) {
         <MailOutlineIcon />
       </InputCom>
       <ErrorTip message={errorObj.email} className={errorTipCSS} />
-      <InputCom placeholder="输入密码" className="mt-[20px]" InputRef={passRef}>
+      <InputCom placeholder="输入密码" className="mt-[20px]" InputRef={passRef} type="password">
         <LockOpenIcon />
       </InputCom>
       {errorObj.pass && <ErrorTip message={errorObj.pass} className={errorTipCSS} />}
-      <InputCom placeholder="再次输入密码" className="mt-[20px]" InputRef={vertifyPassRef}>
+      <InputCom
+        placeholder="再次输入密码"
+        className="mt-[20px]"
+        InputRef={vertifyPassRef}
+        type="password"
+      >
         <LockOpenIcon />
       </InputCom>
       {errorObj.vertifyPassRef && <ErrorTip message={errorObj.vertifyPassRef} />}

@@ -1,6 +1,10 @@
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import { styled } from '@mui/material/styles';
+import { useState } from 'react';
+import IconButton from '@mui/material/IconButton';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import Visibility from '@mui/icons-material/Visibility';
 
 const MuiTextFiled = styled(TextField)({
   width: '250px',
@@ -36,7 +40,9 @@ type InputComProps = {
   endAdornmentCom?: any;
   InputRef: any;
   defaultValue?: string;
+  type?: 'text' | 'password' | 'number';
 };
+
 function InputCom(props: InputComProps): JSX.Element {
   const {
     variant,
@@ -46,7 +52,25 @@ function InputCom(props: InputComProps): JSX.Element {
     endAdornmentCom = <div />,
     InputRef,
     defaultValue,
+    type,
   } = props;
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword(show => !show);
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+  const PasswordEnd = (
+    <IconButton
+      aria-label="toggle password visibility"
+      onClick={handleClickShowPassword}
+      onMouseDown={handleMouseDownPassword}
+      edge="end"
+    >
+      {showPassword ? <VisibilityOff /> : <Visibility />}
+    </IconButton>
+  );
   return (
     <MuiTextFiled
       id="input-with-icon-textfield"
@@ -55,9 +79,14 @@ function InputCom(props: InputComProps): JSX.Element {
       variant={variant}
       inputRef={InputRef}
       defaultValue={defaultValue || ''}
+      type={showPassword ? 'text' : type}
       InputProps={{
         startAdornment: <InputAdornment position="start">{children}</InputAdornment>,
-        endAdornment: <InputAdornment position="end">{endAdornmentCom}</InputAdornment>,
+        endAdornment: (
+          <InputAdornment position="end">
+            {type === 'password' ? PasswordEnd : endAdornmentCom}
+          </InputAdornment>
+        ),
       }}
     />
   );

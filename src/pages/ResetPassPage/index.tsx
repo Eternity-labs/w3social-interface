@@ -8,15 +8,22 @@ import ModifyModal from '@components/Login/ModifyModal';
 import useModal from '@hooks/useModal';
 import { IchangePasswordReq } from '@apis/model/LoginModel';
 import LoginService from '@apis/services/LoginService';
+import logoImg from '@assets/images/logo.png';
+import { useMutation } from 'react-query';
 
 function RegisterPage(): JSX.Element {
   const navigate = useNavigate();
 
-  const [code, setCode] = useState<string>('');
+  // const [code, setCode] = useState<string>('');
   const { isOpen, handleOpen } = useModal();
   const [modifyValue, setModifyValue] = useState({ email: '', pass: '' });
+  const modifyPassMutation = useMutation(LoginService.changePassword, {
+    onSuccess(data) {
+      handleOpen();
+    },
+  });
   const onCodeChange = (data: string) => {
-    setCode(data);
+    // setCode(data);
   };
   const ChildRef = useRef<RegisterBoxHandle>();
   const CodeRef = useRef<CodeBoxHandle>();
@@ -36,11 +43,7 @@ function RegisterPage(): JSX.Element {
       },
       code: String(codeRes),
     };
-    LoginService.changePassword(params).then(res => {
-      if (res.code === 200 && res.data.token) {
-        handleOpen();
-      }
-    });
+    modifyPassMutation.mutate(params);
   };
 
   const jumpLoginpage = () => {
@@ -60,7 +63,7 @@ function RegisterPage(): JSX.Element {
     <>
       <BackIconCom />
       <div className="flex h-full flex-col items-center bg-[#F5F5F5]">
-        <div className="mt-[48px]">logo</div>
+        <img src={logoImg} alt="logo" className="w-[120px] mt-[60px]" />
         {/* 表单 */}
         <RegisterInputBoxCom onRef={ChildRef} />
         <CodeBox
