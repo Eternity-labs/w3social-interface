@@ -1,8 +1,8 @@
 import type { ISearchList, ISearchID } from './common';
 
 export interface HandleMessageReq extends ISearchID {
-  frizesid?: number;
-  result: number;
+  frizesid: number;
+  result: string;
 }
 export interface GetMessageReq {
   userid?: number;

@@ -1,7 +1,7 @@
 import DidCard from '@components/Did/DidCard';
 import DividingLine from '@components/Base/DividingLine';
 import UnlockDidItem from '@components/Did/UnlockDidItem';
-import MuiButton from '@mui/material/Button';
+import { Button } from '@mui/material';
 
 type TItem = {
   icon: string;
@@ -28,12 +28,12 @@ function UnlockUser() {
       {items.map((item, index) => {
         return <UnlockDidItem {...item} className="mt-[30px]" />;
       })}
-      <MuiButton
+      <Button
         variant="outlined"
         className=" w-[275px] h-[50px] mt-[34px] border-black text-black rounded-full bg-transparent text-[13px] font-medium shadow-buttonUnlock"
       >
         199CNY
-      </MuiButton>
+      </Button>
     </div>
   );
 }

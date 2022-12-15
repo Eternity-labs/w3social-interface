@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Dialog from '@mui/material/Dialog';
 import { styled } from '@mui/material/styles';
-import MuiButton from '@mui/material/button';
+import { Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 const CustomModal = styled(Dialog)({});
@@ -20,14 +20,14 @@ export type RenderModalProps = {
 };
 function Modal(props: RenderModalProps) {
   const { isOpen, options, children = null, confirm, handleClose, isShowExit = true } = props;
-  const Button = options?.buttonText && (
-    <MuiButton
+  const ButtonCom = options?.buttonText && (
+    <Button
       onClick={confirm}
       variant="contained"
       className="w-[80px] h-[27px] mt-[45px] rounded-full bg-black flex items-center justify-center text-[12px]"
     >
       {options?.buttonText}
-    </MuiButton>
+    </Button>
   );
   const close = () => {
     handleClose?.();

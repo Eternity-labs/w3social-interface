@@ -6,7 +6,6 @@ import CommonPage from '@components/common/commonPage';
 import { useEffect, useState } from 'react';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 import DidService from '@apis/services/DidService';
-import UserService from '@apis/services/UserService';
 import useStore from '@states/useStore';
 
 function DidIndex() {
@@ -16,23 +15,11 @@ function DidIndex() {
   const [memoDidList, setMemoDidList] = useState<any>([]);
   const [isHasNextPage, setNextPageStatus] = useState<boolean>(false);
   const [totalElements, setTotal] = useState(0);
-  // const [userInfo]
-  // const getDidListMutaion = useMutation(DidService.getDidList, {
-  //   onSuccess: res => {
-  //     console.log('🍌🍌---》〉》', res);
-  //     // const newMemoList = [...memoDidList, ...res.records];
-  //     // setMemoMomentList(newMemoList);
-  //     // setTotal(res.totalElements);
-  //     // if (newMemoList.length < res.totalElements) {
-  //     //   setNextPageStatus(true);
-  //     // }
-  //   },
-  // });
   const DidListQuery = useQuery(
     ['DidList', page],
     () =>
       DidService.getDidList({
-        id: userInfo?.id as number,
+        id: userInfo!.id,
         page,
         size: 10,
       }),

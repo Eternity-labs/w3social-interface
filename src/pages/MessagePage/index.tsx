@@ -9,11 +9,9 @@ import MessageCard from './messageCard';
 function MessagePage() {
   const { userInfo } = useStore();
   const { tabIndex, handleTabIndexChange, handleBack } = useDidDetail();
-  useQuery(
+  const MessageQuery = useQuery(
     'getMessage',
-    () => {
-      UserService.getMessage({ userId: userInfo!.id });
-    },
+    () => UserService.getMessage({ userId: userInfo!.id }),
     {
       enabled: !!userInfo?.id,
     }
@@ -25,10 +23,13 @@ function MessagePage() {
         <TabContext value={tabIndex}>
           <CustomTabList onChange={handleTabIndexChange} aria-label="lab API tabs example">
             <Tab className="pb-0 px-0 min-w-[40px]" label="新消息" value="1" />
-            <Tab className="pb-0 px-0 min-w-[40px]" label="已读" value="2" />
+            {/* <Tab className="pb-0 px-0 min-w-[40px]" label="已读" value="2" /> */}
           </CustomTabList>
           <TabPanel className="h-[180px] p-0 my-[12px] overflow-hidden overflow-y-auto" value="1">
-            <MessageCard />
+            {MessageQuery?.data &&
+              MessageQuery?.data!.map((item, index) => {
+                return <MessageCard {...MessageQuery.data[index]} key={index} />;
+              })}
           </TabPanel>
           <TabPanel className="h-[180px] p-0 my-[12px] overflow-hidden overflow-y-auto" value="2">
             <div>已读</div>

@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { TagInfo, QuestionInfo, PostQuestionReq, MessageInfo } from '@apis/model/SingleuserModel';
+import {
+  TagInfo,
+  QuestionInfo,
+  PostQuestionReq,
+  MessageInfo,
+  HandleMessageReq,
+} from '@apis/model/SingleuserModel';
 import { ISearchID } from '@apis/model/common';
 
 const baseURL = process.env.NODE_ENV === 'development' ? '' : '';
@@ -24,9 +30,10 @@ class UserService {
   static getMessage(params: { userId: string }): Promise<Array<MessageInfo>> {
     return axios.post(`${baseURL}/user/frzsnews`, params);
   }
-  // static handleMessage(params): Promise<boolean> {
-  //   return axios.get(`${baseURL}/user/frzsnews`, { params });
-  // }
+
+  static handleMessage(params: HandleMessageReq): Promise<boolean> {
+    return axios.post(`${baseURL}/user/profrzsnews`, params);
+  }
 }
 
 export default UserService;

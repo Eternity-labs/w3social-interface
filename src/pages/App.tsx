@@ -36,6 +36,13 @@ const theme = createTheme({
         container: rootElement,
       },
     },
+    MuiTooltip: {
+      styleOverrides: {
+        tooltipPlacementBottom: {
+          marginTop: '0px !important',
+        },
+      },
+    },
   },
 });
 

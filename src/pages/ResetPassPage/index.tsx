@@ -2,7 +2,7 @@ import CodeBox, { CodeBoxHandle } from '@components/Login/CodeBox';
 import BackIconCom from '@components/Login/BackIcon';
 import RegisterInputBoxCom, { RegisterBoxHandle } from '@components/Login/RegisterInputBox';
 import { useRef, useState } from 'react';
-import MuiButton from '@mui/material/Button';
+import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ModifyModal from '@components/Login/ModifyModal';
 import useModal from '@hooks/useModal';
@@ -50,13 +50,13 @@ function RegisterPage(): JSX.Element {
     navigate(`/?email=${modifyValue.email}`);
   };
   const RegisterButton = (
-    <MuiButton
+    <Button
       onClick={modify}
       variant="contained"
       className=" w-[250px] h-[38px] mt-[52px] rounded-full bg-black text-[12px]"
     >
       确认修改
-    </MuiButton>
+    </Button>
   );
 
   return (

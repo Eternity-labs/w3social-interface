@@ -1,16 +1,23 @@
 import Avatar from '@mui/material/Avatar';
 import Labels from '@components/Base/Labels';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import { MessageInfo } from '@apis/model/SingleuserModel';
+import IconButton from '@mui/material/IconButton';
+import MessageTip from './MessageTip';
 
 interface ImessageCardProps {
-  avatar: string;
+  headSculpture: string;
+  id: number;
 }
-const messageCard = (props: ImessageCardProps) => {
-  const list = ['招发', 'Tok付', 'df人'];
 
+const messageCard = (props: MessageInfo) => {
+  const list = ['招发', 'Tok付', 'df人'];
+  const { headSculpture, content = 'Hi, 我想认识一下你！', id } = props;
   return (
     <div className="h-[52px] flex">
-      <Avatar className="text-[20px] mr-[14px] h-[52px] w-[52px]">H</Avatar>
+      <Avatar className="text-[20px] mr-[14px] h-[52px] w-[52px]">
+        <img src={headSculpture} alt="avatar" />
+      </Avatar>
       <div className="flex-1 flex-col">
         <div className="flex">
           <div className="flex flex-col flex-1">
@@ -22,8 +29,12 @@ const messageCard = (props: ImessageCardProps) => {
               <Labels labels={list} />
             </div>
           </div>
-          <div className="flex flex-col items-end justify-between">
-            <MoreHorizIcon className="text-[15px]" />
+          <div className="flex flex-col items-end justify-between overflow-visible">
+            <MessageTip id={id}>
+              <IconButton>
+                <MoreHorizIcon className="text-[15px]" />
+              </IconButton>
+            </MessageTip>
             <div className="text-[#222] text-[10px]">2分钟前</div>
           </div>
         </div>

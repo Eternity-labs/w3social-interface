@@ -8,9 +8,9 @@ const _mergeConfig = require(`./config/webpack.${_mode}.js`);
 const Webpackbar = require('webpackbar');
 
 const webpackBaseConfig = {
-  cache: {
-    type: 'filesystem',
-  },
+  // cache: {
+  //   type: 'filesystem',
+  // },
   entry: {
     main: resolve('src/index.tsx'),
   },

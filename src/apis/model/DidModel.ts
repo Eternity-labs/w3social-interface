@@ -5,7 +5,7 @@ interface DidBaseData {
   gender?: number;
 }
 export interface IDidReq extends DidBaseData {
-  id: number;
+  id: string;
   page: number;
   size: number;
 }
