@@ -11,7 +11,7 @@ const usePaging = () => {
     ['DidList', page],
     () =>
       DidService.getDidList({
-        id: userId as number,
+        id: userId,
         page,
         size: 10,
       }),

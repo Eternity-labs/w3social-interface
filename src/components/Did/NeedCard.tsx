@@ -11,10 +11,9 @@ interface NeedCardProps {
   onLike: () => void;
 }
 function NeedCard(props: DidBaseArticleCardProps & NeedCardProps) {
-  const { content, avatar, userName, className, isLike, likes = 0, onLike, id } = props;
+  const { content, userName, className, isLike, likes = 0, onLike, id } = props;
   const DidArticleCardProps = {
     content,
-    avatar,
     userName,
     id,
   };

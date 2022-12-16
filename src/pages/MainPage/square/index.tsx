@@ -109,7 +109,7 @@ function NeedPage() {
     SquarListMutaion.mutate({ page, size: 10 });
   }, [page]);
   const getPublicPermission = () => {
-    PublicPermissionMutaion.mutate({ id: userInfo?.id as number });
+    PublicPermissionMutaion.mutate({ id: userInfo?.id });
   };
   return (
     <div className="h-full squareRoot">

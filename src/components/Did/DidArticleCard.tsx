@@ -4,7 +4,6 @@ import cn from 'classnames';
 
 export interface DidBaseArticleCardProps {
   title?: string;
-  avatar: string;
   userName: string;
   className?: string;
   content?: string;
@@ -16,7 +15,7 @@ interface DidArticleCardProps extends DidBaseArticleCardProps {
   id: number;
 }
 function DidArticleCard(props: DidArticleCardProps) {
-  const { title, content, avatar, userName, children, className, id } = props;
+  const { title, content, userName, children, className, id } = props;
 
   const { handleToDetail } = useDidArticleCard();
   return (

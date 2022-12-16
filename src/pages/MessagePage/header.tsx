@@ -9,11 +9,10 @@ function Header() {
     navigate(-1);
   };
   return (
-    <div className="fixed h-[44px] w-full flex justify-between items-center pl-[8px] pr-[10px] bg-white z-10">
+    <div className="fixed h-[44px] w-full flex justify-between items-center pl-[8px] pr-[10px]  z-10">
       <div onClick={back}>
         <ArrowBackIosIcon className="text-[#C1C1C1] p-[8px] text-[36px]" />
       </div>
-      <MoreHorizIcon className="text-black p-[8px] text-[36px]" />
     </div>
   );
 }

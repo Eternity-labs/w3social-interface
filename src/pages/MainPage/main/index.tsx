@@ -7,7 +7,7 @@ import userService from '@apis/services/UserService';
 
 function MainPage(): JSX.Element {
   return (
-    <div className="bg-gray-100 box-border h-screen">
+    <div className="bg-gray-100 box-border h-full  flex flex-col">
       <Header />
       <MainContainer>
         <Outlet />
