@@ -5,18 +5,18 @@ import { useMutation } from 'react-query';
 type MessageTipProps = {
   children: JSX.Element;
   id: number;
-  frizesid: number;
+  friendsid: number;
 };
 function MessageTip(props: MessageTipProps) {
-  const { children, id, frizesid } = props;
+  const { children, id, friendsid } = props;
   const MessageMutation = useMutation(UserService.handleMessage, {
     onSuccess: () => {},
   });
   const pass = () => {
-    MessageMutation.mutate({ id, frizesid, result: '1' });
+    MessageMutation.mutate({ id, friendsid, result: 1 });
   };
   const refuse = () => {
-    MessageMutation.mutate({ id, frizesid, result: '2' });
+    MessageMutation.mutate({ id, friendsid, result: 2 });
   };
 
   return (

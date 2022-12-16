@@ -9,7 +9,7 @@ function useStore() {
   const GetUserInfoQuery = useQuery('getUserInfo', UserService.getUserInfo, {
     onSuccess: res => {
       if (res?.id) {
-        res.id = String(res.id);
+        // res.id = String(res.id);
         setUserInfo(draft => {
           draft = res;
           return draft;

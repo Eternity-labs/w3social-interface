@@ -1,8 +1,9 @@
 import type { ISearchList, ISearchID } from './common';
 
-export interface HandleMessageReq extends ISearchID {
-  frizesid: number;
-  result: string;
+export interface HandleMessageReq {
+  friendsid: number;
+  result: number;
+  id: number;
 }
 export interface GetMessageReq {
   userid?: number;
@@ -35,4 +36,6 @@ export interface MessageInfo {
   createTime: string;
   content?: string;
   headSculpture: string;
+  nickname: string;
+  tag: Array<string>;
 }

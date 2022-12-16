@@ -22,7 +22,7 @@ class LoginServices {
     return axios.post(`${baseURL}/login/sendCode`, params);
   }
 
-  static login(params: ILoginReq): Promise<ILoginRes> {
+  static login(params: ILoginReq): Promise<IRegisterRes> {
     return axios.post(`${baseURL}/login/login`, params);
   }
 
