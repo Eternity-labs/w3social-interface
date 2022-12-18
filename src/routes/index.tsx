@@ -124,7 +124,7 @@ const routes: RouteObject[] = [
         element: <NeedDetailPage />,
       },
       {
-        path: '/user',
+        path: '/aUser',
         element: <UserInfoDetail />,
       },
       {
@@ -136,7 +136,7 @@ const routes: RouteObject[] = [
         element: <Setting />,
       },
       {
-        path: '/userDetail',
+        path: '/dUser',
         element: <UserDetail />,
       },
       {

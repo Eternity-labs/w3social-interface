@@ -16,6 +16,10 @@ function TopicPage() {
   const navigate = useNavigate();
   let pos: number;
 
+  useEffect(() => {
+    console.log(curItemInfo);
+  }, [curItemInfo]);
+
   useQuery('getQuestion', () => UserService.getQuestion({ id: userInfo?.id || 0 }), {
     enabled: !!userInfo?.id && !questionList.length,
     onSuccess: res => {
@@ -37,6 +41,8 @@ function TopicPage() {
       setIndex(pos);
       const info = questionList[pos];
       setCurSelectInfo(info);
+    } else {
+      navigate(-1);
     }
   };
   const next = () => {
@@ -80,7 +86,9 @@ function TopicPage() {
             {index + 1}/{questionList.length}
           </div>
         </div>
-        <p className="font-medium text-[14px] leading-[22px]">{curItemInfo?.description}</p>
+        {curItemInfo && (
+          <p className="font-medium text-[14px] leading-[22px]">{curItemInfo?.description}</p>
+        )}
       </div>
       {curItemInfo && (
         <SelectBox value={curItemInfo} items={curItemInfo.choice} onChange={handleSelect} />

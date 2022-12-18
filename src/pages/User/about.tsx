@@ -29,7 +29,7 @@ function About() {
             <ArrowForwardIosIcon />
           </ListItemButton>
         </List>
-        <Draw isOpen closeDrawModal={() => {}}>
+        {/* <Draw isOpen closeDrawModal={() => {}}>
           <List className="mt-[16px]">
             <ListItemButton>
               <ListItemText className="text-center" primary="规划" />
@@ -43,7 +43,7 @@ function About() {
               <ListItemText className="text-center" primary="设置" />
             </ListItemButton>
           </List>
-        </Draw>
+        </Draw> */}
       </div>
     </>
   );

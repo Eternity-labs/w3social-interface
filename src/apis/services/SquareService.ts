@@ -13,7 +13,7 @@ import {
 } from '@apis/model/SquareModel';
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : '/w3social';
+const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : 'http://114.55.67.80:8081';
 
 class SquareService {
   static addMoment(params: AddMomentReq): Promise<AddMomentRes> {

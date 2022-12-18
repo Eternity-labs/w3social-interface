@@ -2,7 +2,7 @@ import axios from 'axios';
 import { IDidReq, IDidResData, IDidMomentData, IDidInfoData } from '@apis/model/DidModel';
 import { ISearchID } from '@apis/model/common';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : '/w3social';
+const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : 'http://114.55.67.80:8081';
 
 class DidServices {
   static getAbouts(): Promise<string> {
@@ -19,11 +19,6 @@ class DidServices {
 
   // 推送
   static getDidList(params: IDidReq): Promise<IDidResData> {
-    return axios.post(`${baseURL}/did/did`, params);
-  }
-
-  // did 用户详情
-  static getDidInfo(params: ISearchID): Promise<IDidInfoData> {
     return axios.post(`${baseURL}/did/did`, params);
   }
 
