@@ -40,9 +40,9 @@ function DidIndex() {
 
   const getItemList = (index: any): number => {
     if (index === totalElements - 1) {
-      return 170;
+      return 180;
     }
-    return 130;
+    return 140;
   };
 
   const loadNextPage = () => {

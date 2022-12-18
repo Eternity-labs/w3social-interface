@@ -28,9 +28,7 @@ function DidDetail() {
     <div className="p-[16px] pb-[60px] h-full box-border bg-green relative">
       <div className="flex justify-between items-center">
         <ArrowBackIosIcon onClick={() => handleBack()} />
-        <span className="flex justify-center items-center rounded-full px-[6px] py-[3px] text-[8px] color-fSelect bg-white">
-          DID #0897
-        </span>
+        <span className="flex justify-center items-center rounded-full px-[6px] py-[3px] text-[8px] color-fSelect bg-white" />
       </div>
       <DidUserInfo nickname={nickname} />
       <TabContext value={tabIndex}>

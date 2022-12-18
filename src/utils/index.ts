@@ -31,10 +31,10 @@ export const calcDays = (dateStr?: string) => {
   const prevDate = new Date(dateStr);
   const diff = new Date().getTime() - prevDate.getTime();
   const realDiff = parseInt(diff / 1000 / 86400, 10);
-  if (realDiff > 14) {
+  if (realDiff >= 14) {
     return '两周前';
   }
-  if (realDiff > 7) {
+  if (realDiff >= 7) {
     return '一周前';
   }
   if (realDiff > 0) {
