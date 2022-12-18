@@ -11,7 +11,7 @@ import useStore from '@states/useStore';
 function DidIndex() {
   const { list, handleRefresh, handleLoadMore } = useDidList();
   const { userInfo } = useStore();
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(0);
   const [memoDidList, setMemoDidList] = useState<any>([]);
   const [isHasNextPage, setNextPageStatus] = useState<boolean>(false);
   const [totalElements, setTotal] = useState(0);
@@ -22,6 +22,9 @@ function DidIndex() {
         id: userInfo!.id,
         page,
         size: 10,
+      }).then(res => {
+        console.log(res);
+        setMemoDidList(res.records);
       }),
     {
       enabled: !!userInfo?.id,

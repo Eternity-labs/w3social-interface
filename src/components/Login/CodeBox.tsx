@@ -92,6 +92,7 @@ function CodeBox(props: CodeBoxProps, refValue: unknown) {
     if (errorText) {
       setError('');
     }
+    handleCode();
     // onChange?.(newCode);
   };
   const getInputClassName = (index: number) => {

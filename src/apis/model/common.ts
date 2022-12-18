@@ -9,5 +9,5 @@ export interface ISearchList {
   size: number;
 }
 export interface ISearchID {
-  id: number;
+  id: number | string;
 }

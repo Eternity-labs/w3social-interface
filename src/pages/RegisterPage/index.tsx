@@ -13,6 +13,7 @@ function RegisterPage(): JSX.Element {
   const [code, setCode] = useState<string>('');
 
   const onCodeChange = (data: string) => {
+    console.log(data);
     setCode(data);
   };
   const RegisInfoRef = useRef<RegisterBoxHandle>();
@@ -21,12 +22,12 @@ function RegisterPage(): JSX.Element {
   const register = () => {
     const regisInfoRes = RegisInfoRef.current!.check();
     const codeRes = CodeRef.current!.check();
+    console.log(regisInfoRes);
+    console.log(codeRes);
 
     if (!regisInfoRes || !codeRes) {
       return;
     }
-    console.log(regisInfoRes);
-    console.log(codeRes);
 
     const params: IRegisterReq = {
       loginInfo: {
@@ -36,6 +37,7 @@ function RegisterPage(): JSX.Element {
       code: String(codeRes),
     };
     LoginService.register(params).then(res => {
+      console.log(res);
       if (res.code === 200 && res.data.token) {
         navigate('/startQuestion');
       }

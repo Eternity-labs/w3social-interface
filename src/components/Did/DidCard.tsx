@@ -8,7 +8,7 @@ import UserInfo from '../Base/UserInfo';
 function DidCard({ classNames, id }: any) {
   const { jumpToDetail, loading } = useDidCard();
   const cls = cn(
-    'p-4 h-[120px] shadow-none rounded-[12px] bg-gradient-to-r from-green-400 to-blue-500',
+    'p-4 h-[120px] shadow-none rounded-[12px] bg-gradient-to-r from-green-400 to-blue-100 mt-[12px]',
     classNames
   );
   if (loading) {

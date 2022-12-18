@@ -7,8 +7,9 @@ import {
   HandleMessageReq,
 } from '@apis/model/SingleuserModel';
 import { ISearchID } from '@apis/model/common';
+import { IDidInfoData } from '@apis/model/DidModel';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '' : '';
+const baseURL = process.env.NODE_ENV === 'development' ? '' : 'http://114.55.67.80:8080';
 
 class UserService {
   static getTagList(): Promise<Array<TagInfo>> {
@@ -33,6 +34,11 @@ class UserService {
 
   static handleMessage(params: HandleMessageReq): Promise<boolean> {
     return axios.post(`${baseURL}/user/profrzsnews`, params);
+  }
+
+  // did 用户详情
+  static getDidInfo(params: ISearchID): Promise<IDidInfoData> {
+    return axios.post(`/user/info`, params);
   }
 }
 
