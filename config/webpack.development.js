@@ -1,9 +1,9 @@
 const { join, resolve } = require('path');
+
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const notifier = require('node-notifier');
-
+const Dotenv = require('dotenv-webpack');
 module.exports = {
   devtool: false,
   output: {
@@ -25,6 +25,9 @@ module.exports = {
     port: 3000,
   },
   plugins: [
+    new Dotenv({
+      path: resolve(__dirname, './.env.dev'),
+    }),
     // new BundleAnalayzerPlugin(),
     // 各个网段的web性能 2g 3g 4g
     // new Jarvis({
@@ -38,7 +41,7 @@ module.exports = {
     new webpack.SourceMapDevToolPlugin({
     }),
     new HtmlWebpackPlugin({
-      title: 'kk-react-generator',
+      title: 'we3Social',
       filename: 'index.html',
       template: resolve(__dirname, '../public/index.html'),
     }),
@@ -60,6 +63,7 @@ module.exports = {
         });
       },
     }),
+    
   ],
   
 };

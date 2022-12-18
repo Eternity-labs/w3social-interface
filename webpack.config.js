@@ -1,16 +1,15 @@
 const { resolve } = require('path');
 const merge = require('webpack-merge');
-const argv = require('yargs-parser');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const argv = require('yargs-parser')(process.argv.slice(2));
 const _mode = argv.mode || 'development';
 const _mergeConfig = require(`./config/webpack.${_mode}.js`);
 const Webpackbar = require('webpackbar');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const webpackBaseConfig = {
-  // cache: {
-  //   type: 'filesystem',
-  // },
+  cache: {
+    type: 'filesystem',
+  },
   entry: {
     main: resolve('src/index.tsx'),
   },
