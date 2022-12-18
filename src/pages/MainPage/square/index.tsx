@@ -10,7 +10,6 @@ import { useQuery, useQueryClient, useMutation } from 'react-query';
 import type { GetMomentRes, MomentData } from '@apis/model/SquareModel';
 import ReactPullToRefresh from 'react-pull-to-refresh';
 import UserService from '@apis/services/SingleuserService';
-import UserService2 from '@apis/services/UserService';
 import useStore from '@states/useStore';
 import DragButton from './components/dragButton';
 
@@ -67,9 +66,9 @@ function NeedPage() {
   });
   const getItemList = (index: any): number => {
     if (index === totalElements - 1) {
-      return 160;
+      return 170;
     }
-    return 120;
+    return 130;
   };
   const handleLike = (data: MomentData, index: number) => {
     if (data.isLike) {

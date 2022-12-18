@@ -4,10 +4,10 @@ import useDidDetail from '@hooks/useDidDetail';
 import LocalFooter from '@components/Base/LocalFooter';
 import WishList from '@components/Did/WishList';
 import ButtonActions from '@components/Did/BottomActions';
-import DidArticleCard from '@components/Did/DidArticleCard';
 import { CustomTabList, Tab, TabContext, TabPanel } from '@components/Base/CustomTabList';
 import useButtonActions from '@hooks/useBottomActions';
 import NotifyDialog from '@components/NotifyDialog';
+import ArticleList from '@components/ArticleList';
 
 function DidDetail() {
   const {
@@ -16,7 +16,7 @@ function DidDetail() {
     handleBack,
     userData = {},
     isLoading,
-    articleData,
+    id,
   } = useDidDetail();
   const { modelProps, handleCheckArticle, handleGetUserInfo } = useButtonActions();
 
@@ -48,17 +48,7 @@ function DidDetail() {
           className="h-[240px] p-0 my-[12px] overflow-hidden overscroll-contain overflow-y-auto"
           value="2"
         >
-          {articleData?.map(article => {
-            const { title, content, nickname: userName } = article;
-            return (
-              <DidArticleCard
-                key={article.id}
-                title={title}
-                content={content}
-                userName={userName}
-              />
-            );
-          })}
+          <ArticleList userId={id} />
         </TabPanel>
       </TabContext>
       <LocalFooter city={city} />

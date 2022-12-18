@@ -24,6 +24,7 @@ function DidIndex() {
         size: 10,
       }).then(res => {
         console.log(res);
+        setTotal(res.totalElements);
         setMemoDidList(res.records);
       }),
     {
@@ -39,9 +40,9 @@ function DidIndex() {
 
   const getItemList = (index: any): number => {
     if (index === totalElements - 1) {
-      return 160;
+      return 180;
     }
-    return 120;
+    return 140;
   };
 
   const loadNextPage = () => {
@@ -67,7 +68,14 @@ function DidIndex() {
           getItemList={getItemList}
         >
           {(index: number) => {
-            return <DidCard classNames="mt-[12px]" key={memoDidList[index]} />;
+            return (
+              <DidCard
+                classNames="mt-[12px]"
+                key={memoDidList[index]?.updateTime}
+                index={index}
+                {...memoDidList[index]}
+              />
+            );
           }}
         </CommonPage>
       </div>

@@ -94,7 +94,7 @@ const routes: RouteObject[] = [
             element: <DidList />,
           },
           {
-            path: 'detail/:id',
+            path: 'detail',
             element: <DidDetail />,
           },
           {

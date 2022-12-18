@@ -1,24 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import SquareService from '@apis/services/SquareService';
-import { PAGE_SIZE } from '@config/common';
 import UserService from '@apis/services/SingleuserService';
 
 const useDidDetail = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get('id') || 0;
   const [tabIndex, setTabIndex] = useState('1');
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const { data: userData, isLoading } = useQuery(['getDidInfo'], () =>
-    UserService.getDidInfo({ id: '1' })
-  );
-
-  const { data: articleData } = useQuery(['getMomentList'], () =>
-    SquareService.getMomentList({ userId: 1, page, size: PAGE_SIZE }).then(res => {
-      setPage(res.currentPage + 1);
-
-      return res.records;
-    })
+    UserService.getDidInfo({ id })
   );
 
   const handleTabIndexChange = (e: React.SyntheticEvent, newValue: string) => {
@@ -36,7 +28,7 @@ const useDidDetail = () => {
     handleBack,
     userData,
     isLoading,
-    articleData,
+    id,
   };
 };
 

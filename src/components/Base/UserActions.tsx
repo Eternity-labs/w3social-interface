@@ -23,7 +23,7 @@ function UserActions(props: UserActionsProps) {
 
   const iconCss = 'h-[30px] flex items-center pl-[5px] pr-[5px]';
   return (
-    <div className="flex items-center justify-center w-[100px] text-[10px] h-[40px]">
+    <div className="flex items-center justify-end w-[100px] text-[10px] h-[40px]">
       <div onClick={onLike} className={iconCss}>
         <StyledBadge badgeContent={thumbCount || 0}>
           {isLike ? (
@@ -34,12 +34,12 @@ function UserActions(props: UserActionsProps) {
         </StyledBadge>
       </div>
 
-      <div onClick={onComment} className={iconCss}>
+      {/* <div onClick={onComment} className={iconCss}>
         <ChatBubbleOutlineIcon className="text-[16px]" />
-      </div>
-      <div className={iconCss}>
+      </div> */}
+      {/* <div className={iconCss}>
         <OpenInNewIcon className="text-[16px]" />
-      </div>
+      </div> */}
     </div>
   );
 }

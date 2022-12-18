@@ -25,3 +25,20 @@ export const isInitValue = (value: any): boolean => {
   if (value[0] === initFilterState.age[0] && value[1] === initFilterState.age[1]) return true;
   return false;
 };
+
+export const calcDays = (dateStr?: string) => {
+  if (!dateStr) return '今天';
+  const prevDate = new Date(dateStr);
+  const diff = new Date().getTime() - prevDate.getTime();
+  const realDiff = parseInt(diff / 1000 / 86400, 10);
+  if (realDiff > 14) {
+    return '两周前';
+  }
+  if (realDiff > 7) {
+    return '一周前';
+  }
+  if (realDiff > 0) {
+    return `${realDiff}天前`;
+  }
+  return '今天';
+};
