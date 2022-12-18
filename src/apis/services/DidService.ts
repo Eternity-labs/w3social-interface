@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IDidReq, IDidResData, IDidMomentData, IDidInfoData } from '@apis/model/DidModel';
+import { IDidReq, IDidResData, IDidMomentData, IDidRes } from '@apis/model/DidModel';
 import { ISearchID } from '@apis/model/common';
 
 const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : 'http://114.55.67.80:8081';
@@ -18,7 +18,7 @@ class DidServices {
   }
 
   // 推送
-  static getDidList(params: IDidReq): Promise<IDidResData> {
+  static getDidList(params: IDidReq): Promise<IDidRes> {
     return axios.post(`${baseURL}/did/did`, params);
   }
 

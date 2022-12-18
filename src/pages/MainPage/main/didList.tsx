@@ -9,7 +9,7 @@ import DidService from '@apis/services/DidService';
 import useStore from '@states/useStore';
 
 function DidIndex() {
-  const { list, handleRefresh, handleLoadMore } = useDidList();
+  // const { list, handleRefresh, handleLoadMore } = useDidList();
   const { userInfo } = useStore();
   const [page, setPage] = useState<number>(0);
   const [memoDidList, setMemoDidList] = useState<any>([]);
@@ -22,13 +22,13 @@ function DidIndex() {
         id: userInfo!.id,
         page,
         size: 10,
-      }).then(res => {
-        console.log(res);
-        setTotal(res.totalElements);
-        setMemoDidList(res.records);
       }),
     {
       enabled: !!userInfo?.id,
+      onSuccess: data => {
+        setTotal(data.totalElements);
+        setMemoDidList(data.records);
+      },
     }
   );
   // const getRef = (dom: HTMLDivElement, index: number) => {
@@ -40,9 +40,9 @@ function DidIndex() {
 
   const getItemList = (index: any): number => {
     if (index === totalElements - 1) {
-      return 180;
+      return 170;
     }
-    return 140;
+    return 130;
   };
 
   const loadNextPage = () => {

@@ -15,6 +15,12 @@ export interface IDidResData extends DidBaseData {
   tag: Array<string>;
   address: string;
 }
+export interface IDidRes {
+  records: Array<IDidResData>;
+  totalElements: number;
+  pageSize: number;
+  currentPage: number;
+}
 
 export interface IDidInfoData extends DidBaseData {
   introduce: string;
