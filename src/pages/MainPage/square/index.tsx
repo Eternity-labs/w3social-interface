@@ -21,7 +21,7 @@ import './pullDown.css';
 const PADDING_SIZE = 10;
 function NeedPage() {
   const QueryClient = useQueryClient();
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(0);
   const { isOpen, handleOpen } = UseModal();
   const [memoMomentList, setMemoMomentList] = useState<Array<MomentData>>([]);
   const [isHasNextPage, setNextPageStatus] = useState<boolean>(false);
@@ -31,16 +31,20 @@ function NeedPage() {
   const [totalElements, setTotal] = useState(0);
   const { userInfo } = useStore();
 
-  const SquarListMutaion = useMutation(SquareService.getMomentList, {
-    onSuccess: res => {
-      const newMemoList = [...memoMomentList, ...res.records];
-      setMemoMomentList(newMemoList);
-      setTotal(res.totalElements);
-      if (newMemoList.length < res.totalElements) {
-        setNextPageStatus(true);
-      }
-    },
-  });
+  const MomentListQuery = useQuery(
+    ['getMomentList', page],
+    () => SquareService.getMomentList({ page, size: 10 }),
+    {
+      onSuccess: res => {
+        const newMemoList = [...memoMomentList, ...res.records];
+        setMemoMomentList(newMemoList);
+        setTotal(res.totalElements);
+        if (newMemoList.length < res.totalElements) {
+          setNextPageStatus(true);
+        }
+      },
+    }
+  );
   const PublicPermissionMutaion = useMutation(UserService.getPublicPermission, {
     onSuccess: res => {
       if (!res) {
@@ -101,21 +105,24 @@ function NeedPage() {
     return !isHasNextPage || index < memoMomentList.length;
   };
   const loadNextPage = () => {
-    if (memoMomentList.length < (SquarListMutaion?.data?.totalElements || 0)) {
+    if (
+      memoMomentList.length &&
+      memoMomentList.length < (MomentListQuery?.data?.totalElements || 0)
+    ) {
       setPage(page + 1);
     }
   };
-  useEffect(() => {
-    SquarListMutaion.mutate({ page, size: 10 });
-  }, [page]);
+  // useEffect(() => {
+  //   SquarListMutaion.mutate({ page, size: 10 });
+  // }, []);
   const getPublicPermission = () => {
-    PublicPermissionMutaion.mutate({ id: userInfo?.id });
+    PublicPermissionMutaion.mutate({ id: userInfo!.id });
   };
   return (
     <div className="h-full squareRoot">
       <CommonPage
         hasNextPage={isHasNextPage}
-        isNextPageLoading={SquarListMutaion?.isLoading}
+        isNextPageLoading={MomentListQuery?.isLoading}
         listData={memoMomentList}
         loadNextPage={loadNextPage}
         totalElements={totalElements}

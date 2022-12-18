@@ -73,7 +73,7 @@ function InputCom(props: InputComProps): JSX.Element {
   );
   return (
     <MuiTextFiled
-      id="input-with-icon-textfield"
+      // id="input-with-icon-textfield"
       placeholder={placeholder}
       className={className}
       variant={variant}
