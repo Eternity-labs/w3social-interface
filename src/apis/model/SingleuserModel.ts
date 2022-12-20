@@ -38,4 +38,5 @@ export interface MessageInfo {
   headSculpture: string;
   nickname: string;
   tag: Array<string>;
+  identity: string;
 }

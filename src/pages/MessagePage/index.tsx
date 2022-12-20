@@ -5,12 +5,12 @@ import { useQuery } from 'react-query';
 import useStore from '@states/useStore';
 import { Message } from '@mui/icons-material';
 import NoDataImg from '@assets/images/noData.png';
+import BaseHeader from '@components/Base/BaseHeader';
 import Header from './header';
 import MessageCard from './messageCard';
 
 function MessagePage() {
   const { userInfo } = useStore();
-  console.log(userInfo);
   const { tabIndex, handleTabIndexChange, handleBack } = useDidDetail();
   const MessageQuery = useQuery(
     ['getMessage', userInfo?.id],
@@ -21,9 +21,9 @@ function MessagePage() {
   );
   return (
     <>
-      <Header />
+      <BaseHeader title="我的消息" />
       <div className="h-full">
-        <div className="pt-[58px] px-[30px] h-full flex flex-col">
+        <div className="pt-[60px] px-[30px] h-full flex flex-col">
           {MessageQuery?.data &&
             MessageQuery?.data!.map((item, index) => {
               return (

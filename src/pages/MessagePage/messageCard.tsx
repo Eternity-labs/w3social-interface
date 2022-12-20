@@ -4,6 +4,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { MessageInfo } from '@apis/model/SingleuserModel';
 import IconButton from '@mui/material/IconButton';
 import cn from 'classnames';
+import { calcDays } from '@utils/index';
 import MessageTip from './MessageTip';
 
 interface ImessageCardProps {
@@ -18,8 +19,10 @@ const messageCard = (props: MessageInfo & { className?: string }) => {
     id,
     friendsid,
     nickname,
+    identity,
     tag = [],
     className,
+    createTime,
   } = props;
   return (
     <div className={cn('flex', className || '')}>
@@ -31,7 +34,7 @@ const messageCard = (props: MessageInfo & { className?: string }) => {
           <div className="flex flex-col flex-1">
             <div className="flex ">
               <div className="text-[12px] text-black mr-[10px]">{nickname}</div>
-              <div className="text-[#666] text-[10px]">Builder</div>
+              <div className="text-[#666] text-[10px]">{identity}</div>
             </div>
             <div className="mt-[10px]">
               <Labels labels={tag} />
@@ -43,7 +46,7 @@ const messageCard = (props: MessageInfo & { className?: string }) => {
                 <MoreHorizIcon className="text-[15px]" />
               </IconButton>
             </MessageTip>
-            <div className="text-[#222] text-[10px]">2分钟前</div>
+            <div className="text-[#222] text-[10px]">{calcDays(createTime)}</div>
           </div>
         </div>
         <div className="mt-[12px]">

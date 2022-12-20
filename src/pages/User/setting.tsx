@@ -6,20 +6,21 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Divider from '@mui/material/Divider';
 import Switch from '@mui/material/Switch';
-import { useNavigate } from 'react-router-dom';
+import useSetting from '@hooks/useSetting';
 
 function Setting() {
-  const navigate = useNavigate();
-  const toUserDetail = () => {
-    navigate('/dUser');
-  };
+  const { toUserDetail, data, isLoading, toResetPassword, show, switchWechat } = useSetting();
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <>
       <BaseHeader title="设置" />
       <List className="bg-white mt-[60px]">
         <ListItemButton>
           <ListItemText primary="邮箱" />
-          <p>web3@found.com</p>
+          <p>{data?.email}</p>
         </ListItemButton>
       </List>
       <List className="bg-white mt-[20px]">
@@ -28,7 +29,7 @@ function Setting() {
           <ArrowForwardIosIcon />
         </ListItemButton>
         <Divider />
-        <ListItemButton>
+        <ListItemButton onClick={toResetPassword}>
           <ListItemText primary="修改密码" />
           <ArrowForwardIosIcon />
         </ListItemButton>
@@ -41,7 +42,7 @@ function Setting() {
         <Divider /> */}
         <ListItemButton>
           <ListItemText primary="对他人隐藏我的社交账号" />
-          <Switch edge="end" />
+          <Switch value={show} onChange={switchWechat} edge="end" />
         </ListItemButton>
       </List>
     </>

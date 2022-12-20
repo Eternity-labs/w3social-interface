@@ -41,7 +41,8 @@ function PublishNeedPage() {
       }, 2000);
     },
   });
-  const { showDrawer, setShowDrawer } = useDidFilter();
+
+  const { showDrawer, setShowDrawer } = useDidFilter({});
 
   const addlabel = () => {
     setShowDrawer(true);

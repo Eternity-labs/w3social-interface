@@ -1,6 +1,8 @@
 import { Tooltip } from '@mui/material';
 import UserService from '@apis/services/SingleuserService';
 import { useMutation } from 'react-query';
+import { useState } from 'react';
+import Divider from '@mui/material/Divider';
 
 type MessageTipProps = {
   children: JSX.Element;
@@ -9,6 +11,7 @@ type MessageTipProps = {
 };
 function MessageTip(props: MessageTipProps) {
   const { children, id, friendsid } = props;
+  const [open, setOpen] = useState(false);
   const MessageMutation = useMutation(UserService.handleMessage, {
     onSuccess: () => {},
   });
@@ -22,11 +25,13 @@ function MessageTip(props: MessageTipProps) {
   return (
     <Tooltip
       className="pt-[5px]"
-      open
+      onClick={() => setOpen(!open)}
+      open={open}
       title={
         <div className="px-[5px] text-[12px]">
           <p onClick={pass}>通过</p>
-          <p className="mt-[3px]" onClick={refuse}>
+          <Divider className="bg-white" />
+          <p className="mt-[10px]" onClick={refuse}>
             拒绝
           </p>
         </div>

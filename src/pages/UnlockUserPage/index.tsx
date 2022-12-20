@@ -8,6 +8,10 @@ import type { Provider, TransactionRequest } from '@ethersproject/providers';
 import { useWallet } from '@hooks/useWallet';
 import { useEffect, useState } from 'react';
 import { metaMask } from '@connector/metaMask';
+import BaseHeader from '@components/Base/BaseHeader';
+import { useQuery } from 'react-query';
+import useStore from '@states/useStore';
+import UserService from '@apis/services/SingleuserService';
 
 type TItem = {
   icon: string;
@@ -42,6 +46,16 @@ function UnlockUser() {
       desc: '(对应的sub title)',
     },
   ];
+  const { userInfo } = useStore();
+  const id = userInfo?.id;
+
+  const { data: userData, isLoading: cardLoading } = useQuery(
+    ['getDidInfo', id],
+    () => UserService.getDidInfo({ id: `${id}` }),
+    {
+      enabled: !!id,
+    }
+  );
   const { library, account } = useWallet();
   const address = '0xdEe7D41d9c9F6774C8E0c2e17ECD7e4ab21F8210';
   const signer = library?.getSigner();
@@ -54,7 +68,6 @@ function UnlockUser() {
 
   const getInfo = async () => {
     const result = await contract.DID(account);
-    console.log('getInfo: ', result);
     setIsPending(false);
   };
 
@@ -66,21 +79,24 @@ function UnlockUser() {
   };
 
   return (
-    <div className="pl-[40px] pr-[40px] pt-[20px]">
-      <DidCard />
-      <DividingLine text="已发售1.1k" className="mt-[40px]" />
-      {items.map((item, index) => {
-        return <UnlockDidItem {...item} className="mt-[30px]" />;
-      })}
-      <Button
-        onClick={mint}
-        disabled={isPending}
-        variant="outlined"
-        className=" w-[275px] h-[50px] mt-[34px] border-black text-black rounded-full bg-transparent text-[13px] font-medium shadow-buttonUnlock"
-      >
-        199CNY
-      </Button>
-    </div>
+    <>
+      <BaseHeader title="解锁身份" />
+      <div className="pl-[40px] pr-[40px] pt-[80px]">
+        <DidCard {...userData} />
+        <DividingLine text="已发售1.1k" className="mt-[40px]" />
+        {items.map((item, index) => {
+          return <UnlockDidItem {...item} className="mt-[30px]" />;
+        })}
+        <Button
+          onClick={mint}
+          disabled={isPending}
+          variant="outlined"
+          className=" w-[275px] h-[50px] mt-[34px] border-black text-black rounded-full bg-transparent text-[13px] font-medium shadow-buttonUnlock"
+        >
+          199CNY
+        </Button>
+      </div>
+    </>
   );
 }
 export default UnlockUser;

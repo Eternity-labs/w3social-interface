@@ -17,7 +17,7 @@ function DidIndex() {
   const [totalElements, setTotal] = useState(0);
   const [filter, setFilter] = useState({});
   const DidListQuery = useQuery(
-    ['DidList', page, filter],
+    ['getDidList', page, filter],
     () =>
       DidService.getDidList({
         id: userInfo!.id,

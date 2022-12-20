@@ -17,7 +17,7 @@ function Labels({ labels, type }: LabelsProps) {
 
   return (
     <div className="flex items-center">
-      {labels.map((label, index) => (
+      {labels?.map((label, index) => (
         <span key={label + index} className={getCN(type)}>
           {label}
         </span>

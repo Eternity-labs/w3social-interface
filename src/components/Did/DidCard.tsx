@@ -5,9 +5,10 @@ import cn from 'classnames';
 import Skeleton from '@mui/material/Skeleton';
 import { calcDays } from '@utils/index';
 import { GRADIENTS } from '@config/common';
+import logo from '@assets/images/logo.png';
 import UserInfo from '../Base/UserInfo';
 
-function DidCard({ classNames, id, index, ...rest }: any) {
+function DidCard({ classNames, id, index, needJump = true, ...rest }: any) {
   const { tag, nickname, identity, headSculpture, updateTime } = rest;
   const { jumpToDetail, loading } = useDidCard();
 
@@ -21,8 +22,13 @@ function DidCard({ classNames, id, index, ...rest }: any) {
     return <Skeleton className={classNames} variant="rounded" height={140} />;
   }
   return (
-    <Card onClick={() => jumpToDetail(id)} className={cls}>
-      <UserInfo showDid={false} name={nickname} identity={identity} headSculpture={headSculpture} />
+    <Card onClick={() => needJump && jumpToDetail(id)} className={cls}>
+      <UserInfo
+        showDid={false}
+        name={nickname}
+        identity={identity}
+        headSculpture={headSculpture || logo}
+      />
       <div className="flex justify-between items-center mt-[32px]">
         <Labels labels={tag ?? []} />
         <span className="text-[10px] text-gray-700">{calcDays(updateTime)}</span>

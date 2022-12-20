@@ -38,7 +38,12 @@ class UserService {
 
   // did 用户详情
   static getDidInfo(params: ISearchID): Promise<IDidInfoData> {
-    return axios.post(`/user/info`, params);
+    return axios.post(`${baseURL}/user/info`, params);
+  }
+
+  // did 用户朋友
+  static getFriends(params: ISearchID): Promise<IDidInfoData> {
+    return axios.post(`${baseURL}/user/friendslist`, params);
   }
 }
 

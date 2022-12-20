@@ -1,3 +1,4 @@
+import { DAY_MINIONS } from '@config/common';
 import { allFilters, initFilterState } from '@config/didConfig';
 
 export const generateFilterLabel = (curName: string, curValue: number | number[]): string => {
@@ -30,15 +31,26 @@ export const calcDays = (dateStr?: string) => {
   if (!dateStr) return '今天';
   const prevDate = new Date(dateStr);
   const diff = new Date().getTime() - prevDate.getTime();
-  const realDiff = parseInt(diff / 1000 / 86400, 10);
-  if (realDiff >= 14) {
-    return '两周前';
+  const realDiff = Math.floor(diff / 1000);
+  if (realDiff >= DAY_MINIONS) {
+    const dayDiff = Math.floor(realDiff / DAY_MINIONS);
+    if (dayDiff >= 14) {
+      return '两周前';
+    }
+    if (dayDiff >= 7) {
+      return '一周前';
+    }
+    if (dayDiff > 0) {
+      return `${dayDiff}天前`;
+    }
+    return '今天';
   }
-  if (realDiff >= 7) {
-    return '一周前';
+  const hDiff = Math.floor(realDiff / 3600);
+  if (hDiff > 0) {
+    return `${hDiff}小时前`;
   }
-  if (realDiff > 0) {
-    return `${realDiff}天前`;
+  if (Math.floor(realDiff / 60) > 0) {
+    return `${Math.floor(realDiff / 60)}分钟前`;
   }
-  return '今天';
+  return '刚刚';
 };

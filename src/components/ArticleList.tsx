@@ -5,7 +5,7 @@ import DidArticleCard from './Did/DidArticleCard';
 function ArticleList({ userId }: { userId: string }) {
   const { articleListMutation, total, hasNext, list, getItemHeight, loadNextPage } =
     useArticleList(userId);
-
+  console.log('ArticleList', articleListMutation);
   if (articleListMutation?.isLoading) {
     return '';
   }

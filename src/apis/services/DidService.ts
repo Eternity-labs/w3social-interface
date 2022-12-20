@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { IDidReq, IDidResData, IDidMomentData, IDidRes } from '@apis/model/DidModel';
+import {
+  IDidReq,
+  IDidResData,
+  IDidMomentData,
+  IDidRes,
+  IUserCenterInfo,
+} from '@apis/model/DidModel';
 import { ISearchID } from '@apis/model/common';
 
 const baseURL =
@@ -26,6 +32,10 @@ class DidServices {
   // did 帖子动态
   static getDidMoment(params: ISearchID): Promise<Array<IDidMomentData>> {
     return axios.post(`${baseURL}/did/moment`, params);
+  }
+
+  static getUserCenterInfo(params: ISearchID): Promise<IUserCenterInfo> {
+    return axios.post(`${baseURL}/did/profile`, params);
   }
 }
 

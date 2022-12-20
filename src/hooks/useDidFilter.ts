@@ -3,7 +3,11 @@ import { generateFilterLabel, isInitValue } from '@utils/index';
 import { useEffect, useState } from 'react';
 import { FilterActionType, FilterAction } from '@type/index';
 
-const useDidFilter = ({ onChange }) => {
+type Props = {
+  onChange?: () => void;
+};
+
+const useDidFilter = ({ onChange }: Props) => {
   const [showFilter, setShowFilter] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
   const [filter, setFilter] = useState<any>(initFilterState);
@@ -28,7 +32,6 @@ const useDidFilter = ({ onChange }) => {
   }, [filter]);
 
   const handleFilterChange = (itemValue: FilterAction, type?: FilterActionType) => {
-    console.log(itemValue);
     if (type === 'CLEAR') {
       setFilter(initFilterState);
     } else if (type === 'DELETE') {
@@ -54,7 +57,7 @@ const useDidFilter = ({ onChange }) => {
     setFilterLabel(labels);
     setShowFilter(labels.length > 0);
     setShowDrawer(false);
-    onChange(filter);
+    onChange?.(filter);
   };
 
   return {

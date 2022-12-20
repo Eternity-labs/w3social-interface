@@ -9,8 +9,12 @@ const useDidDetail = () => {
   const id = searchParams.get('id') || 0;
   const [tabIndex, setTabIndex] = useState('1');
   // const [page, setPage] = useState(1);
-  const { data: userData, isLoading } = useQuery(['getDidInfo'], () =>
-    UserService.getDidInfo({ id })
+  const { data: userData, isLoading } = useQuery(
+    ['getDidInfo', id],
+    () => UserService.getDidInfo({ id }),
+    {
+      enabled: !!id,
+    }
   );
 
   const handleTabIndexChange = (e: React.SyntheticEvent, newValue: string) => {

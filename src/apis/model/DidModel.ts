@@ -40,3 +40,5 @@ export interface IDidMomentData {
   pageView: number;
   createTime: string;
 }
+
+export interface IUserCenterInfo extends IDidInfoData {}

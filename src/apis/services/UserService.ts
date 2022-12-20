@@ -7,7 +7,10 @@ import {
 } from '@apis/model/UserModel';
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/w3socialLogin' : '/w3socialLogin';
+const baseURL =
+  process.env.NODE_ENV === 'development'
+    ? '/w3socialLogin'
+    : 'http://114.55.67.80:8081/w3socialLogin';
 
 class UserServices {
   static getUserInfo(): Promise<IGetUserInfoRes> {
