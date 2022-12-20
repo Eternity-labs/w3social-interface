@@ -6,6 +6,14 @@ function ArticleList({ userId }: { userId: string }) {
   const { articleListMutation, total, hasNext, list, getItemHeight, loadNextPage } =
     useArticleList(userId);
 
+  if (articleListMutation?.isLoading) {
+    return '';
+  }
+
+  if (!total) {
+    return '暂无帖子...';
+  }
+
   return (
     <CommonPage
       hasNextPage={hasNext}

@@ -15,13 +15,15 @@ function DidIndex() {
   const [memoDidList, setMemoDidList] = useState<any>([]);
   const [isHasNextPage, setNextPageStatus] = useState<boolean>(false);
   const [totalElements, setTotal] = useState(0);
+  const [filter, setFilter] = useState({});
   const DidListQuery = useQuery(
-    ['DidList', page],
+    ['DidList', page, filter],
     () =>
       DidService.getDidList({
         id: userInfo!.id,
         page,
         size: 10,
+        filter,
       }),
     {
       enabled: !!userInfo?.id,
@@ -50,9 +52,14 @@ function DidIndex() {
       setPage(page + 1);
     }
   };
+
+  const handleFilterChange = val => {
+    setFilter(val);
+  };
+
   return (
     <>
-      <DidFilter />
+      <DidFilter onChange={handleFilterChange} />
       <div className="h-[calc(100%-20px)] box-border overflow-hidden overflow-y-auto">
         {/* <ListContainer onPullDown={handleRefresh} onPullUp={handleLoadMore}>
           {list.map((item, idx) => {

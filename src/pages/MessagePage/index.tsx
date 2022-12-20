@@ -10,12 +10,13 @@ import MessageCard from './messageCard';
 
 function MessagePage() {
   const { userInfo } = useStore();
+  console.log(userInfo);
   const { tabIndex, handleTabIndexChange, handleBack } = useDidDetail();
   const MessageQuery = useQuery(
-    'getMessage',
+    ['getMessage', userInfo?.id],
     () => UserService.getMessage({ userId: userInfo!.id }),
     {
-      enabled: !!userInfo?.id,
+      enabled: Number(userInfo?.id) > 0,
     }
   );
   return (

@@ -6,19 +6,24 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Divider from '@mui/material/Divider';
 import Switch from '@mui/material/Switch';
+import { useNavigate } from 'react-router-dom';
 
 function Setting() {
+  const navigate = useNavigate();
+  const toUserDetail = () => {
+    navigate('/dUser');
+  };
   return (
     <>
       <BaseHeader title="设置" />
-      <List className="bg-white mt-[20px]">
+      <List className="bg-white mt-[60px]">
         <ListItemButton>
           <ListItemText primary="邮箱" />
           <p>web3@found.com</p>
         </ListItemButton>
       </List>
       <List className="bg-white mt-[20px]">
-        <ListItemButton>
+        <ListItemButton onClick={toUserDetail}>
           <ListItemText primary="修改DID" />
           <ArrowForwardIosIcon />
         </ListItemButton>

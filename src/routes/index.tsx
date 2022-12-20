@@ -59,6 +59,10 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '/',
+        element: <WelcomePage />,
+      },
+      {
+        path: '/login',
         element: <LoginPage />,
       },
       {
@@ -68,10 +72,6 @@ const routes: RouteObject[] = [
       {
         path: '/publishNeed',
         element: <PublishNeedPage />,
-      },
-      {
-        path: '/welcome',
-        element: <WelcomePage />,
       },
       {
         path: '/register',

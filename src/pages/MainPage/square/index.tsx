@@ -11,8 +11,9 @@ import type { GetMomentRes, MomentData } from '@apis/model/SquareModel';
 import ReactPullToRefresh from 'react-pull-to-refresh';
 import UserService from '@apis/services/SingleuserService';
 import useStore from '@states/useStore';
+import DidContentCard from '@components/Did/DidContentCard';
+import { useNavigate } from 'react-router-dom';
 import DragButton from './components/dragButton';
-
 import PermissionsFailModal from './components/permissionsFailModal';
 
 import './pullDown.css';
@@ -20,6 +21,7 @@ import './pullDown.css';
 const PADDING_SIZE = 10;
 function NeedPage() {
   const QueryClient = useQueryClient();
+  const navigate = useNavigate();
   const [page, setPage] = useState<number>(0);
   const { isOpen, handleOpen } = UseModal();
   const [memoMomentList, setMemoMomentList] = useState<Array<MomentData>>([]);
@@ -70,9 +72,9 @@ function NeedPage() {
   });
   const getItemList = (index: any): number => {
     if (index === totalElements - 1) {
-      return 170;
+      return 280;
     }
-    return 130;
+    return 240;
   };
   const handleLike = (data: MomentData, index: number) => {
     if (data.isLike) {
@@ -115,7 +117,8 @@ function NeedPage() {
   //   SquarListMutaion.mutate({ page, size: 10 });
   // }, []);
   const getPublicPermission = () => {
-    PublicPermissionMutaion.mutate({ id: userInfo!.id });
+    // PublicPermissionMutaion.mutate({ id: userInfo!.id });
+    navigate('/publishNeed');
   };
   return (
     <div className="h-full squareRoot">
@@ -129,11 +132,18 @@ function NeedPage() {
       >
         {(index: number) => {
           return (
-            <NeedCard
+            // <NeedCard
+            //   {...memoMomentList[index]}
+            // onLike={() => {
+            //   handleLike(memoMomentList[index], index);
+            // }}
+            // />
+            <DidContentCard
               {...memoMomentList[index]}
               onLike={() => {
                 handleLike(memoMomentList[index], index);
               }}
+              onComment={() => {}}
             />
           );
         }}

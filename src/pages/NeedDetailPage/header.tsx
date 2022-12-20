@@ -2,7 +2,10 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useNavigate } from 'react-router-dom';
 
-function Header() {
+type Props = {
+  onClickMore: () => void;
+};
+function Header({ onClickMore }: Props) {
   const navigate = useNavigate();
   const iconCss = '';
   const back = () => {
@@ -13,7 +16,7 @@ function Header() {
       <div onClick={back}>
         <ArrowBackIosIcon className="text-[#C1C1C1] p-[8px] text-[36px]" />
       </div>
-      <MoreHorizIcon className="text-black p-[8px] text-[36px]" />
+      <MoreHorizIcon onClick={onClickMore} className="text-black p-[8px] text-[36px]" />
     </div>
   );
 }

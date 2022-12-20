@@ -11,7 +11,7 @@ function UserDetail() {
   return (
     <>
       <BaseHeader title="我的信息" />
-      <Stack direction="row" className="flex items-center justify-center mt-[20px]" spacing={2}>
+      <Stack direction="row" className="flex items-center justify-center mt-[60px]" spacing={2}>
         <Avatar className="w-[85px] h-[85px] relative">
           H
           <label

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
+import { DEFAULT_ICON } from '@config/common';
 
 export type UserInfoProps = {
   showDid: boolean;
@@ -11,9 +12,7 @@ export type UserInfoProps = {
 function UserInfo({ showDid = false, name, identity, headSculpture }: UserInfoProps) {
   return (
     <div className="flex w-full">
-      <Avatar src={headSculpture} className="w-[36px] h-[36px] mr-[8px]">
-        H{' '}
-      </Avatar>
+      <Avatar src={headSculpture} className="w-[36px] h-[36px] mr-[8px]" />
       <div className="flex-1">
         <div className="flex justify-between mb-1">
           <span className="text-black font-medium text-[14px]">{name}</span>

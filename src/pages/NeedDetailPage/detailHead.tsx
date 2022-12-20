@@ -1,12 +1,18 @@
 import Avatar from '@mui/material/Avatar';
 
-function detailHead() {
+type Props = {
+  identity: string;
+  headSculpture: string;
+  nickname: string;
+};
+
+function detailHead({ identity, headSculpture, nickname }: Props) {
   return (
     <div className="h-[40px] w-full flex">
-      <Avatar className="text-[20px] mr-[14px]">H</Avatar>
+      <Avatar src={headSculpture} className="text-[20px] mr-[14px]" />
       <div className="h-full flex flex-col justify-between">
-        <p className="text-[#363636] text-[12px] font-semibold">用户名</p>
-        <p className="text-[#666666] text-[10px]">builder</p>
+        <p className="text-[#363636] text-[12px] font-semibold">{nickname}</p>
+        <p className="text-[#666666] text-[10px]">{identity}</p>
       </div>
     </div>
   );

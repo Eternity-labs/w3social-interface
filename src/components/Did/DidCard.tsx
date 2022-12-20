@@ -24,7 +24,7 @@ function DidCard({ classNames, id, index, ...rest }: any) {
     <Card onClick={() => jumpToDetail(id)} className={cls}>
       <UserInfo showDid={false} name={nickname} identity={identity} headSculpture={headSculpture} />
       <div className="flex justify-between items-center mt-[32px]">
-        <Labels labels={tag} />
+        <Labels labels={tag ?? []} />
         <span className="text-[10px] text-gray-700">{calcDays(updateTime)}</span>
       </div>
     </Card>

@@ -82,7 +82,7 @@ function WelcomePage(): JSX.Element {
             </Link>
           </div>
           {selectedValue ? (
-            <Link to="/register">
+            <Link to="/login">
               <ExploreButton />
             </Link>
           ) : (

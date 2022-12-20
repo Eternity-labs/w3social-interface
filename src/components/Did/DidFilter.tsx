@@ -31,7 +31,7 @@ const ExpandRow = styled('div')`
   align-items: center;
 `;
 
-function DidFilter() {
+function DidFilter(props: any) {
   const {
     showFilter,
     showDrawer,
@@ -41,7 +41,7 @@ function DidFilter() {
     setShowDrawer,
     handleFilterChange,
     handleCloseFilterModal,
-  } = useDidFilter();
+  } = useDidFilter(props);
 
   return (
     <div className="flex justify-between items-center">

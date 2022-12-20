@@ -3,7 +3,7 @@ import { generateFilterLabel, isInitValue } from '@utils/index';
 import { useEffect, useState } from 'react';
 import { FilterActionType, FilterAction } from '@type/index';
 
-const useDidFilter = () => {
+const useDidFilter = ({ onChange }) => {
   const [showFilter, setShowFilter] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
   const [filter, setFilter] = useState<any>(initFilterState);
@@ -54,6 +54,7 @@ const useDidFilter = () => {
     setFilterLabel(labels);
     setShowFilter(labels.length > 0);
     setShowDrawer(false);
+    onChange(filter);
   };
 
   return {

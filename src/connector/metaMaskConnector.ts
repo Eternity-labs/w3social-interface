@@ -71,7 +71,7 @@ export class MetaMask extends Connector {
               this.actions.reportError(undefined);
             } else {
               this.actions.update({ accounts });
-              // this.activate();
+              this.activate();
             }
           });
         }

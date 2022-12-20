@@ -23,7 +23,13 @@ export interface IDidRes {
 }
 
 export interface IDidInfoData extends DidBaseData {
+  address: string;
+  city: string;
+  head_sculpture: string;
+  id: number;
+  nickname: string;
   introduce: string;
+  tag: Array<string>;
   wishtag: Array<string>;
 }
 export interface IDidMomentData {

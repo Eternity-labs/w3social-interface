@@ -15,7 +15,12 @@ export default function MenuAppBar() {
   return (
     <AppBar className="bg-transparent shadow-none" position="static">
       <Toolbar className="flex px-0 box-border h-[35px]">
-        <IconButton edge="start" className="text-black flex-1 mx-0 text-[30px]" aria-label="menu">
+        <IconButton
+          onClick={() => navigate('/aUser')}
+          edge="start"
+          className="text-black flex-1 mx-0 text-[30px]"
+          aria-label="menu"
+        >
           <AccountCircleIcon />
         </IconButton>
         <div className="flex-6 flex box-border rounded-full bg-white">

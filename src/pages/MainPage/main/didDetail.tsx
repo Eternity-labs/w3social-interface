@@ -22,7 +22,8 @@ function DidDetail() {
 
   if (isLoading) return null;
 
-  const { wishtag, city, introduce, nickname } = userData;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const { wishtag, city, introduce, nickname, identity, head_sculpture, tag } = userData;
 
   return (
     <div className="p-[16px] pb-[60px] h-full box-border bg-green relative">
@@ -30,7 +31,7 @@ function DidDetail() {
         <ArrowBackIosIcon onClick={() => handleBack()} />
         <span className="flex justify-center items-center rounded-full px-[6px] py-[3px] text-[8px] color-fSelect bg-white" />
       </div>
-      <DidUserInfo nickname={nickname} />
+      <DidUserInfo nickname={nickname} tag={tag} identity={identity} img={head_sculpture} />
       <TabContext value={tabIndex}>
         <CustomTabList onChange={handleTabIndexChange} aria-label="lab API tabs example">
           <Tab className="pb-0 px-0 min-w-[40px]" label="自我介绍" value="1" />
@@ -49,7 +50,7 @@ function DidDetail() {
           <ArticleList userId={id} />
         </TabPanel>
       </TabContext>
-      <LocalFooter city={city} />
+      <LocalFooter city={city} identity={identity} />
       <WishList tags={wishtag} />
       <ButtonActions onArticle={handleCheckArticle} onUserName={handleGetUserInfo} />
       <NotifyDialog {...modelProps} />

@@ -2,6 +2,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import DidService from '@apis/services/DidService';
+import BaseHeader from '@components/Base/BaseHeader';
 
 const queryMap = {
   aboutUs: DidService.getAbouts,
@@ -39,7 +40,11 @@ function Protocal() {
       </div>
     );
   }
-  // eslint-disable-next-line react/no-danger
-  return <div dangerouslySetInnerHTML={protocalContent()} />;
+  return (
+    <div className="h-full">
+      <BaseHeader />
+      <div className="p-[16px] pt-[60px]" dangerouslySetInnerHTML={protocalContent()} />
+    </div>
+  );
 }
 export default Protocal;

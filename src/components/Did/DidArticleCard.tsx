@@ -9,13 +9,14 @@ export interface DidBaseArticleCardProps {
   content?: string;
   isLike?: boolean | number;
   likes?: number;
+  headSculpture?: string;
 }
 interface DidArticleCardProps extends DidBaseArticleCardProps {
   children?: any;
   id: number;
 }
 function DidArticleCard(props: DidArticleCardProps) {
-  const { title, content, userName, children, className, id } = props;
+  const { title, content, userName, children, className, id, headSculpture } = props;
 
   const { handleToDetail } = useDidArticleCard();
   return (
@@ -35,7 +36,9 @@ function DidArticleCard(props: DidArticleCardProps) {
       </h4>
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <Avatar className="text-[20px] mr-[8px]">H</Avatar>
+          <Avatar src={headSculpture} className="text-[20px] mr-[8px]">
+            H
+          </Avatar>
           <span className="text-[10px] text-[#363636]">{userName}</span>
         </div>
         {children && children}

@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 
 const useDidContentCard = () => {
   const navigate = useNavigate();
-  const jumpToContent = () => {
-    console.log('to where');
+  const jumpToContent = (sourceId: number) => {
+    navigate(`/needDetail?id=${sourceId}`);
   };
 
   return {

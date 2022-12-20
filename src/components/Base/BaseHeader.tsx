@@ -6,15 +6,19 @@ interface HeaderProps {
   left?: JSX.Element;
   right?: JSX.Element;
   title?: string | JSX.Element;
+  onRight?: () => void;
 }
 function BaseHeader(props: HeaderProps) {
-  const { left, right, title } = props;
+  const { left, right, title, onRight } = props;
   const navigate = useNavigate();
   const back = () => {
     navigate(-1);
   };
+  const handleRight = () => {
+    onRight?.();
+  };
   return (
-    <div className="h-[44px] w-full flex items-center justify-between px-[16px] bg-white z-10">
+    <div className="h-[44px] fixed top-0 w-full flex items-center justify-between px-[16px] bg-white z-10">
       <div onClick={back} className="h-[36px] w-[36px] flex items-center">
         <ArrowBackIosIcon className="text-[#C1C1C1] text-[16px]" />
       </div>
@@ -23,7 +27,10 @@ function BaseHeader(props: HeaderProps) {
       ) : (
         title
       )}
-      <div className="h-[36px] w-[36px] flex items-center" />
+      <div onClick={handleRight} className="h-[36px] w-[36px] flex items-center">
+        {' '}
+        {right}
+      </div>
     </div>
   );
 }

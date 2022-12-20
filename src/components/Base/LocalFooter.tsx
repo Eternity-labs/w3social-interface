@@ -4,9 +4,10 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 
 type Props = {
   city: string;
+  identity: string;
 };
 
-function LocalFooter({ city }: Props) {
+function LocalFooter({ city, identity }: Props) {
   return (
     <div className="flex items-center justify-between">
       <span className="flex items-center">
@@ -15,7 +16,7 @@ function LocalFooter({ city }: Props) {
       </span>
       <span className="flex items-center">
         <LocalMallIcon className="text-fSelect mr-[8px]" />
-        开发者
+        {identity}
       </span>
     </div>
   );

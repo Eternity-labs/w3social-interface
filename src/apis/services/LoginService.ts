@@ -11,7 +11,8 @@ import {
 } from '@apis/model/LoginModel';
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/w3social' : 'http://114.55.67.80:8081';
+const baseURL =
+  process.env.NODE_ENV === 'development' ? '/w3social' : 'http://114.55.67.80:8081/w3social';
 
 class LoginServices {
   static register(params: IRegisterReq): Promise<IRegisterRes> {
