@@ -33,7 +33,7 @@ function ArticleList({ userId }: { userId: string }) {
             content={content}
             userName={userName}
             headSculpture={headSculpture}
-            className="bg-[#F0F0F0]"
+            className="bg-faintGray"
           />
         );
       }}

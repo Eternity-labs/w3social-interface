@@ -22,6 +22,7 @@ module.exports = {
         gary: 'rgba(0, 0, 0, 0.7)',
         slimGray: 'rgba(0, 0, 0, 0.5)',
         grey: '#666666',
+        faintGray: '#F0F0F0',
         fSelect: '#0DCE71',
         oMainColor: 'rgba(114, 249, 184, 0.2)',
         opacityButton: 'rgba(114, 249, 184, 0.8)',

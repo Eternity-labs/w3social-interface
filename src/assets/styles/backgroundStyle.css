@@ -1,0 +1,13 @@
+.backgroundIndex1 {
+  background: linear-gradient(to top, #b3ffab 0%, #12fff7 100%);
+}
+.backgroundIndex2 {
+  background: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);
+}
+.backgroundIndex3 {
+  background: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);
+}
+.backgroundIndex4 {
+  background: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+}
+

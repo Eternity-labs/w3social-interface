@@ -11,7 +11,6 @@ import UserInfo from '../Base/UserInfo';
 function DidCard({ classNames, id, index, needJump = true, ...rest }: any) {
   const { tag, nickname, identity, headSculpture, updateTime } = rest;
   const { jumpToDetail, loading } = useDidCard();
-
   const cls = cn(
     'p-4 h-[120px] shadow-none rounded-[12px] bg-gradient-to-r',
     GRADIENTS.from[index % GRADIENTS.from.length],

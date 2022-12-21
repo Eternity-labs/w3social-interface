@@ -22,8 +22,8 @@ function DidArticleCard(props: DidArticleCardProps) {
   return (
     <div
       className={cn(
-        'flex flex-col justify-between p-[12px] mb-[12px] rounded-[8px] bg-white',
-        className || ''
+        'flex flex-col justify-between p-[12px] mb-[12px] rounded-[8px]',
+        className || 'bg-white'
       )}
     >
       <h4

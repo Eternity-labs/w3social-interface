@@ -12,10 +12,10 @@ function FriendCard(props: FriendsProps) {
     return <div>正在加载...</div>;
   }
   return (
-    <div className="grid grid-cols-2 gap-[15px]">
+    <div className="grid grid-cols-2 gap-[10px]">
       {friendData.map((item, index) => {
         const cls = cn(
-          'flex box-border w-[145px] h-[82px] box-border p-[12px] border-solid bg-white border-[1px] border-transparent rounded-[10px] bg-gradient-to-r',
+          'flex box-border w-[148px] h-[82px] box-border p-[12px] bg-white  rounded-[10px] bg-gradient-to-r',
           GRADIENTS.from[index % GRADIENTS.from.length],
           GRADIENTS.to[index % GRADIENTS.to.length]
         );
