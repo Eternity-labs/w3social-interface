@@ -11,7 +11,7 @@ function UnlockDidItem(props: UnlockDidItemProps) {
   const { icon, feature, desc, className } = props;
   return (
     <div className={cn('flex items-center', className || '')}>
-      <AudiotrackIcon />
+      <img src={icon} alt="icon" className="w-[30px]" />
       <div className="flex-1 flex flex-col justify-between ml-[30px]">
         <span className="text-black">{feature}</span>
         <span className="text-[#908c8c]">{desc}</span>

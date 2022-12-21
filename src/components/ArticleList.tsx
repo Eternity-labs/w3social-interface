@@ -1,8 +1,15 @@
 import useArticleList from '@hooks/useArticleList';
 import CommonPage from './common/commonPage';
 import DidArticleCard from './Did/DidArticleCard';
+import '@assets/styles/backgroundStyle.css';
 
-function ArticleList({ userId }: { userId: string }) {
+type ArticleListprops = {
+  userId: string;
+  entryIsMy: boolean;
+};
+
+function ArticleList(props: ArticleListprops) {
+  const { userId, entryIsMy = false } = props;
   const { articleListMutation, total, hasNext, list, getItemHeight, loadNextPage } =
     useArticleList(userId);
   console.log('ArticleList', articleListMutation);
@@ -33,7 +40,7 @@ function ArticleList({ userId }: { userId: string }) {
             content={content}
             userName={userName}
             headSculpture={headSculpture}
-            className="bg-faintGray"
+            className={entryIsMy ? 'bg-faintGray' : 'detailInfoCardBg'}
           />
         );
       }}

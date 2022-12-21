@@ -8,6 +8,7 @@ import { CustomTabList, Tab, TabContext, TabPanel } from '@components/Base/Custo
 import useButtonActions from '@hooks/useBottomActions';
 import NotifyDialog from '@components/NotifyDialog';
 import ArticleList from '@components/ArticleList';
+import '@assets/styles/backgroundStyle.css';
 
 function DidDetail() {
   const {
@@ -23,13 +24,17 @@ function DidDetail() {
   if (isLoading) return null;
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  const { wishtag, city, introduce, nickname, identity, head_sculpture, tag } = userData;
+  const { wishtag, city, introduce, nickname, identity, head_sculpture, tag, did } = userData;
 
   return (
-    <div className="p-[16px] pb-[60px] h-full box-border bg-green relative">
+    <div className="p-[16px] pb-[60px] h-full box-border relative backgroundIndex1 rounded-[13px]">
       <div className="flex justify-between items-center">
         <ArrowBackIosIcon onClick={() => handleBack()} />
-        <span className="flex justify-center items-center rounded-full px-[6px] py-[3px] text-[8px] color-fSelect bg-white" />
+        {did && (
+          <span className="flex justify-center items-center rounded-full px-[6px] py-[3px] text-[8px] color-fSelect bg-white">
+            {did}
+          </span>
+        )}
       </div>
       <DidUserInfo nickname={nickname} tag={tag} identity={identity} img={head_sculpture} />
       <TabContext value={tabIndex}>

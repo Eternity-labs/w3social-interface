@@ -24,8 +24,9 @@ function DidContentCard(props: any) {
     headSculpture,
   };
   const { jumpToContent } = useDidContentCard();
+  const tags = tag ? tag.split('&') : [];
   return (
-    <div className="border-0 border-b-[1px] border-solid py-[16px] mt-[16px] relative">
+    <div className="border-0 border-b-[1px] border-solid py-[8px] relative">
       <div className="absolute top-4 right-0">
         <TimeAndMore />
       </div>
@@ -36,7 +37,7 @@ function DidContentCard(props: any) {
         <IntroduceContent content={content} />
       </div>
       <div className="flex justify-between">
-        <Labels labels={tag ?? []} />
+        <Labels labels={tags} />
         <UserActions thumbCount={likes} onLike={onLike} onComment={onComment} isLike={!!isLike} />
       </div>
     </div>

@@ -19,6 +19,9 @@ function MessagePage() {
       enabled: Number(userInfo?.id) > 0,
     }
   );
+  if (MessageQuery.isLoading) {
+    return <div className="text-center mt-[220px]">正在加载</div>;
+  }
   return (
     <>
       <BaseHeader title="我的消息" />

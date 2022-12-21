@@ -5,7 +5,7 @@ import cn from 'classnames';
 import Skeleton from '@mui/material/Skeleton';
 import { calcDays } from '@utils/index';
 import { GRADIENTS } from '@config/common';
-import logo from '@assets/images/logo.png';
+import logo from '@assets/images/defaultLogo.png';
 import UserInfo from '../Base/UserInfo';
 
 function DidCard({ classNames, id, index, needJump = true, ...rest }: any) {

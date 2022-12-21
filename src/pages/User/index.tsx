@@ -48,7 +48,7 @@ function UserInfoDetail() {
             <div className="text-[14px]">{identity}</div>
           </div>
         </div>
-        <div className="relative top-[-12px] h-[calc(100%-146px)] box-border p-[36px] rounded-t-[36px] bg-white">
+        <div className="relative top-[-20px] h-[calc(100%-146px)] box-border px-[36px] py-[20px] rounded-t-[36px] bg-white">
           <div className="flex justify-between items-center mb-[16px]">
             <span className="text-black font-semibold flex items-center">
               {did ? (
@@ -86,7 +86,7 @@ function UserInfoDetail() {
             </TabPanel>
             {/* // className="h-auto max-h-[240px] p-0 my-[12px] overflow-hidden overscroll-contain overflow-y-auto" */}
             <TabPanel className="h-[240px] p-0 my-[12px]" value="2">
-              <ArticleList userId={`${id}`} />
+              <ArticleList userId={`${id}`} entryIsMy />
             </TabPanel>
           </TabContext>
         </div>

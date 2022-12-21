@@ -14,7 +14,7 @@ const baseURL =
 
 class UserService {
   static getTagList(): Promise<Array<TagInfo>> {
-    return axios.get(`${baseURL}/did/tag`);
+    return axios.get(`${baseURL}/square/moment/getTagList`);
   }
 
   static getPublicPermission(params: ISearchID): Promise<boolean> {

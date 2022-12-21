@@ -1,13 +1,8 @@
 .backgroundIndex1 {
-  background: linear-gradient(to top, #b3ffab 0%, #12fff7 100%);
+  background: radial-gradient(107.8% 107.8% at 86.57% -7.8%, rgba(16, 237, 38, 0.2) 0%, rgba(79, 134, 241, 0.147292) 43.54%, rgba(254, 255, 251, 0) 100%), radial-gradient(92.36% 231.97% at 5.32% 13.3%, rgba(189, 255, 0, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(35.65% 89.53% at 78.94% 103.67%, rgba(0, 255, 133, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%), #C3FFE6;
 }
-.backgroundIndex2 {
-  background: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);
+.detailInfoCardBg {
+  background: rgba(255, 255, 255, 0.54);
 }
-.backgroundIndex3 {
-  background: linear-gradient(-225deg, #D4FFEC 0%, #57F2CC 48%, #4596FB 100%);
-}
-.backgroundIndex4 {
-  background: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
-}
+
 

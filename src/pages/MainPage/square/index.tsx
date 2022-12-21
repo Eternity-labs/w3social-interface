@@ -72,7 +72,7 @@ function NeedPage() {
   });
   const getItemList = (index: any): number => {
     if (index === totalElements - 1) {
-      return 280;
+      return 260;
     }
     return 220;
   };

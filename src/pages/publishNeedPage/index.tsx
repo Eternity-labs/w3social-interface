@@ -25,7 +25,6 @@ function PublishNeedPage() {
   const [quillText, setQuillText] = useState<string>('');
   const getTagListQuery = useQuery('getTagList', () => UserService.getTagList(), {
     onSuccess: res => {
-      console.log('🚗🚗22222---》〉》', res);
       setTagList(draft => {
         draft = res;
         return draft;
