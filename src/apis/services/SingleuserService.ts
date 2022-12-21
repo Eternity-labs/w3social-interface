@@ -9,7 +9,7 @@ import {
 import { ISearchID } from '@apis/model/common';
 import { IDidInfoData } from '@apis/model/DidModel';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '' : 'http://114.55.67.80:8080';
+const baseURL = process.env.NODE_ENV === 'development' ? '' : 'http://114.55.67.80:8081/w3social';
 
 class UserService {
   static getTagList(): Promise<Array<TagInfo>> {

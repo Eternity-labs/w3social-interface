@@ -23,7 +23,7 @@ function UserActions(props: UserActionsProps) {
 
   const iconCss = 'h-[30px] flex items-center pl-[5px] pr-[5px]';
   return (
-    <div className="flex items-center justify-end w-[100px] text-[10px] h-[40px]">
+    <div className="flex items-center justify-end w-[100px] text-[10px] h-[40px] mr-[10px]">
       <div onClick={onLike} className={iconCss}>
         <StyledBadge badgeContent={thumbCount || 0}>
           {isLike ? (

@@ -74,7 +74,7 @@ function NeedPage() {
     if (index === totalElements - 1) {
       return 280;
     }
-    return 240;
+    return 220;
   };
   const handleLike = (data: MomentData, index: number) => {
     if (data.isLike) {
@@ -100,8 +100,6 @@ function NeedPage() {
     await Promise.resolve(111);
     // return Promise.resolve(11);
   };
-  const loading = <div>heell</div>;
-
   const isItemLoaded = (index: number) => {
     return !isHasNextPage || index < memoMomentList.length;
   };
@@ -113,11 +111,7 @@ function NeedPage() {
       setPage(page + 1);
     }
   };
-  // useEffect(() => {
-  //   SquarListMutaion.mutate({ page, size: 10 });
-  // }, []);
   const getPublicPermission = () => {
-    // PublicPermissionMutaion.mutate({ id: userInfo!.id });
     navigate('/publishNeed');
   };
   return (
