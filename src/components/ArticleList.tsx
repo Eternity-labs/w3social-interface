@@ -7,11 +7,11 @@ function ArticleList({ userId }: { userId: string }) {
     useArticleList(userId);
   console.log('ArticleList', articleListMutation);
   if (articleListMutation?.isLoading) {
-    return '';
+    return <div>正在加载...</div>;
   }
 
   if (!total) {
-    return '暂无帖子...';
+    return <div>暂无帖子...</div>;
   }
 
   return (
@@ -22,10 +22,20 @@ function ArticleList({ userId }: { userId: string }) {
       loadNextPage={loadNextPage}
       totalElements={total}
       getItemList={getItemHeight}
+      isShowBottomTip={false}
     >
       {(index: number) => {
-        const { id, title, content, nickname: userName } = list[index];
-        return <DidArticleCard key={id} title={title} content={content} userName={userName} />;
+        const { id, title, content, nickname: userName, headSculpture } = list[index];
+        return (
+          <DidArticleCard
+            key={id}
+            id={id}
+            content={content}
+            userName={userName}
+            headSculpture={headSculpture}
+            className="bg-[#F0F0F0]"
+          />
+        );
       }}
     </CommonPage>
   );

@@ -37,6 +37,10 @@ class DidServices {
   static getUserCenterInfo(params: ISearchID): Promise<IUserCenterInfo> {
     return axios.post(`${baseURL}/did/profile`, params);
   }
+
+  static checkquestion(params: { userId: number }): Promise<boolean> {
+    return axios.post(`${baseURL}/did/checkquestion`, params);
+  }
 }
 
 export default DidServices;

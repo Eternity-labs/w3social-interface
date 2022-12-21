@@ -12,6 +12,7 @@ type CommonPageProps<T> = {
   totalElements: number;
   children: (index: number) => React.ReactNode;
   getItemList: (index: number) => number;
+  isShowBottomTip?: boolean;
 };
 function CommonPage<T>(props: CommonPageProps<T>) {
   const {
@@ -22,6 +23,7 @@ function CommonPage<T>(props: CommonPageProps<T>) {
     totalElements,
     children,
     getItemList,
+    isShowBottomTip = true,
   } = props;
   // If there are more items to be loaded then add an extra row to hold a loading indicator.
   // const itemCount = hasNextPage ? listData.length + 1 : listData.length;
@@ -79,7 +81,7 @@ function CommonPage<T>(props: CommonPageProps<T>) {
                     ) : (
                       <>
                         {children(index)}
-                        {index === totalElements - 1 && (
+                        {index === totalElements - 1 && isShowBottomTip && (
                           <div className="text-center pt-[10px]">到底了....</div>
                         )}
                       </>

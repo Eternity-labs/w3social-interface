@@ -1,4 +1,3 @@
-import DidServices from '@apis/services/DidService';
 import UserService from '@apis/services/SingleuserService';
 import useStore from '@states/useStore';
 import { useState } from 'react';
@@ -8,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const useUserIndex = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [tabIndex, setIndex] = useState('2');
+  const [tabIndex, setIndex] = useState('1');
 
   const { userInfo } = useStore();
   const id = userInfo?.id;
@@ -23,14 +22,15 @@ const useUserIndex = () => {
 
   const { isLoading, data: friendData } = useQuery(
     ['friendData', id],
-    () => UserService.getFriends({ id }),
+    () => UserService.getFriends({ id, page: 0, size: 100 }),
     {
       enabled: !!id,
     }
   );
 
-  const handleTableChange = val => {
-    setIndex(`${val}`);
+  const handleTableChange = (e: React.SyntheticEvent, newValue: string) => {
+    setIndex(newValue);
+    e.stopPropagation();
   };
 
   const toUnlock = () => {

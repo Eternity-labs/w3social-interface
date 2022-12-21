@@ -4,7 +4,6 @@ import DidArticleCard from '@components/Did/DidArticleCard';
 import DidCard from '@components/Did/DidCard';
 import Avatar from '@mui/material/Avatar';
 import HttpsIcon from '@mui/icons-material/Https';
-import * as React from 'react';
 import SwipeCard from '@components/User/SwipeCard';
 import useUserIndex from '@hooks/useUserIndex';
 import BaseHeader from '@components/Base/BaseHeader';
@@ -78,17 +77,15 @@ function UserInfoDetail() {
               <Tab className="pb-0 px-0 min-w-[40px]" label="帖子" value="2" />
             </CustomTabList>
             <TabPanel
-              className="h-auto max-h-[240px] p-0 my-[12px] overflow-hidden overscroll-contain overflow-y-auto"
+              className="h-auto max-h-[240px] p-0 my-[12px] overflow-hidden overscroll-contain overflow-y-auto pb-[10px]"
               value="1"
             >
               <div className="flex flex-wrap justify-between">
-                <FriendCard />
+                <FriendCard friendData={friendData} isLoading={isLoading} />
               </div>
             </TabPanel>
-            <TabPanel
-              className="h-auto max-h-[240px] p-0 my-[12px] overflow-hidden overscroll-contain overflow-y-auto"
-              value="2"
-            >
+            {/* // className="h-auto max-h-[240px] p-0 my-[12px] overflow-hidden overscroll-contain overflow-y-auto" */}
+            <TabPanel className="h-[240px] p-0 my-[12px]" value="2">
               <ArticleList userId={`${id}`} />
             </TabPanel>
           </TabContext>

@@ -8,6 +8,9 @@ import { useRef, useState } from 'react';
 import ErrorTip from '@components/Base/ErrorTip';
 import type { LoginPageUrlParams } from '@routes/types';
 import LoginService from '@apis/services/LoginService';
+import DidService from '@apis/services/DidService';
+import UserService from '@apis/services/UserService';
+
 // import Demo from './demo';
 import { useMutation } from 'react-query';
 import logoImg from '@assets/images/logo.png';
@@ -16,9 +19,25 @@ function LoginPage(): JSX.Element {
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>();
   const passRef = useRef<HTMLInputElement>();
+  // const checkquestionMutation = useMutation(DidService.checkquestion, {
+  //   onSuccess: data => {
+  //     // localStorage.setItem('w3SocialToken', data.token);
+  //     // navigate('/main');
+  //     console.log('🚗🚗22222🚗----》〉', data);
+  //   },
+  // });
+  // const userInfoMutation = useMutation(UserService.getUserInfo, {
+  //   onSuccess: data => {
+  //     // localStorage.setItem('w3SocialToken', data.token);
+  //     // navigate('/main');
+  //     checkquestionMutation.mutate({ userId: data.id });
+  //   },
+  // });
+
   const LoginMutaion = useMutation(LoginService.login, {
     onSuccess: data => {
       localStorage.setItem('w3SocialToken', data.token);
+      // userInfoMutation.mutate();
       navigate('/main');
     },
   });

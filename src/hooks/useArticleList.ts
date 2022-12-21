@@ -23,7 +23,7 @@ const useArticleList = (id: string | number) => {
 
   const getItemHeight = (index: number): number => {
     if (index === total - 1) {
-      return 170;
+      return 140;
     }
     return 130;
   };
