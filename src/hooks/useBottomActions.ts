@@ -8,7 +8,7 @@ const useButtonActions = () => {
     type: 'WARNING',
     confirmText: '发送星愿邮件',
     cancelText: '我知道了',
-    contentText: '阿吉豆丝方尽安排的水井坊哈迪斯金佛爱迪生厚啊水浇地of',
+    contentText: '对方暂未公布社交账户，可向对方发送星愿邮件添加好友',
     handleConfirm: () => {},
     handleCancel: () => {
       setModelProps({
