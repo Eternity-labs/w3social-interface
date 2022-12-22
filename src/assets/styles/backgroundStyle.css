@@ -4,5 +4,21 @@
 .detailInfoCardBg {
   background: rgba(255, 255, 255, 0.54);
 }
+.didCardBg1 {
+  background: radial-gradient(107.8% 107.8% at 86.57% -7.8%, rgba(154, 255, 27, 0.2) 0%, rgba(254, 255, 251, 0) 100%), radial-gradient(92.36% 231.97% at 5.32% 13.3%, rgba(128, 255, 0, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(37.96% 95.35% at 81.25% 103.67%, rgba(0, 255, 133, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%), #EFFCC9;
+}
+.didCardBg2 {
+  background: radial-gradient(107.8% 107.8% at 86.57% -7.8%, rgba(16, 237, 38, 0.2) 0%, rgba(79, 134, 241, 0.147292) 43.54%, rgba(254, 255, 251, 0) 100%), radial-gradient(92.36% 231.97% at 5.32% 13.3%, rgba(189, 255, 0, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(37.96% 95.35% at 81.25% 103.67%, rgba(0, 255, 133, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%), linear-gradient(0deg, #C3FFE6, #C3FFE6), #FFFFFF;
+}
+.didCardBg3 {
+  background: radial-gradient(107.8% 107.8% at 86.57% -7.8%, rgba(16, 237, 38, 0.2) 0%, rgba(79, 134, 241, 0.147292) 43.54%, rgba(254, 255, 251, 0) 100%), radial-gradient(92.36% 231.97% at 5.32% 13.3%, rgba(0, 209, 255, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(37.96% 95.35% at 81.25% 103.67%, rgba(0, 163, 255, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%), #D1FFDB;
+}
+.didCardBg4 {
+  background: radial-gradient(107.8% 107.8% at 86.57% -7.8%, rgba(21, 16, 237, 0.2) 0%, rgba(254, 255, 251, 0) 100%), radial-gradient(92.36% 231.97% at 5.32% 13.3%, rgba(0, 194, 255, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(37.96% 95.35% at 81.25% 103.67%, rgba(0, 72, 255, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%), linear-gradient(0deg, #C3E6FF, #C3E6FF), #FFFFFF;
+}
+.didCardBg5 {
+  background: radial-gradient(107.8% 107.8% at 86.57% -7.8%, rgba(87, 16, 237, 0.2) 0%, rgba(254, 255, 251, 0) 100%), radial-gradient(92.36% 231.97% at 5.32% 13.3%, rgba(98, 46, 245, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(37.96% 95.35% at 81.25% 103.67%, rgba(183, 255, 255, 0.2) 0%, rgba(254, 255, 251, 0.2) 100%), linear-gradient(0deg, #CBF5F8, #CBF5F8), #FFFFFF;
+}
+
 
 

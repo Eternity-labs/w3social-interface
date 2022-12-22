@@ -8,6 +8,7 @@ import { styled } from '@mui/material/styles';
 import { allFilters } from '@config/didConfig';
 import ClearIcon from '@mui/icons-material/Clear';
 import SyncIcon from '@mui/icons-material/Sync';
+import filterIcon from '@assets/images/icons/filter.png';
 import Labels from '../Base/Labels';
 import FilterItem from '../FilterItem';
 
@@ -51,11 +52,12 @@ function DidFilter(props: any) {
 
       <IconButton
         edge="start"
-        className="text-black  mx-0 rotate-90 text-[16px]"
+        className="text-black  mx-0  text-[16px]"
         aria-label="menu"
         onClick={() => setShowDrawer(true)}
       >
-        <TuneIcon />
+        <img src={filterIcon} alt="filtericon" className="w-[16px]" />
+        {/* <TuneIcon /> */}
       </IconButton>
       <CusDraw anchor="bottom" open={showDrawer} onClose={handleCloseFilterModal}>
         <DrawContentBox>

@@ -1,6 +1,9 @@
 import Avatar from '@mui/material/Avatar';
 import { GRADIENTS } from '@config/common';
 import cn from 'classnames';
+import '@assets/styles/backgroundStyle.css';
+
+const bgColor = ['didCardBg1', 'didCardBg2', 'didCardBg3', 'didCardBg4', 'didCardBg5'];
 
 type FriendsProps = {
   isLoading: boolean;
@@ -14,11 +17,8 @@ function FriendCard(props: FriendsProps) {
   return (
     <div className="grid grid-cols-2 gap-[10px]">
       {friendData.map((item, index) => {
-        const cls = cn(
-          'flex box-border w-[148px] h-[82px] box-border p-[12px] bg-white  rounded-[10px] bg-gradient-to-r',
-          GRADIENTS.from[index % GRADIENTS.from.length],
-          GRADIENTS.to[index % GRADIENTS.to.length]
-        );
+        const bg = bgColor[index % 5];
+        const cls = cn('flex box-border w-[148px] h-[82px] box-border p-[12px] rounded-[10px]', bg);
         return (
           <div key={index} className={cls}>
             <Avatar className="w-[36px] h-[36px] mr-[14px]" src={item.headSculpture}>
