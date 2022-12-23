@@ -41,7 +41,7 @@ type SelectBoxprops = {
 function SelectBox(props: SelectBoxprops) {
   const { value, items = [], onChange } = props;
   const [selectedValue, setValue] = useState('');
-  const hanleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const hanleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
     setValue(event.target.value);
     if (onChange) {
       onChange(event.target.value);

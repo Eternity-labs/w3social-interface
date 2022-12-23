@@ -21,7 +21,7 @@ const CusFormControlLabel = styled(FormControlLabel)({
 });
 function CheckItem(props: CheckItemProps) {
   const { checked = false, onChange, tag, index = 0 } = props;
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = event => {
     onChange(event.target.checked, index);
   };
   return (

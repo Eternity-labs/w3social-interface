@@ -27,7 +27,9 @@ module.exports = {
       new TerserPlugin({
         parallel: os.cpus().length - 1,
       }),
-      new CSSMinizerPlugin()
+      new CSSMinizerPlugin({
+        parallel: os.cpus().length - 1,
+      })
     ],
   },
   plugins:[

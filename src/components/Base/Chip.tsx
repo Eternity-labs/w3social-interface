@@ -9,7 +9,7 @@ interface CusChipProps {
   size?: 'small' | 'medium' | undefined;
   onDelete?: React.EventHandler<any>;
   onClick?: React.MouseEventHandler<any>;
-  deleteIcon?: React.ReactElement;
+  deleteIcon?: React.ReactNode;
   className?: string;
 }
 

@@ -58,7 +58,7 @@ function InputCom(props: InputComProps): JSX.Element {
 
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
-  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseDownPassword: React.MouseEventHandler<HTMLButtonElement> = event => {
     event.preventDefault();
   };
   const PasswordEnd = (
