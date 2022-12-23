@@ -9,7 +9,7 @@ function labelList(props: LabelListprops) {
   const iconCss = '';
   return (
     <div className={cn('flex', className || '')}>
-      {tag.map((item, index) => {
+      {tag?.map((item, index) => {
         return (
           <div
             key={item + index}

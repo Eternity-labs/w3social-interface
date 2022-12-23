@@ -41,6 +41,10 @@ class DidServices {
   static checkquestion(params: { userId: number }): Promise<boolean> {
     return axios.post(`${baseURL}/did/checkquestion`, params);
   }
+
+  static changeWechat(params: { id: number; hide: number }): Promise<boolean> {
+    return axios.post(`${baseURL}/did/changevisible`, params);
+  }
 }
 
 export default DidServices;

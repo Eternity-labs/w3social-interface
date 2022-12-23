@@ -22,7 +22,7 @@ class UserService {
   }
 
   static getQuestion(params: ISearchID): Promise<Array<QuestionInfo>> {
-    return axios.get(`${baseURL}/did/getquestion`, { params });
+    return axios.get(`${baseURL}/did/getQuestion`, { params });
   }
 
   static postQuestion(params: PostQuestionReq): Promise<boolean> {

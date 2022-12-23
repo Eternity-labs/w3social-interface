@@ -35,6 +35,7 @@ function NeedDetail() {
     setIsOpen(false);
     toast('举报成功');
   };
+  const tags = tag ? tag.split('&') : [];
 
   return (
     <>
@@ -43,8 +44,8 @@ function NeedDetail() {
         <div className="pl-[16px] pr-[25px] pt-[60px]">
           <DetailHead {...HeadData} />
           <div className="py-[16px]">{content}</div>
-          <img className="w-[180px] h-[180px]" src={img} alt="" />
-          <LabelList tag={tag ?? []} className="mt-[20px]" />
+          {img && <img className="w-[180px] h-[180px]" src={img} alt="" />}
+          <LabelList tag={tags} className="mt-[20px]" />
           <div className="text-slimGray text-[10px] font-mediu py-[20px]">两周前</div>
         </div>
       </div>

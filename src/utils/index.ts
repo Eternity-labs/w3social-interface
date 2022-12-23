@@ -54,3 +54,16 @@ export const calcDays = (dateStr?: string) => {
   }
   return '刚刚';
 };
+
+export function replaceAccount(str: string) {
+  let start = '';
+  let end = '';
+  for (let i = 0; i < str.length; i++) {
+    if (i < 5) {
+      start += str.charAt(i);
+    } else if (i >= str.length - 4) {
+      end += str.charAt(i);
+    }
+  }
+  return `${start}...${end}`;
+}

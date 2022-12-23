@@ -11,7 +11,7 @@ import '@assets/styles/backgroundStyle.css';
 
 const bgColor = ['didCardBg1', 'didCardBg2', 'didCardBg3', 'didCardBg4', 'didCardBg5'];
 
-function DidCard({ classNames, id, index, needJump = true, ...rest }: any) {
+function DidCard({ classNames, id, index = 0, needJump = true, ...rest }: any) {
   const { tag, nickname, identity, headSculpture, updateTime } = rest;
   const { jumpToDetail, loading } = useDidCard();
   // const cls = cn(

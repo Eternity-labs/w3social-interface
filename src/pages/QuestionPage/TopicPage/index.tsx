@@ -6,6 +6,7 @@ import useStore from '@states/useStore';
 import UserService from '@apis/services/SingleuserService';
 import { useQuery, useMutation } from 'react-query';
 import { QuestionInfo } from '@apis/model/SingleuserModel';
+import TextField from '@mui/material/TextField';
 import SelectBox from './selectBox';
 
 function TopicPage() {
@@ -13,6 +14,7 @@ function TopicPage() {
   const [questionList, setQuesitonList] = useState<Array<QuestionInfo>>([]);
   const [curItemInfo, setCurSelectInfo] = useState<QuestionInfo | null>(null);
   const [index, setIndex] = useState<any>(0);
+  const [textValue, setTextValue] = useState<string>('');
   const navigate = useNavigate();
   let pos: number;
 
@@ -41,13 +43,14 @@ function TopicPage() {
       setIndex(pos);
       const info = questionList[pos];
       setCurSelectInfo(info);
+      setTextValue(info?.value || '');
     } else {
       navigate(-1);
     }
   };
   const next = () => {
     if (!questionList[index].value) {
-      toast('请选择...');
+      toast('请选择或者输入...');
       return;
     }
     if (index === questionList.length - 1) {
@@ -68,6 +71,7 @@ function TopicPage() {
       console.log('🍌🍌----》〉》', info);
       setCurSelectInfo({ ...info });
       setIndex(pos);
+      setTextValue(info?.value || '');
     }
   };
 
@@ -76,6 +80,14 @@ function TopicPage() {
     info.value = value;
     setCurSelectInfo({ ...info });
   };
+
+  const handleTextField = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const info = questionList[index];
+    info.value = event.target.value;
+    setCurSelectInfo({ ...info });
+    setTextValue(event.target.value);
+  };
+
   const baseButtonCss = 'w-[107px] h-[38px] mt-[52px] rounded-full bg-black text-[12px]';
   return (
     <div className=" h-full">
@@ -90,9 +102,21 @@ function TopicPage() {
           <p className="font-medium text-[14px] leading-[22px]">{curItemInfo?.description}</p>
         )}
       </div>
-      {curItemInfo && (
-        <SelectBox value={curItemInfo} items={curItemInfo.choice} onChange={handleSelect} />
-      )}
+      {curItemInfo &&
+        (curItemInfo?.choice ? (
+          <SelectBox value={curItemInfo} items={curItemInfo.choice} onChange={handleSelect} />
+        ) : (
+          <div className="p-[16px]">
+            <TextField
+              fullWidth
+              variant="standard"
+              multiline
+              maxRows={5}
+              value={textValue}
+              onChange={handleTextField}
+            />
+          </div>
+        ))}
       <div className="flex pl-[60px] pr-[60px] mt-[60px] justify-between">
         <MuiButton variant="contained" className={baseButtonCss} onClick={prev}>
           {index === 0 ? '返回' : '上一题'}

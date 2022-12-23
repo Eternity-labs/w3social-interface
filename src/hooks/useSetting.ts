@@ -18,9 +18,18 @@ const useSetting = () => {
     }
   );
 
+  const handleChange = (status: boolean) => {
+    DidServices.changeWechat({
+      id,
+      hide: status === true ? 1 : 0,
+    }).then(res => {
+      setShow(status);
+    });
+  };
+
   useEffect(() => {
-    setShow(data?.hide === 1);
-  }, [data]);
+    setShow(userInfo?.hide === 1);
+  }, [userInfo]);
 
   const toUserDetail = () => {
     navigate('/dUser');
@@ -30,8 +39,13 @@ const useSetting = () => {
     navigate(`/resetPass?email=${data?.email}`);
   };
 
-  const switchWechat = e => {
-    console.log(e);
+  const switchWechat = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = event.target;
+    handleChange(checked);
+  };
+
+  const toQuestionDetail = () => {
+    navigate('/question');
   };
 
   return {
@@ -41,6 +55,7 @@ const useSetting = () => {
     toResetPassword,
     switchWechat,
     show,
+    toQuestionDetail,
   };
 };
 

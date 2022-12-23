@@ -90,7 +90,7 @@ function UnlockUser() {
         <DidCard {...userData} />
         <DividingLine text="已发售1.1k" className="mt-[40px]" />
         {items.map((item, index) => {
-          return <UnlockDidItem {...item} className="mt-[30px]" />;
+          return <UnlockDidItem key={`${index}`} {...item} className="mt-[30px]" />;
         })}
         <Button
           onClick={mint}

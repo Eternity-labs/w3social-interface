@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import Wechat from '@assets/images/wechat.png';
 
 function ButtonActions({ onArticle, onUserName }: any) {
   return (
@@ -13,7 +13,7 @@ function ButtonActions({ onArticle, onUserName }: any) {
           onClick={onUserName}
           variant="outlined"
           className="rounded-full bg-black text-white"
-          startIcon={<ArrowBackIosIcon />}
+          startIcon={<img alt="wechat" width="24" height="16" src={Wechat} />}
         >
           获取社交账号
         </Button>

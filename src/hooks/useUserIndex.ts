@@ -3,6 +3,7 @@ import useStore from '@states/useStore';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const useUserIndex = () => {
   const navigate = useNavigate();
@@ -33,6 +34,22 @@ const useUserIndex = () => {
     e.stopPropagation();
   };
 
+  const handleCopy = () => {
+    const copyEle = document.querySelector!('#account_id'); // 获取要复制的节点
+    const range = document.createRange(); // 创造range
+    window!.getSelection().removeAllRanges(); // 清除页面中已有的selection
+    range.selectNode(copyEle); // 选中需要复制的节点
+    window.getSelection().addRange(range); // 执行选中元素
+    const copyStatus = document.execCommand('Copy'); // 执行copy操作
+    // 对成功与否定进行提示
+    if (copyStatus) {
+      toast('复制成功');
+    } else {
+      toast('复制失败');
+    }
+    window.getSelection().removeAllRanges(); // 清除页面中已有的selection
+  };
+
   const toUnlock = () => {
     navigate('/unlock');
   };
@@ -49,6 +66,7 @@ const useUserIndex = () => {
     userData,
     cardLoading,
     id,
+    handleCopy,
   };
 };
 

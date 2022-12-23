@@ -9,7 +9,8 @@ import Switch from '@mui/material/Switch';
 import useSetting from '@hooks/useSetting';
 
 function Setting() {
-  const { toUserDetail, data, isLoading, toResetPassword, show, switchWechat } = useSetting();
+  const { toUserDetail, data, isLoading, toResetPassword, show, switchWechat, toQuestionDetail } =
+    useSetting();
   if (isLoading) {
     return null;
   }
@@ -24,6 +25,11 @@ function Setting() {
         </ListItemButton>
       </List>
       <List className="bg-white mt-[20px]">
+        <ListItemButton onClick={toQuestionDetail}>
+          <ListItemText primary="灵魂绑定" />
+          <ArrowForwardIosIcon />
+        </ListItemButton>
+        <Divider />
         <ListItemButton onClick={toUserDetail}>
           <ListItemText primary="修改DID" />
           <ArrowForwardIosIcon />
@@ -42,7 +48,7 @@ function Setting() {
         <Divider /> */}
         <ListItemButton>
           <ListItemText primary="对他人隐藏我的社交账号" />
-          <Switch value={show} onChange={switchWechat} edge="end" />
+          <Switch checked={show} onChange={switchWechat} edge="end" />
         </ListItemButton>
       </List>
     </>

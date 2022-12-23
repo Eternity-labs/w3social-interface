@@ -12,9 +12,18 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Draw from '@components/Base/DrawModal';
 import { List, ListItemButton, ListItemText, Divider } from '@mui/material';
 import ArticleList from '@components/ArticleList';
+import { useWallet } from '@hooks/useWallet';
+import { metaMask } from '@connector/metaMask';
+import { useEffect } from 'react';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { replaceAccount } from '@utils/index';
 
 function UserInfoDetail() {
   const navigate = useNavigate();
+  const { account } = useWallet();
+  useEffect(() => {
+    void metaMask.connectEagerly();
+  }, []);
   const {
     toUnlock,
     isOpen,
@@ -27,6 +36,7 @@ function UserInfoDetail() {
     handleTableChange,
     tabIndex,
     id,
+    handleCopy,
   } = useUserIndex();
   if (!id || cardLoading) {
     return null;
@@ -37,7 +47,7 @@ function UserInfoDetail() {
 
   return (
     <>
-      <div className="relative h-screen">
+      <div className="relative h-screen overflow-y-hidden">
         <BaseHeader onRight={() => setIsOpen(true)} right={<MoreHorizIcon />} title="个人中心" />
         <div className="flex w-full p-[36px] pt-[60px]">
           <Avatar src={headSculpture} className="w-[84px] h-[84px] mr-[26px]" />
@@ -46,6 +56,15 @@ function UserInfoDetail() {
               <span className="text-black font-semibold text-[18px]">{nickname}</span>
             </div>
             <div className="text-[14px]">{identity}</div>
+            {account && (
+              <div className="text-[12px] mt-[4px] flex items-center">
+                <span className="inline-block w-[120px] truncate">{replaceAccount(account)}</span>
+                <p className="absolute top-[-1000px]" id="account_id">
+                  {account}
+                </p>
+                <ContentCopyIcon onClick={handleCopy} />
+              </div>
+            )}
           </div>
         </div>
         <div className="relative top-[-20px] h-[calc(100%-146px)] box-border px-[36px] py-[20px] rounded-t-[36px] bg-white">
@@ -65,7 +84,7 @@ function UserInfoDetail() {
                 onClick={toUnlock}
                 className="inline-block bg-black text-[white] text-[10px] px-[10px] rounded-full"
               >
-                去解锁 ——&gt;
+                去解锁 →
               </span>
             )}
           </div>
@@ -85,7 +104,7 @@ function UserInfoDetail() {
               </div>
             </TabPanel>
             {/* // className="h-auto max-h-[240px] p-0 my-[12px] overflow-hidden overscroll-contain overflow-y-auto" */}
-            <TabPanel className="h-[240px] p-0 my-[12px]" value="2">
+            <TabPanel className="h-[calc(100%-200px)] p-0 my-[12px]" value="2">
               <ArticleList userId={`${id}`} entryIsMy />
             </TabPanel>
           </TabContext>

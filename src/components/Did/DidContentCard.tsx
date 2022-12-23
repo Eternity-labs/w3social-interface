@@ -26,7 +26,7 @@ function DidContentCard(props: any) {
   const { jumpToContent } = useDidContentCard();
   const tags = tag ? tag.split('&') : [];
   return (
-    <div className="border-0 border-b-[1px] border-solid py-[8px] relative">
+    <div className="border-0 border-b-[1px] border-gray-400 border-solid py-[8px] relative">
       <div className="absolute top-4 right-0">
         <TimeAndMore />
       </div>
