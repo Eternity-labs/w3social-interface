@@ -3,10 +3,11 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import UserService from '@apis/services/SingleuserService';
 
-const useDidDetail = () => {
+const useDidDetail = (props: any) => {
+  console.log(props);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const id = searchParams.get('id') || 0;
+  const id = props?.userId || searchParams.get('id') || 0;
   const [tabIndex, setTabIndex] = useState('1');
   // const [page, setPage] = useState(1);
   const { data: userData, isLoading } = useQuery(
