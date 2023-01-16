@@ -104,7 +104,7 @@ const routes: RouteObject[] = [
         ],
       },
       {
-        path: '/startquestion',
+        path: '/startQuestion',
         element: <IntroducePage />,
       },
       {

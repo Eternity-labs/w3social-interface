@@ -17,6 +17,7 @@ function DidContentCard(props: any) {
     isLike,
     id,
     tag,
+    createTime,
   } = props;
   const userInfo = {
     name,
@@ -28,7 +29,7 @@ function DidContentCard(props: any) {
   return (
     <div className="border-0 border-b-[1px] border-gray-400 border-solid py-[8px] relative">
       <div className="absolute top-4 right-0">
-        <TimeAndMore />
+        <TimeAndMore time={createTime} />
       </div>
       <div className="flex">
         <UserInfo showDid={false} {...userInfo} />

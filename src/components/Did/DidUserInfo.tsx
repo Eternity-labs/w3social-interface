@@ -15,7 +15,7 @@ function DidUserInfo({ nickname, identity, img, tag }: Props) {
           <div className="flex mb-1">
             <span className="text-black font-semibold text-[14px]">{nickname}</span>
           </div>
-          <div className="text-[10px] font-medium text-grey">{identity}</div>
+          {/* <div className="text-[10px] font-medium text-grey">{identity}</div> */}
         </div>
         <Labels labels={tag} />
       </div>

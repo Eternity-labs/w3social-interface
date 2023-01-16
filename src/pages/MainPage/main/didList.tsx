@@ -53,13 +53,13 @@ function DidIndex() {
     }
   };
 
-  const handleFilterChange = val => {
-    setFilter(val);
-  };
+  // const handleFilterChange = val => {
+  //   setFilter(val);
+  // };
 
   return (
     <>
-      <DidFilter onChange={handleFilterChange} />
+      {/* <DidFilter onChange={handleFilterChange} /> */}
       <div className="h-[calc(100%-20px)] box-border overflow-hidden overflow-y-auto">
         {/* <ListContainer onPullDown={handleRefresh} onPullUp={handleLoadMore}>
           {list.map((item, idx) => {

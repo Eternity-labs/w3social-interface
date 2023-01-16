@@ -18,10 +18,6 @@ function TopicPage() {
   const navigate = useNavigate();
   let pos: number;
 
-  useEffect(() => {
-    console.log(curItemInfo);
-  }, [curItemInfo]);
-
   useQuery('getQuestion', () => UserService.getQuestion({ id: userInfo?.id || 0 }), {
     enabled: !!userInfo?.id && !questionList.length,
     onSuccess: res => {

@@ -11,6 +11,7 @@ import logoImg from '@assets/images/logo.png';
 function RegisterPage(): JSX.Element {
   const navigate = useNavigate();
   const [code, setCode] = useState<string>('');
+  const [isRegistering, setIsRegistering] = useState(false);
 
   const onCodeChange = (data: string) => {
     console.log(data);
@@ -22,10 +23,8 @@ function RegisterPage(): JSX.Element {
   const register = () => {
     const regisInfoRes = RegisInfoRef.current!.check();
     const codeRes = CodeRef.current!.check();
-    console.log(regisInfoRes);
-    console.log(codeRes);
 
-    if (!regisInfoRes || !codeRes) {
+    if (!regisInfoRes || !codeRes || isRegistering) {
       return;
     }
 
@@ -36,9 +35,10 @@ function RegisterPage(): JSX.Element {
       },
       code: String(codeRes),
     };
+    setIsRegistering(true);
     LoginService.register(params).then(res => {
-      console.log(res);
-      if (res.code === 200 && res.data.token) {
+      setIsRegistering(false);
+      if (res.token) {
         navigate('/startQuestion');
       }
     });
