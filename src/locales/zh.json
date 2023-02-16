@@ -1,0 +1,16 @@
+{
+  "welcome": {
+    "title": "Web3.0的年轻人的聚集地 ",
+    "agree": "同意服务条款勾选此声明",
+    "exploreButton": "开始探索web3.0"
+  },
+  "login": {
+    "emailTip": "请输入邮箱",
+    "passTip": "请输入密码",
+    "forgetPass": "忘记密码",
+    "loginBtn": "登陆",
+    "signBtn": "立即注册",
+    "codeBtn": "获取验证码",
+    "noAccountTip": "还没有账户"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "welcome": {
+    "title": "Web3.0 gathering place for young people",
+    "agree": "Agree to the terms of service ",
+    "exploreButton": "Start exploring web3.0"
+  },
+  "login": {
+    "emailTip": "Enter email",
+    "passTip": "Enter password",
+    "forgetPass": "forget password",
+    "loginBtn": "Login",
+    "signBtn": "Sign up now",
+    "codeBtn": "verification code",
+    "noAccountTip": "No account yet"
+  }
+}

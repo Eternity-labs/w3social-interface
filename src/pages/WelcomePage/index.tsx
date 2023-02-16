@@ -7,6 +7,7 @@ import MuiRadio from '@mui/material/Radio';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import logImg from '@assets/images/logo3.png';
+import { useTranslation } from 'react-i18next';
 
 const CusRadio = styled(MuiRadio)({
   width: '16px',
@@ -22,17 +23,19 @@ type ExploreButtonProps = {
 
 function ExploreButton(props: ExploreButtonProps): JSX.Element {
   const { onClick = () => {} } = props;
+  const { t, i18n } = useTranslation();
   return (
     <MuiButton
       onClick={onClick}
       variant="contained"
       className=" w-[230px] h-[38px] mt-[14px] rounded-full bg-black text-[12px]"
     >
-      开始探索Web 3.0
+      {t('welcome.exploreButton')}
     </MuiButton>
   );
 }
 function WelcomePage(): JSX.Element {
+  const { t, i18n } = useTranslation();
   const [selectedValue, setselectedValue] = useState<boolean>(false);
   const [error, showError] = useState<boolean>(false);
   const setRadioValue = () => {
@@ -56,7 +59,7 @@ function WelcomePage(): JSX.Element {
           <div>
             <img src={logImg} alt="logo" className="w-[160px]" />
             <p className="text-[12px] leading-[16px]  pt-[35px] text-center">
-              Web3.0 年轻人的聚集地
+              {t('welcome.title')}
             </p>
           </div>
         </div>
@@ -77,7 +80,7 @@ function WelcomePage(): JSX.Element {
             />
             <Link to="/protocal?pageName=agreement">
               <p className={cn('text-[8px]', 'text-slimGray', error ? 'text-[#F34747]' : '')}>
-                同意服务条款勾选此项声明
+                {t('welcome.agree')}
               </p>
             </Link>
           </div>

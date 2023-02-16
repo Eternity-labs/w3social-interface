@@ -10,12 +10,14 @@ import type { LoginPageUrlParams } from '@routes/types';
 import LoginService from '@apis/services/LoginService';
 import DidService from '@apis/services/DidService';
 import UserService from '@apis/services/UserService';
+import { useTranslation } from 'react-i18next';
 
 // import Demo from './demo';
 import { useMutation } from 'react-query';
 import logoImg from '@assets/images/logo.png';
 
 function LoginPage(): JSX.Element {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>();
   const passRef = useRef<HTMLInputElement>();
@@ -104,14 +106,19 @@ function LoginPage(): JSX.Element {
       <img src={logoImg} alt="logo" className="w-[120px] mt-[60px]" />
       <div className="w-[250px] mt-[64px]">
         <InputCom
-          placeholder="请输入邮箱"
+          placeholder={t('login.emailTip') || ''}
           InputRef={emailRef}
           defaultValue={searchParams.get('email') || ''}
         >
           <MailOutlineIcon />
         </InputCom>
         {errorObj.email && <ErrorTip message={errorObj.email} className="pl-[16px]" />}
-        <InputCom placeholder="请输入密码" className="mt-[30px]" InputRef={passRef} type="password">
+        <InputCom
+          placeholder={t('login.passTip') || ''}
+          className="mt-[30px]"
+          InputRef={passRef}
+          type="password"
+        >
           <LockOpenIcon />
         </InputCom>
         {errorObj.pass && <ErrorTip message={errorObj.pass} className="pl-[16px]" />}
@@ -120,7 +127,7 @@ function LoginPage(): JSX.Element {
         className="w-[250px] mt-[4px] text-slimGray text-[8px] text-right"
         onClick={jumpResetPassPage}
       >
-        忘记密码&nbsp;&gt;&gt;
+        {t('login.forgetPass')}&nbsp;&gt;&gt;
       </div>
 
       <MuiButton
@@ -128,15 +135,15 @@ function LoginPage(): JSX.Element {
         variant="contained"
         className=" w-[250px] h-[38px] mt-[14px] rounded-full bg-black text-[12px]"
       >
-        登陆
+        {t('login.loginBtn')}
       </MuiButton>
-      <DividingLine text="还没有账号 ?" className="mt-[30px]" />
+      <DividingLine text={`${t('login.noAccountTip')} ?`} className="mt-[30px]" />
       <Link to="/register">
         <MuiButton
           variant="outlined"
           className=" w-[250px] h-[38px] mt-[26px] border-black text-black rounded-full bg-transparent text-[12px]"
         >
-          立即注册
+          {t('login.signBtn')}
         </MuiButton>
       </Link>
     </div>

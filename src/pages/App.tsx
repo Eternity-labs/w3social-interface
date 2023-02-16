@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Toaster } from 'react-hot-toast';
 import DataContainer from '@layouts/DataContainer';
 import WalletProvider from '@layouts/WalletProvider';
+import '../locales/i18n';
 
 const queryClient = new QueryClient({
   defaultOptions: {
